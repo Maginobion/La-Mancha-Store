@@ -6,14 +6,15 @@
 
         <title>La Mancha</title>
 
-        <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
         <link href={{ asset('css/app.css') }} rel="stylesheet">       
     </head>
     <body>
         <div id="app">
-            <mensaje></mensaje>
+            <router-link to="/">Home</router-link>
+            <router-link to="/prueba">Prueba</router-link>
+            <router-view/>
         </div>      
-        <script src={{ mix('js/app.js') }}></script>
+        <script src={{ mix('js/app.js') }} defer></script>
     </body>
 </html>
