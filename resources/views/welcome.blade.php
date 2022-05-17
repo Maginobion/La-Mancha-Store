@@ -13,6 +13,8 @@
         <div id="app">
             <router-link to="/">Home</router-link>
             <router-link to="/prueba">Prueba</router-link>
+            <router-link to="/atencion-cliente">Atencion</router-link>
+            <router-link to="/pruebita">Pruebita</router-link>
             <router-view/>
         </div>      
         <script src={{ mix('js/app.js') }} defer></script>
