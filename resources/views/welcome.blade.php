@@ -6,17 +6,25 @@
 
         <title>La Mancha</title>
 
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-        <link href={{ asset('css/app.css') }} rel="stylesheet">       
+        <link href={{ asset('css/app.css') }} rel="stylesheet">  
+        <style>
+            html, body, #app{
+                height: 100%;
+                width: 100%;
+                margin: 0;
+            }
+            
+            #app{
+                position: relative;
+            }
+        </style>     
     </head>
     <body>
         <div id="app">
-            <router-link to="/">Home</router-link>
-            <router-link to="/prueba">Prueba</router-link>
-            <router-link to="/atencion-cliente">Atencion</router-link>
-            <router-link to="/pruebita">Pruebita</router-link>
-            <router-view/>
-        </div>      
+            <responsive-page>       
+                <router-view/>   
+            </responsive-page>        
+        </div>
         <script src={{ mix('js/app.js') }} defer></script>
     </body>
 </html>
