@@ -1,27 +1,49 @@
 <template>
-    <div class="cont">
+    <div>
         <div>
-            <p>
-                Estimado lector, ponemos a tu disposición nuestros canales de
-                atención a través de los cuales responderemos tus consultas sobre:
-            </p>
-            <ul>
-                <li>El estado de su compra en línea.</li>
-                <li>Dudas sobre el proceso de compra.</li>
-                <li>Stock de productos en web y librerías físicas.</li>
-                <li>Sugerencias y Reclamos.</li>
-            </ul>
+            <img src="../../../../public/images/atencioncliente.jpg" alt="imgRedes" class="topImg">
         </div>
-        <img src="../../../../public/images/social.jpeg" alt="imgRedes" class="img">
-        <footer></footer>
+        <div class="cont">
+            <div>
+                <p>
+                    Estimado lector, ponemos a tu disposición nuestros canales de
+                    atención, a través de los cuales responderemos tus consultas sobre:
+                </p>
+                <ul>
+                    <li>El estado de su compra en línea.</li>
+                    <li>Dudas sobre el proceso de compra.</li>
+                    <li>Stock de productos en web y librerías físicas.</li>
+                    <li>Sugerencias y Reclamos.</li>
+                </ul>
+            </div>
+            <img src="../../../../public/images/social.jpeg" alt="imgRedes" class="img">
+        </div>
+        <div class="aviso">
+            Nuestro horario de atención es de lunes a sábado de 10:00am a 5:00pm, <br/>
+            no contamos con atención los días domingo ni feriados
+        </div>            
     </div>
 </template>
 
 <style scoped>
 
+.totalCont{
+    position: relative;
+}
+
 .cont{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    margin-top: 50px;
+    gap: 80px;
+}
+
+.cont>div>p{
+    width: 580px;
+}
+
+.topImg{
+    width: 100%;
 }
 
 .img{
@@ -29,7 +51,8 @@
 }
 
 ul {
-  list-style: none; /* Remove default bullets */
+  list-style: none;
+  margin-left: -15px; /* Remove default bullets */
 }
 
 ul li::before {
@@ -41,14 +64,24 @@ ul li::before {
   margin-left: -1em; /* Also needed for space (tweak if needed) */
 }
 
+.aviso{
+    margin: auto;
+    text-align: center;
+    background-color: #FFC000;
+    color: #001491;
+    width: 600px;
+    border-radius: 25px;
+    margin-top: 50px;
+    padding: 10px;
+    margin-bottom: 100px;
+}
+
 </style>
 
 <script>
-import { defineComponent } from '@vue/composition-api'
-import footer from './../Footer/footer.vue'
+export default {
+  components:{ 
 
-
-export default defineComponent({
-  components: { footer },
-})
+    },
+}
 </script>

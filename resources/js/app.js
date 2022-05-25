@@ -6,6 +6,7 @@ import Mensaje from './components/Mensaje.vue'
 import Prueba from './components/Prueba.vue'
 import AtencionCliente from './components/Atencion-cliente/index.vue'
 import nose from './components/pruebita.vue'
+import ResponsivePage from './components/ResponsivePage/index.vue'
 
 const routes = [
     {path:'/', component: Mensaje},
@@ -24,6 +25,7 @@ const app = createApp({})
 app.component('Mensaje', Mensaje)
 app.component('Prueba', Prueba)
 app.component('Atencion-cliente',  AtencionCliente)
+app.component('responsive-page', ResponsivePage)
 app.component('nose', nose)
 
 app.use(router)
