@@ -4,6 +4,8 @@
         <router-link to="/prueba">Prueba</router-link>
         <router-link to="/atencion-cliente">Atencion</router-link>
         <router-link to="/pruebita">Pruebita</router-link>
+        <router-link to="/carrusel">Carrusel</router-link>
+
     </div>
 </template>
 
