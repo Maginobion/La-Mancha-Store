@@ -1,5 +1,5 @@
 <template>
-<header class="header">
+    <header class="header">
         <div class="header-top">
             <div class="img">
                 <img src="../../../../../public/images/lamancha.jpg" alt="">
@@ -24,16 +24,15 @@
         </div>
         <div class="header-bottom">
             <ul>
-        <router-link to="/">Home</router-link>
-        <router-link to="/prueba">Prueba</router-link>
-        <router-link to="/atencion-cliente">Atencion</router-link>
-        <router-link to="/pruebita">Pruebita</router-link>
-        <router-link to="/cabeza">cabeza</router-link>
+                <router-link to="/">Home</router-link>
+                <router-link to="/prueba">Prueba</router-link>
+                <router-link to="/atencion-cliente">Atencion</router-link>
+                <router-link to="/pruebita">Pruebita</router-link>
+                <router-link to="/cabeza">cabeza</router-link>
+                <router-link to="/carrusel">Carrusel</router-link>
             </ul>
         </div>
     </header>
-        
-    
 </template>
 
 <style scoped>

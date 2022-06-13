@@ -6,8 +6,8 @@
         <div class="cont">
             <div>
                 <p>
-                    Estimado lector, ponemodassdasdsdas a tu disposición nuestros canales de
-                    atención, a través de los cuales responderemos tus consultas sobre:
+                    Estimado lector, ponemos a tu disposición nuestros canales de
+                    atención, a través de los cuales responderemos tus consultas sobre: ---->>>
                 </p>
                 <ul>
                     <li>El estado de su compra en línea.</li>
