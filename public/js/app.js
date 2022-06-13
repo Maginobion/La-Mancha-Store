@@ -19718,11 +19718,7 @@ var _withScopeId = function _withScopeId(n) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-5f715e3c"), n = n(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)(), n;
 };
 
-<<<<<<< HEAD
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div data-v-5f715e3c><img src=\"" + _public_images_atencioncliente_jpg__WEBPACK_IMPORTED_MODULE_1__["default"] + "\" alt=\"imgRedes\" class=\"topImg\" data-v-5f715e3c></div><div class=\"cont\" data-v-5f715e3c><div data-v-5f715e3c><p data-v-5f715e3c> Estimado lector, ponemodassdasdsdas a tu disposición nuestros canales de atención, a través de los cuales responderemos tus consultas sobre: </p><ul data-v-5f715e3c><li data-v-5f715e3c>El estado de su compra en línea.</li><li data-v-5f715e3c>Dudas sobre el proceso de compra.</li><li data-v-5f715e3c>Stock de productos en web y librerías físicas.</li><li data-v-5f715e3c>Sugerencias y Reclamos.</li></ul></div><img src=\"" + _public_images_social_jpeg__WEBPACK_IMPORTED_MODULE_2__["default"] + "\" alt=\"imgRedes\" class=\"img\" data-v-5f715e3c></div><div class=\"aviso\" data-v-5f715e3c> Nuestro horario de atención es de lunes a sábado de 10:00am a 5:00pm, <br data-v-5f715e3c> no contamos con atencióndffdfdfdfdfdfd los días domingo ni feriados </div>", 3);
-=======
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div data-v-5f715e3c><img src=\"" + _public_images_atencioncliente_jpg__WEBPACK_IMPORTED_MODULE_1__["default"] + "\" alt=\"imgRedes\" class=\"topImg\" data-v-5f715e3c></div><div class=\"cont\" data-v-5f715e3c><div data-v-5f715e3c><p data-v-5f715e3c> Estimado lector, ponemos a tu disposición nuestros canales de atención, a través de los cuales responderemos tus consultas sobre: ----&gt;&gt;&gt; </p><ul data-v-5f715e3c><li data-v-5f715e3c>El estado de su compra en línea.</li><li data-v-5f715e3c>Dudas sobre el proceso de compra.</li><li data-v-5f715e3c>Stock de productos en web y librerías físicas.</li><li data-v-5f715e3c>Sugerencias y Reclamos.</li></ul></div><img src=\"" + _public_images_social_jpeg__WEBPACK_IMPORTED_MODULE_2__["default"] + "\" alt=\"imgRedes\" class=\"img\" data-v-5f715e3c></div><div class=\"aviso\" data-v-5f715e3c> Nuestro horario de atención es de lunes a sábado de 10:00am a 5:00pm, <br data-v-5f715e3c> no contamos con atención los días domingo ni feriados </div>", 3);
->>>>>>> main
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div data-v-5f715e3c><img src=\"" + _public_images_atencioncliente_jpg__WEBPACK_IMPORTED_MODULE_1__["default"] + "\" alt=\"imgRedes\" class=\"topImg\" data-v-5f715e3c></div><div class=\"cont\" data-v-5f715e3c><div data-v-5f715e3c><p data-v-5f715e3c> Estimado lector, ponemos a tu disposición nuestros canales de atención, a través de los cuales responderemos tus consultas sobre: ----&gt;&gt;&gt; </p><ul data-v-5f715e3c><li data-v-5f715e3c>El estado de su compra en línea.</li><li data-v-5f715e3c>Dudas sobre el proceso de compra.</li><li data-v-5f715e3c>Stock de productos en web y librerías físicas.</li><li data-v-5f715e3c>Sugerencias y Reclamos.</li></ul></div><img src=\"" + _public_images_social_jpeg__WEBPACK_IMPORTED_MODULE_2__["default"] + "\" alt=\"imgRedes\" class=\"img\" data-v-5f715e3c></div><div class=\"aviso\" data-v-5f715e3c> Nuestro horario de atención es de lunes a sábado de 10:00am a 5:00pm, <br data-v-5f715e3c> no contamos con atencióndffdfdfdfdfdfd los días domingo ni feriados </div>", 3);
 
 var _hoisted_4 = [_hoisted_1];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -19795,7 +19791,7 @@ var _withScopeId = function _withScopeId(n) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-89fd48e2"), n = n(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)(), n;
 };
 
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"contenedor-footer\" data-v-89fd48e2><div class=\"content-foo\" data-v-89fd48e2><p data-v-89fd48e2><a href=\"#\" data-v-89fd48e2><img src=\"images/mancha.jpeg\" style=\"height:80px;width:300px;\" data-v-89fd48e2></a></p><div class=\"content-foo\" data-v-89fd48e2><h4 data-v-89fd48e2>Siguenos en redes sociales</h4><a href=\"#\" data-v-89fd48e2><img src=\"images/facebook.png\" data-v-89fd48e2></a>} <a href=\"#\" data-v-89fd48e2><img src=\"images/instagram.png\" data-v-89fd48e2></a><a href=\"#\" data-v-89fd48e2><img src=\"images/twitter.png\" data-v-89fd48e2></a><a href=\"#\" data-v-89fd48e2><img src=\"images/linkedin.png\" data-v-89fd48e2></a><a href=\"#\" data-v-89fd48e2><img src=\"images/youtube.png\" data-v-89fd48e2></a></div></div><div class=\"content-foo\" data-v-89fd48e2><h4 data-v-89fd48e2>Sobre Nosotros</h4><p data-v-89fd48e2>Quienes somos</p><div class=\"content-foo\" data-v-89fd48e2><h4 data-v-89fd48e2>Política</h4><p data-v-89fd48e2>Políticas de privacidad</p><p data-v-89fd48e2>Políticas de cookies</p><p data-v-89fd48e2>Términos y condiciones</p></div></div><div class=\"content-foo\" data-v-89fd48e2><h4 data-v-89fd48e2>Categorías</h4><p data-v-89fd48e2>Los mas vendidos</p><p data-v-89fd48e2>Novedades</p><p data-v-89fd48e2>Ficcion</p><p data-v-89fd48e2>No ficcion</p><p data-v-89fd48e2>Infantil</p><p data-v-89fd48e2>Juvenil</p><p data-v-89fd48e2>Smartplay</p></div><div class=\"content-foo\" data-v-89fd48e2><h4 data-v-89fd48e2>Contáctanos</h4><p data-v-89fd48e2>Atención al cliente</p><p data-v-89fd48e2>947-391799</p><p data-v-89fd48e2>(llamadas y WhatsApp)</p><p data-v-89fd48e2>(Lun-Sab 9 a.m a 5 p.m)</p><p data-v-89fd48e2>atencion@crisol.com.pe</p><p data-v-89fd48e2>Comprobante electrónico</p></div><div class=\"content-foo\" data-v-89fd48e2><h4 data-v-89fd48e2>Mi cuenta</h4><p data-v-89fd48e2>Mis pedidos</p><p data-v-89fd48e2>Mis deseos</p><div class=\"content-foo\" data-v-89fd48e2><h4 data-v-89fd48e2>Medios de pago</h4><a href=\"#\" data-v-89fd48e2><img src=\"images/visa_i.png\" data-v-89fd48e2></a><a href=\"#\" data-v-89fd48e2><img src=\"images/america_i.png\" style=\"margin-left:10px;\" data-v-89fd48e2></a><a href=\"#\" data-v-89fd48e2><img src=\"images/cmr.png\" style=\"height:35px;width:50px;margin-left:10px;padding-bottom:6px;\" data-v-89fd48e2></a><div class=\"content-foo\" data-v-89fd48e2><a href=\"#\" data-v-89fd48e2><img src=\"images/efectivo.png\" style=\"height:35px;width:50px;\" data-v-89fd48e2></a><a href=\"#\" data-v-89fd48e2><img src=\"images/master.png\" style=\"height:35px;width:50px;margin-left:10px;\" data-v-89fd48e2></a><a href=\"#\" data-v-89fd48e2><img src=\"images/dinner.png\" style=\"height:35px;width:50px;margin-left:10px;\" data-v-89fd48e2></a></div></div></div></div><div class=\"titulo-final\" data-v-89fd48e2> ©LA MANCHA | INGENIERIA DE SISTEMAS </div>", 2);
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"contenedor-footer\" data-v-89fd48e2><div class=\"content-foo\" data-v-89fd48e2><p data-v-89fd48e2><a href=\"#\" data-v-89fd48e2><img src=\"images/mancha.jpeg\" style=\"height:80px;width:300px;\" data-v-89fd48e2></a></p><div class=\"content-foo\" data-v-89fd48e2><h4 data-v-89fd48e2>Siguenos en redes sociales</h4><a href=\"#\" data-v-89fd48e2><img src=\"images/facebook.png\" data-v-89fd48e2></a><a href=\"#\" data-v-89fd48e2><img src=\"images/instagram.png\" data-v-89fd48e2></a><a href=\"#\" data-v-89fd48e2><img src=\"images/twitter.png\" data-v-89fd48e2></a><a href=\"#\" data-v-89fd48e2><img src=\"images/linkedin.png\" data-v-89fd48e2></a><a href=\"#\" data-v-89fd48e2><img src=\"images/youtube.png\" data-v-89fd48e2></a></div></div><div class=\"content-foo\" data-v-89fd48e2><h4 data-v-89fd48e2>Sobre Nosotros</h4><p data-v-89fd48e2>Quienes somos</p><div class=\"content-foo\" data-v-89fd48e2><h4 data-v-89fd48e2>Política</h4><p data-v-89fd48e2>Políticas de privacidad</p><p data-v-89fd48e2>Políticas de cookies</p><p data-v-89fd48e2>Términos y condiciones</p></div></div><div class=\"content-foo\" data-v-89fd48e2><h4 data-v-89fd48e2>Categorías</h4><p data-v-89fd48e2>Los mas vendidos</p><p data-v-89fd48e2>Novedades</p><p data-v-89fd48e2>Ficcion</p><p data-v-89fd48e2>No ficcion</p><p data-v-89fd48e2>Infantil</p><p data-v-89fd48e2>Juvenil</p><p data-v-89fd48e2>Smartplay</p></div><div class=\"content-foo\" data-v-89fd48e2><h4 data-v-89fd48e2>Contáctanos</h4><p data-v-89fd48e2>Atención al cliente</p><p data-v-89fd48e2>947-391799</p><p data-v-89fd48e2>(llamadas y WhatsApp)</p><p data-v-89fd48e2>(Lun-Sab 9 a.m a 5 p.m)</p><p data-v-89fd48e2>atencion@crisol.com.pe</p><p data-v-89fd48e2>Comprobante electrónico</p></div><div class=\"content-foo\" data-v-89fd48e2><h4 data-v-89fd48e2>Mi cuenta</h4><p data-v-89fd48e2>Mis pedidos</p><p data-v-89fd48e2>Mis deseos</p><div class=\"content-foo\" data-v-89fd48e2><h4 data-v-89fd48e2>Medios de pago</h4><a href=\"#\" data-v-89fd48e2><img src=\"images/visa_i.png\" data-v-89fd48e2></a><a href=\"#\" data-v-89fd48e2><img src=\"images/america_i.png\" style=\"margin-left:10px;\" data-v-89fd48e2></a><a href=\"#\" data-v-89fd48e2><img src=\"images/cmr.png\" style=\"height:35px;width:50px;margin-left:10px;padding-bottom:6px;\" data-v-89fd48e2></a><div class=\"content-foo\" data-v-89fd48e2><a href=\"#\" data-v-89fd48e2><img src=\"images/efectivo.png\" style=\"height:35px;width:50px;\" data-v-89fd48e2></a><a href=\"#\" data-v-89fd48e2><img src=\"images/master.png\" style=\"height:35px;width:50px;margin-left:10px;\" data-v-89fd48e2></a><a href=\"#\" data-v-89fd48e2><img src=\"images/dinner.png\" style=\"height:35px;width:50px;margin-left:10px;\" data-v-89fd48e2></a></div></div></div></div><div class=\"titulo-final\" data-v-89fd48e2> ©LA MANCHA | INGENIERIA DE SISTEMAS </div>", 2);
 
 var _hoisted_3 = [_hoisted_1];
 function render(_ctx, _cache) {
@@ -19844,7 +19840,7 @@ var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNod
 
 var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("cabeza");
 
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Carrusel");
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Carrusel");
 
 function render(_ctx, _cache) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
@@ -19886,26 +19882,24 @@ function render(_ctx, _cache) {
     /* STABLE */
 
   }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
-<<<<<<< HEAD
     to: "/cabeza"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_8];
-=======
-    to: "/carrusel"
-  }, {
-    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_6];
->>>>>>> main
     }),
     _: 1
     /* STABLE */
 
-<<<<<<< HEAD
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+    to: "/carrusel"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_9];
+    }),
+    _: 1
+    /* STABLE */
+
   })])])]);
-=======
-  })]);
->>>>>>> main
 }
 
 /***/ }),
@@ -20315,17 +20309,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ "./public/images/lamancha.jpg":
 /*!************************************!*\
   !*** ./public/images/lamancha.jpg ***!
   \************************************/
-=======
-/***/ "./public/images/libro1.jpg":
-/*!**********************************!*\
-  !*** ./public/images/libro1.jpg ***!
-  \**********************************/
->>>>>>> main
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -20333,9 +20320,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-<<<<<<< HEAD
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/lamancha.jpg?8101cb33aab992d3308aaed64d3284ba");
-=======
+
+/***/ }),
+
+/***/ "./public/images/libro1.jpg":
+/*!**********************************!*\
+  !*** ./public/images/libro1.jpg ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/libro1.jpg?19a4aad64609f086d467294b5b16e5b7");
 
 /***/ }),
@@ -20502,7 +20501,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/libro9.jpg?9cbf67adbb4624896fcc007967596039");
->>>>>>> main
 
 /***/ }),
 
@@ -38405,7 +38403,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _index_vue_vue_type_template_id_5f715e3c_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.vue?vue&type=template&id=5f715e3c&scoped=true */ "./resources/js/components/Atencion-cliente/index.vue?vue&type=template&id=5f715e3c&scoped=true");
 /* harmony import */ var _index_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.vue?vue&type=script&lang=js */ "./resources/js/components/Atencion-cliente/index.vue?vue&type=script&lang=js");
 /* harmony import */ var _index_vue_vue_type_style_index_0_id_5f715e3c_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./index.vue?vue&type=style&index=0&id=5f715e3c&scoped=true&lang=css */ "./resources/js/components/Atencion-cliente/index.vue?vue&type=style&index=0&id=5f715e3c&scoped=true&lang=css");
-/* harmony import */ var D_TRABAJO_SCRUM_La_Mancha_Store_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_USUARIO_Desktop_PROGRAMAGOD_Proyectos_Laravel_la_mancha_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
@@ -38413,7 +38411,7 @@ __webpack_require__.r(__webpack_exports__);
 ;
 
 
-const __exports__ = /*#__PURE__*/(0,D_TRABAJO_SCRUM_La_Mancha_Store_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_index_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_index_vue_vue_type_template_id_5f715e3c_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-5f715e3c"],['__file',"resources/js/components/Atencion-cliente/index.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_USUARIO_Desktop_PROGRAMAGOD_Proyectos_Laravel_la_mancha_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_index_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_index_vue_vue_type_template_id_5f715e3c_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-5f715e3c"],['__file',"resources/js/components/Atencion-cliente/index.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -38434,12 +38432,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Mensaje_vue_vue_type_template_id_7989a678__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Mensaje.vue?vue&type=template&id=7989a678 */ "./resources/js/components/Mensaje.vue?vue&type=template&id=7989a678");
-/* harmony import */ var D_TRABAJO_SCRUM_La_Mancha_Store_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_USUARIO_Desktop_PROGRAMAGOD_Proyectos_Laravel_la_mancha_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 const script = {}
 
 ;
-const __exports__ = /*#__PURE__*/(0,D_TRABAJO_SCRUM_La_Mancha_Store_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__["default"])(script, [['render',_Mensaje_vue_vue_type_template_id_7989a678__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Mensaje.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_USUARIO_Desktop_PROGRAMAGOD_Proyectos_Laravel_la_mancha_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__["default"])(script, [['render',_Mensaje_vue_vue_type_template_id_7989a678__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Mensaje.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -38461,13 +38459,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Prueba_vue_vue_type_template_id_6693517c__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Prueba.vue?vue&type=template&id=6693517c */ "./resources/js/components/Prueba.vue?vue&type=template&id=6693517c");
 /* harmony import */ var _Prueba_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Prueba.vue?vue&type=script&lang=js */ "./resources/js/components/Prueba.vue?vue&type=script&lang=js");
-/* harmony import */ var D_TRABAJO_SCRUM_La_Mancha_Store_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_USUARIO_Desktop_PROGRAMAGOD_Proyectos_Laravel_la_mancha_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,D_TRABAJO_SCRUM_La_Mancha_Store_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Prueba_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Prueba_vue_vue_type_template_id_6693517c__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Prueba.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_USUARIO_Desktop_PROGRAMAGOD_Proyectos_Laravel_la_mancha_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Prueba_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Prueba_vue_vue_type_template_id_6693517c__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Prueba.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -38487,29 +38485,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-<<<<<<< HEAD
-/* harmony import */ var _index_vue_vue_type_template_id_89fd48e2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.vue?vue&type=template&id=89fd48e2 */ "./resources/js/components/ResponsivePage/Footer/index.vue?vue&type=template&id=89fd48e2");
-/* harmony import */ var _index_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.vue?vue&type=script&lang=js */ "./resources/js/components/ResponsivePage/Footer/index.vue?vue&type=script&lang=js");
-/* harmony import */ var _index_vue_vue_type_style_index_0_id_89fd48e2_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./index.vue?vue&type=style&index=0&id=89fd48e2&lang=css */ "./resources/js/components/ResponsivePage/Footer/index.vue?vue&type=style&index=0&id=89fd48e2&lang=css");
-/* harmony import */ var D_TRABAJO_SCRUM_La_Mancha_Store_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
-
-
-=======
 /* harmony import */ var _index_vue_vue_type_template_id_89fd48e2_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.vue?vue&type=template&id=89fd48e2&scoped=true */ "./resources/js/components/ResponsivePage/Footer/index.vue?vue&type=template&id=89fd48e2&scoped=true");
 /* harmony import */ var _index_vue_vue_type_style_index_0_id_89fd48e2_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.vue?vue&type=style&index=0&id=89fd48e2&scoped=true&lang=css */ "./resources/js/components/ResponsivePage/Footer/index.vue?vue&type=style&index=0&id=89fd48e2&scoped=true&lang=css");
 /* harmony import */ var C_Users_USUARIO_Desktop_PROGRAMAGOD_Proyectos_Laravel_la_mancha_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
->>>>>>> main
 
 const script = {}
 
 ;
 
 
-<<<<<<< HEAD
-const __exports__ = /*#__PURE__*/(0,D_TRABAJO_SCRUM_La_Mancha_Store_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_index_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_index_vue_vue_type_template_id_89fd48e2__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/ResponsivePage/Footer/index.vue"]])
-=======
 const __exports__ = /*#__PURE__*/(0,C_Users_USUARIO_Desktop_PROGRAMAGOD_Proyectos_Laravel_la_mancha_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(script, [['render',_index_vue_vue_type_template_id_89fd48e2_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-89fd48e2"],['__file',"resources/js/components/ResponsivePage/Footer/index.vue"]])
->>>>>>> main
 /* hot reload */
 if (false) {}
 
@@ -38531,14 +38516,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _index_vue_vue_type_template_id_8d7cfbfe_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.vue?vue&type=template&id=8d7cfbfe&scoped=true */ "./resources/js/components/ResponsivePage/Header/index.vue?vue&type=template&id=8d7cfbfe&scoped=true");
 /* harmony import */ var _index_vue_vue_type_style_index_0_id_8d7cfbfe_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.vue?vue&type=style&index=0&id=8d7cfbfe&scoped=true&lang=css */ "./resources/js/components/ResponsivePage/Header/index.vue?vue&type=style&index=0&id=8d7cfbfe&scoped=true&lang=css");
-/* harmony import */ var D_TRABAJO_SCRUM_La_Mancha_Store_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_USUARIO_Desktop_PROGRAMAGOD_Proyectos_Laravel_la_mancha_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 const script = {}
 
 ;
 
 
-const __exports__ = /*#__PURE__*/(0,D_TRABAJO_SCRUM_La_Mancha_Store_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(script, [['render',_index_vue_vue_type_template_id_8d7cfbfe_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-8d7cfbfe"],['__file',"resources/js/components/ResponsivePage/Header/index.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_USUARIO_Desktop_PROGRAMAGOD_Proyectos_Laravel_la_mancha_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(script, [['render',_index_vue_vue_type_template_id_8d7cfbfe_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-8d7cfbfe"],['__file',"resources/js/components/ResponsivePage/Header/index.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -38561,7 +38546,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _index_vue_vue_type_template_id_095b6fde_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.vue?vue&type=template&id=095b6fde&scoped=true */ "./resources/js/components/ResponsivePage/index.vue?vue&type=template&id=095b6fde&scoped=true");
 /* harmony import */ var _index_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.vue?vue&type=script&lang=js */ "./resources/js/components/ResponsivePage/index.vue?vue&type=script&lang=js");
 /* harmony import */ var _index_vue_vue_type_style_index_0_id_095b6fde_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./index.vue?vue&type=style&index=0&id=095b6fde&scoped=true&lang=css */ "./resources/js/components/ResponsivePage/index.vue?vue&type=style&index=0&id=095b6fde&scoped=true&lang=css");
-/* harmony import */ var D_TRABAJO_SCRUM_La_Mancha_Store_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_USUARIO_Desktop_PROGRAMAGOD_Proyectos_Laravel_la_mancha_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
@@ -38569,7 +38554,7 @@ __webpack_require__.r(__webpack_exports__);
 ;
 
 
-const __exports__ = /*#__PURE__*/(0,D_TRABAJO_SCRUM_La_Mancha_Store_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_index_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_index_vue_vue_type_template_id_095b6fde_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-095b6fde"],['__file',"resources/js/components/ResponsivePage/index.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_USUARIO_Desktop_PROGRAMAGOD_Proyectos_Laravel_la_mancha_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_index_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_index_vue_vue_type_template_id_095b6fde_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-095b6fde"],['__file',"resources/js/components/ResponsivePage/index.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -38621,12 +38606,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _pruebita_vue_vue_type_template_id_2296be51__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pruebita.vue?vue&type=template&id=2296be51 */ "./resources/js/components/pruebita.vue?vue&type=template&id=2296be51");
-/* harmony import */ var D_TRABAJO_SCRUM_La_Mancha_Store_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_USUARIO_Desktop_PROGRAMAGOD_Proyectos_Laravel_la_mancha_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 const script = {}
 
 ;
-const __exports__ = /*#__PURE__*/(0,D_TRABAJO_SCRUM_La_Mancha_Store_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__["default"])(script, [['render',_pruebita_vue_vue_type_template_id_2296be51__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/pruebita.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_USUARIO_Desktop_PROGRAMAGOD_Proyectos_Laravel_la_mancha_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__["default"])(script, [['render',_pruebita_vue_vue_type_template_id_2296be51__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/pruebita.vue"]])
 /* hot reload */
 if (false) {}
 
