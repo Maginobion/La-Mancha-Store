@@ -28,7 +28,6 @@
                 <router-link to="/prueba">Prueba</router-link>
                 <router-link to="/atencion-cliente">Atencion</router-link>
                 <router-link to="/pruebita">Pruebita</router-link>
-                <router-link to="/cabeza">cabeza</router-link>
                 <router-link to="/carrusel">Carrusel</router-link>
             </ul>
         </div>
@@ -165,7 +164,7 @@
             text-decoration: none;
         }
 
-        .header-bottom ul li:last-child {
+        .header-bottom ul a:last-child {
             border-right: 0px solid #002f84;
         }
 

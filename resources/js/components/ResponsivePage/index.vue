@@ -15,8 +15,8 @@
 
 <script>
 
-import VueHeader from "./Header/index.vue"
-import VueFooter from "./Footer/index.vue"
+import VueHeader from "./Header"
+import VueFooter from "./Footer"
 
 export default {
     components:{

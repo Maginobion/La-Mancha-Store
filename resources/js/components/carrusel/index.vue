@@ -1,7 +1,7 @@
 <template>
-    <div class="totalCont">
-            <h1>Catalogo</h1>
-            <div class="lineCont">
+        <div class="totalCont">
+                <h1>Catalogo</h1>
+                <div class="lineCont">
                         <div class="cardCont">
                                 <img src="../../../../public/images/libro1.jpg" width="220" height="300">
                                 <div class="center">- El Amor Molesto -</div>
@@ -32,9 +32,9 @@
                                 <div class="center">- Parece que Fuera Primavera</div>
                                 <div class="center">S/. 69.00</div>
                         </div>
-            </div>
-            <h1>Destacado</h1>
-            <div class="lineCont">
+                </div>
+                <h1>Destacado</h1>
+                <div class="lineCont">
                         <div class="cardCont">
                                 <img src="../../../../public/images/libro7.jpg" width="220" height="300">
                                 <div class="center">- El Año del Viento - </div>
@@ -65,8 +65,8 @@
                                 <div class="center">- El Infinito -</div>
                                 <div class="center">S/. 69.00</div>
                         </div>
-            </div>
-    </div>
+                </div>
+        </div>
 </template>
 
 <style scoped>

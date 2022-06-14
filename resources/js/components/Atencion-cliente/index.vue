@@ -20,7 +20,7 @@
         </div>
         <div class="aviso">
             Nuestro horario de atención es de lunes a sábado de 10:00am a 5:00pm, <br/>
-            no contamos con atencióndffdfdfdfdfdfd los días domingo ni feriados
+            no contamos con atención los días domingo ni feriados.
         </div>            
     </div>
 </template>
