@@ -1,9 +1,7 @@
 <template>
     <header class="header">
         <div class="header-top">
-            <div class="img">
-                <img src="../../../../../public/images/lamancha.jpg" alt="">
-            </div>
+            <img src="../../../../../public/images/lamancha.jpg" width="600">
             <div class="search-bar">
                 <form action="#">
                     <div class="search">
@@ -13,26 +11,44 @@
                 </form>
             </div>
             <div class="buttons">
-                <button class="login">
+                <div class="login">
                     <i class="fa-solid fa-user"></i>
-                    <span>Iniciar sesión</span>
-                </button>
+                    <DropdownUser>
+                        <template #trigger>
+                            <slot name="loginname"></slot>
+                        </template>
+                        <template #content>
+                            <slot name="dropcontent"></slot>
+                        </template> 
+                    </DropdownUser>
+                </div>
                 <button class="shopping-cart">
                     <i class="fa-solid fa-cart-plus"></i>
                 </button>
             </div>
-        </div>
+        </div>      
         <div class="header-bottom">
             <ul>
-                <router-link to="/">Home</router-link>
-                <router-link to="/prueba">Prueba</router-link>
-                <router-link to="/atencion-cliente">Atencion</router-link>
-                <router-link to="/pruebita">Pruebita</router-link>
-                <router-link to="/carrusel">Carrusel</router-link>
+                <Header-links routing="/" text="Home"/>
+                <Header-links routing="/prueba" text="Prueba"/>
+                <Header-links routing="/atencion-cliente" text="Atencion"/>
+                <Header-links routing="/pruebita" text="Pruebita"/>
+                <Header-links routing="/carrusel" text="Carrusel"/>
             </ul>
         </div>
     </header>
 </template>
+
+<script>
+import HeaderLinks from '../HeaderLinks'
+import DropdownUser from '../../DropdownUser'
+export default {
+    components:{
+        HeaderLinks,
+        DropdownUser
+    }
+}
+</script>
 
 <style scoped>
         * {
@@ -41,25 +57,38 @@
             box-sizing: border-box;
         }
 
+        
+
+        @media (max-width: 600) {
+            .header{
+                display: flex;
+                justify-items: center;
+                margin-left: 20px;
+            }
+            
+        }
+
         .header {
             width: 100%;
-            padding: 1.25rem;
+            padding: 1rem;
         }
 
         .header-top {
             padding: 1rem 1rem 0 1rem;
             display: flex;
+            align-items: center;
         }
 
-        .header-top .img {
-            width: 100%;
-            max-width: 20rem;
-        }
-
-        .header-top .img img {
+        .header-top .img{
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+
+        img{
+            object-fit: cover;
+            height: 100%;
+            margin-bottom: 50px;
         }
 
         .search-bar {
@@ -158,7 +187,6 @@
             padding: .5rem 1.75rem;
             text-transform: uppercase;
             border-right: 1px solid #002f84;
-            color: #002f84;
             letter-spacing: 0.125rem;
             transition: .3s ease;
             text-decoration: none;

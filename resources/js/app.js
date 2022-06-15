@@ -1,4 +1,10 @@
-require('./bootstrap');
+import './bootstrap';
+
+import Alpine from 'alpinejs';
+
+window.Alpine = Alpine;
+
+Alpine.start();
 
 import { createApp } from 'vue';
 import * as VueRouter from 'vue-router'
@@ -8,6 +14,8 @@ import AtencionCliente from './components/Atencion-cliente'
 import nose from './components/pruebita.vue'
 import ResponsivePage from './components/ResponsivePage'
 import carrusel from './components/carrusel'
+import HeaderPage from './components/ResponsivePage/Header'
+import DropdownUser from './components/DropdownUser'
 
 const routes = [
     {path:'/', component: Mensaje},
@@ -25,6 +33,8 @@ const router = VueRouter.createRouter({
 const app = createApp({})
 
 app.component('responsive-page', ResponsivePage)
+app.component('header-page', HeaderPage)
+app.component('dropdown-user',DropdownUser)
 app.use(router)
 
 app.mount('#app')
