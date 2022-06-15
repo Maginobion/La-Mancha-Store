@@ -5,6 +5,8 @@
         <router-link to="/atencion-cliente">Atencion</router-link>
         <router-link to="/pruebita">Pruebita</router-link>
         <router-link to="/carrusel">Carrusel</router-link>
+        <router-link to="/form1">Formulario</router-link>
+        <router-link to="/form2">Formulario02</router-link>
 
     </div>
 </template>
