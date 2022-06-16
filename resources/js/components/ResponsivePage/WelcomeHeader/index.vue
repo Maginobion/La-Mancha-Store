@@ -13,14 +13,7 @@
             <div class="buttons">
                 <div class="login">
                     <i class="fa-solid fa-user"></i>
-                    <DropdownUser>
-                        <template #trigger>
-                            <slot name="loginname"></slot>
-                        </template>
-                        <template #content>
-                            <slot name="dropcontent"></slot>
-                        </template> 
-                    </DropdownUser>
+                    <a href="/dashboard">Login</a>
                 </div>
                 <button class="shopping-cart">
                     <i class="fa-solid fa-cart-plus"></i>
@@ -34,8 +27,6 @@
                 <Header-links routing="/atencion-cliente" text="Atencion"/>
                 <Header-links routing="/pruebita" text="Pruebita"/>
                 <Header-links routing="/carrusel" text="Carrusel"/>
-                <Header-links routing="/form1" text="Formulario"/>
-                <Header-links routing="/form2" text="Formulario2"/>
             </ul>
         </div>
     </header>
@@ -43,11 +34,9 @@
 
 <script>
 import HeaderLinks from '../HeaderLinks'
-import DropdownUser from '../../DropdownUser'
 export default {
     components:{
         HeaderLinks,
-        DropdownUser
     }
 }
 </script>
@@ -173,10 +162,6 @@ export default {
             font-size: 2.25rem;
             padding-bottom: .5rem;
             color: #002f84;
-        }
-
-        i{
-            justify-content: center;
         }
 
         .header-bottom {

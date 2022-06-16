@@ -18,7 +18,7 @@ import VueFooter from "./Footer"
 
 export default {
     components:{
-        VueFooter
+        VueFooter,
     }
 }
 </script>

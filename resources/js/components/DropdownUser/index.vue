@@ -4,7 +4,7 @@
            <slot name="trigger"></slot>
         </button>
         <div v-show="show"
-                class="block z-50 mt-2 w-48 rounded-md shadow-lg origin-top-right right-0"
+                class="absolute z-[-5px] mt-0 w-48 rounded-md shadow-lg origin-top-right right-0"
                 style="display: none;"
                 @click="disable">
             <div class="rounded-md ring-1 ring-black ring-opacity-5 py-1 bg-white">

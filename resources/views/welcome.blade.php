@@ -25,6 +25,8 @@
     </head>
     <body>
         <div id="app">
+            <welcome-header>
+            </welcome-header>
             <responsive-page>       
                 <router-view/>   
             </responsive-page>        
