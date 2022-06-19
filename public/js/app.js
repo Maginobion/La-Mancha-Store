@@ -22702,7 +22702,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  //Estare probando aca si funcionan las APIs
+  data: function data() {
+    return {
+      url: 'http://127.0.0.1:8000/api/libros',
+      libros: [],
+      libro: {
+        id: null,
+        titulo: '',
+        autor: '',
+        editorial: '',
+        descripcion: '',
+        precio: 0,
+        genero: ''
+      }
+    };
+  },
+  methods: {
+    fillLibros: function fillLibros() {
+      var _this = this;
+
+      fetch(this.url).then(function (res) {
+        return res.json();
+      }).then(function (data) {
+        return _this.libros = data;
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.fillLibros();
+  }
+});
 
 /***/ }),
 
@@ -23159,15 +23190,20 @@ var _withScopeId = function _withScopeId(n) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-b319689e"), n = n(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)(), n;
 };
 
-var _hoisted_1 = {
-  "class": "totalCont"
-};
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"totalCont\" data-v-b319689e><h1 data-v-b319689e>Catalogo</h1><div class=\"lineCont\" data-v-b319689e><div class=\"cardCont\" data-v-b319689e><img src=\"" + _public_images_libro1_jpg__WEBPACK_IMPORTED_MODULE_1__["default"] + "\" width=\"220\" height=\"300\" data-v-b319689e><div class=\"center\" data-v-b319689e>- El Amor Molesto -</div><div class=\"center\" data-v-b319689e>S/. 69.00</div></div><div class=\"cardCont\" data-v-b319689e><img src=\"" + _public_images_libro2_jpg__WEBPACK_IMPORTED_MODULE_2__["default"] + "\" width=\"220\" height=\"300\" data-v-b319689e><div class=\"center\" data-v-b319689e>- La trenza -</div><div class=\"center\" data-v-b319689e>S/. 69.00</div></div><div class=\"cardCont\" data-v-b319689e><img src=\"" + _public_images_libro3_jpg__WEBPACK_IMPORTED_MODULE_3__["default"] + "\" width=\"220\" height=\"300\" data-v-b319689e><div class=\"center\" data-v-b319689e>- Paula - </div><div class=\"center\" data-v-b319689e>S/. 69.00</div></div><div class=\"cardCont\" data-v-b319689e><img src=\"" + _public_images_libro4_jpg__WEBPACK_IMPORTED_MODULE_4__["default"] + "\" width=\"220\" height=\"300\" data-v-b319689e><div class=\"center\" data-v-b319689e>- Nueve Lunas - </div><div class=\"center\" data-v-b319689e>S/. 69.00</div></div><div class=\"cardCont\" data-v-b319689e><img src=\"" + _public_images_libro5_jpg__WEBPACK_IMPORTED_MODULE_5__["default"] + "\" width=\"220\" height=\"300\" data-v-b319689e><div class=\"center\" data-v-b319689e>- Guia Para Madres Rebeldes -</div><div class=\"center\" data-v-b319689e>S/. 69.00</div></div><div class=\"cardCont\" data-v-b319689e><img src=\"" + _public_images_libro6_jpg__WEBPACK_IMPORTED_MODULE_6__["default"] + "\" width=\"220\" height=\"300\" data-v-b319689e><div class=\"center\" data-v-b319689e>- Parece que Fuera Primavera</div><div class=\"center\" data-v-b319689e>S/. 69.00</div></div></div><h1 data-v-b319689e>Destacado</h1><div class=\"lineCont\" data-v-b319689e><div class=\"cardCont\" data-v-b319689e><img src=\"" + _public_images_libro7_jpg__WEBPACK_IMPORTED_MODULE_7__["default"] + "\" width=\"220\" height=\"300\" data-v-b319689e><div class=\"center\" data-v-b319689e>- El Año del Viento - </div><div class=\"center\" data-v-b319689e>S/. 69.00</div></div><div class=\"cardCont\" data-v-b319689e><img src=\"" + _public_images_libro8_jpg__WEBPACK_IMPORTED_MODULE_8__["default"] + "\" width=\"220\" height=\"300\" data-v-b319689e><div class=\"center\" data-v-b319689e>- Orgullo y Prejuicio - </div><div class=\"center\" data-v-b319689e>S/. 69.00</div></div><div class=\"cardCont\" data-v-b319689e><img src=\"" + _public_images_libro9_jpg__WEBPACK_IMPORTED_MODULE_9__["default"] + "\" width=\"220\" height=\"300\" data-v-b319689e><div class=\"center\" data-v-b319689e>- Las Tres Hermanas -</div><div class=\"center\" data-v-b319689e>S/. 69.00</div></div><div class=\"cardCont\" data-v-b319689e><img src=\"" + _public_images_libro10_jpg__WEBPACK_IMPORTED_MODULE_10__["default"] + "\" width=\"220\" height=\"300\" data-v-b319689e><div class=\"center\" data-v-b319689e>- Una Habitacion Propia- </div><div class=\"center\" data-v-b319689e>S/. 69.00</div></div><div class=\"cardCont\" data-v-b319689e><img src=\"" + _public_images_libro11_jpg__WEBPACK_IMPORTED_MODULE_11__["default"] + "\" width=\"220\" height=\"300\" data-v-b319689e><div class=\"center\" data-v-b319689e>- Julia Quinn - </div><div class=\"center\" data-v-b319689e>S/. 69.00</div></div><div class=\"cardCont\" data-v-b319689e><img src=\"" + _public_images_libro12_jpg__WEBPACK_IMPORTED_MODULE_12__["default"] + "\" width=\"220\" height=\"300\" data-v-b319689e><div class=\"center\" data-v-b319689e>- El Infinito -</div><div class=\"center\" data-v-b319689e>S/. 69.00</div></div></div></div>", 1);
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<h1 data-v-b319689e>Catalogo</h1><div class=\"lineCont\" data-v-b319689e><div class=\"cardCont\" data-v-b319689e><img src=\"" + _public_images_libro1_jpg__WEBPACK_IMPORTED_MODULE_1__["default"] + "\" width=\"220\" height=\"300\" data-v-b319689e><div class=\"center\" data-v-b319689e>- El Amor Molesto -</div><div class=\"center\" data-v-b319689e>S/. 69.00</div></div><div class=\"cardCont\" data-v-b319689e><img src=\"" + _public_images_libro2_jpg__WEBPACK_IMPORTED_MODULE_2__["default"] + "\" width=\"220\" height=\"300\" data-v-b319689e><div class=\"center\" data-v-b319689e>- La trenza -</div><div class=\"center\" data-v-b319689e>S/. 69.00</div></div><div class=\"cardCont\" data-v-b319689e><img src=\"" + _public_images_libro3_jpg__WEBPACK_IMPORTED_MODULE_3__["default"] + "\" width=\"220\" height=\"300\" data-v-b319689e><div class=\"center\" data-v-b319689e>- Paula - </div><div class=\"center\" data-v-b319689e>S/. 69.00</div></div><div class=\"cardCont\" data-v-b319689e><img src=\"" + _public_images_libro4_jpg__WEBPACK_IMPORTED_MODULE_4__["default"] + "\" width=\"220\" height=\"300\" data-v-b319689e><div class=\"center\" data-v-b319689e>- Nueve Lunas - </div><div class=\"center\" data-v-b319689e>S/. 69.00</div></div><div class=\"cardCont\" data-v-b319689e><img src=\"" + _public_images_libro5_jpg__WEBPACK_IMPORTED_MODULE_5__["default"] + "\" width=\"220\" height=\"300\" data-v-b319689e><div class=\"center\" data-v-b319689e>- Guia Para Madres Rebeldes -</div><div class=\"center\" data-v-b319689e>S/. 69.00</div></div><div class=\"cardCont\" data-v-b319689e><img src=\"" + _public_images_libro6_jpg__WEBPACK_IMPORTED_MODULE_6__["default"] + "\" width=\"220\" height=\"300\" data-v-b319689e><div class=\"center\" data-v-b319689e>- Parece que Fuera Primavera</div><div class=\"center\" data-v-b319689e>S/. 69.00</div></div></div><h1 data-v-b319689e>Destacado</h1><div class=\"lineCont\" data-v-b319689e><div class=\"cardCont\" data-v-b319689e><img src=\"" + _public_images_libro7_jpg__WEBPACK_IMPORTED_MODULE_7__["default"] + "\" width=\"220\" height=\"300\" data-v-b319689e><div class=\"center\" data-v-b319689e>- El Año del Viento - </div><div class=\"center\" data-v-b319689e>S/. 69.00</div></div><div class=\"cardCont\" data-v-b319689e><img src=\"" + _public_images_libro8_jpg__WEBPACK_IMPORTED_MODULE_8__["default"] + "\" width=\"220\" height=\"300\" data-v-b319689e><div class=\"center\" data-v-b319689e>- Orgullo y Prejuicio - </div><div class=\"center\" data-v-b319689e>S/. 69.00</div></div><div class=\"cardCont\" data-v-b319689e><img src=\"" + _public_images_libro9_jpg__WEBPACK_IMPORTED_MODULE_9__["default"] + "\" width=\"220\" height=\"300\" data-v-b319689e><div class=\"center\" data-v-b319689e>- Las Tres Hermanas -</div><div class=\"center\" data-v-b319689e>S/. 69.00</div></div><div class=\"cardCont\" data-v-b319689e><img src=\"" + _public_images_libro10_jpg__WEBPACK_IMPORTED_MODULE_10__["default"] + "\" width=\"220\" height=\"300\" data-v-b319689e><div class=\"center\" data-v-b319689e>- Una Habitacion Propia- </div><div class=\"center\" data-v-b319689e>S/. 69.00</div></div><div class=\"cardCont\" data-v-b319689e><img src=\"" + _public_images_libro11_jpg__WEBPACK_IMPORTED_MODULE_11__["default"] + "\" width=\"220\" height=\"300\" data-v-b319689e><div class=\"center\" data-v-b319689e>- Julia Quinn - </div><div class=\"center\" data-v-b319689e>S/. 69.00</div></div><div class=\"cardCont\" data-v-b319689e><img src=\"" + _public_images_libro12_jpg__WEBPACK_IMPORTED_MODULE_12__["default"] + "\" width=\"220\" height=\"300\" data-v-b319689e><div class=\"center\" data-v-b319689e>- El Infinito -</div><div class=\"center\" data-v-b319689e>S/. 69.00</div></div></div>", 4);
-
-var _hoisted_6 = [_hoisted_2];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, _hoisted_6);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [_hoisted_1, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.libros, function (libro) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", {
+      key: libro
+    }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(libro.titulo), 1
+    /* TEXT */
+    );
+  }), 128
+  /* KEYED_FRAGMENT */
+  ))], 64
+  /* STABLE_FRAGMENT */
+  );
 }
 
 /***/ }),

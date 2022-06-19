@@ -67,6 +67,9 @@
                         </div>
                 </div>
         </div>
+        <p v-for="libro of libros" v-bind:key="libro">
+                {{libro.titulo}}
+        </p>
 </template>
 
 <style scoped>
@@ -90,6 +93,31 @@
 
 <script>
 export default {
-    
+    //Estare probando aca si funcionan las APIs
+    data(){
+        return{
+                url:'http://127.0.0.1:8000/api/libros',
+                libros:[],
+                libro:{
+                        id: null,
+                        titulo:'',
+                        autor:'',
+                        editorial:'',
+                        descripcion:'',
+                        precio: 0,
+                        genero:'',
+                }
+        }
+    },
+    methods: {
+        fillLibros(){
+                fetch(this.url)
+                .then(res => res.json())
+                .then(data=>this.libros = data);
+        }
+    },
+    mounted(){
+        this.fillLibros()
+    }
 }
 </script>
