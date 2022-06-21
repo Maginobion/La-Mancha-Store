@@ -19,6 +19,9 @@ import DropdownUser from './components/DropdownUser'
 import WelcomeHeader from './components/ResponsivePage/WelcomeHeader'
 import Form from './components/Formularios/formulario1.vue'
 import Form2 from './components/Formularios/formulario2.vue'
+import casita from './components/Home.vue'
+import carrito from './components/Cart.vue'
+import inicio from './components/App.vue'
 
 const routes = [
     {path:'/', component: Mensaje},
@@ -28,6 +31,8 @@ const routes = [
     {path:'/carrusel', component: carrusel},
     {path:'/form1', component: Form},
     {path:'/form2', component: Form2},
+    {path:'/casita', component: casita},
+    {path:'/carrito', component: carrito},
 ]
 
 const router = VueRouter.createRouter({
@@ -41,6 +46,10 @@ app.component('responsive-page', ResponsivePage)
 app.component('header-page', HeaderPage)
 app.component('dropdown-user',DropdownUser)
 app.component('welcome-header', WelcomeHeader)
+app.component('casa', casita)
+app.component('carrito', carrito)
+app.component('inicio', inicio)
 app.use(router)
+
 
 app.mount('#app')
