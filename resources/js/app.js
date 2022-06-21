@@ -7,6 +7,7 @@ window.Alpine = Alpine;
 Alpine.start();
 
 import { createApp } from 'vue';
+import Vuex from 'vuex';
 import * as VueRouter from 'vue-router'
 import Mensaje from './components/Mensaje.vue'
 import Prueba from './components/Prueba.vue'
@@ -49,7 +50,9 @@ app.component('welcome-header', WelcomeHeader)
 app.component('casa', casita)
 app.component('carrito', carrito)
 app.component('inicio', inicio)
+app.use(Vuex)
 app.use(router)
+
 
 
 app.mount('#app')

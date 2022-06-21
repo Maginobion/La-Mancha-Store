@@ -1,56 +1,46 @@
 <template>
-   <div class="drawer-background" :class="{show: active}" @click="$emit('close-product-drawer')">
-
-
+   <div class="drawer-background" :class="{show: active}" @click="$emit('close-product-drawer')"/>
    <div class="drawer" :class="{show: active}">
-
        <div class="drawer-close" @click="$emit('close-product-drawer')">
            x
        </div>
-
-
        <div v-if="product" class="product-details">
            <h3 class="text-center">{{product.name}}</h3>
            <p class="editorial">{{product.editorial}}</p>
            <h3 class="text-center">${{product.price.toFixed(2)}}</h3>
-
            <div class="cart-total" v-if="product_total">
                <h3>In cart</h3>
                <h4>{{product_total}}</h4>
            </div>
-
            <div class="button-container">
                <button class="remove" @click="removeFromCart()">Remove</button>
                <button class="add" @click="addToCart()">Add</button>
-
            </div>
        </div>
-   </div>
-    
+   </div>   
 </template>
 
 <script>
+import store from '../../../store/index'
 export default{
     props:['product','active'],
     methods:{
         addToCart(){
-            this.$store.commit('addToCart', this.product)
+            store.commit('addToCart', this.product)
         },
         removeFromCart(){
-
-            this.$store.commit('removeFromCart',this.product)
+            store.commit('removeFromCart',this.product)
         }
-
     },
     computed:{
         product_total(){
-            return this.$store.getters.productQuantity(this.product)
+            return store.getters.productQuantity(this.product)
         }
     }
 }
 </script>
 
-<style lang="scss">
+<style>
 .drawer-background{
     width: 100%;
     height: 100vh;
@@ -60,11 +50,11 @@ export default{
     background-color: rgba(124, 124, 124, 0.55);
     z-index: 100;
     display: none;
-    transition: display .5s;
+    transition: display .5s;  
+}
 
-    &.show{
-        display: block;
-    }
+.drawer-background.show{
+    display: block;
 }
 
 .drawer {
@@ -77,11 +67,11 @@ export default{
     padding: 15px;
     transition: left .5s;
     z-index: 101;
-    overflow-y:scroll ;
+    overflow-y:scroll ;   
+}
 
-    &.show{
-        left: 0;
-    }
+.drawer.show{
+    left: 0;
 }
 
 .drawer-close{
@@ -94,33 +84,32 @@ export default{
     width: 15px;
     float: right;
     cursor: pointer;
-
-    &:hover{
-        background-color: lightgray;
-
-    }
 }
+
+.drawer-close:hover{
+    background-color: lightgray;
+}
+
 .product-details{
     display: flex;
     justify-content: center;
-    flex-direction: column;
-
-    p.editorial{
-        padding: 20px;
-        line-height: 1.5rem;
-    }
-
-    .buttton-container{
-        button{
-            width: 150px;
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            margin: 0 5px 50px 5px;
-            cursor: pointer;
-        }
-    }
+    flex-direction: column;   
 }
+
+p.editorial{
+    padding: 20px;
+    line-height: 1.5rem;
+}
+
+.buttton-container>button{
+    width: 150px;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 0 5px 50px 5px;
+    cursor: pointer;
+}
+
 @media(min-width:500px){
     .drawer {
         width: 450px;

@@ -1,11 +1,9 @@
 <template>
-    <router-view>
     <div id="nav">
         <router-link :class="{active: $route.name ==='Home'}" to="/casita">Home</router-link>
         <router-link :class="{active: $route.name ==='Cart'}" to="/carrito">Cart</router-link>
-
     </div>
-    </router-view>
+    <router-view/>
 </template>
 
 
@@ -51,7 +49,6 @@ export default {
         this.updateCartFromLocalStorage
         this.addtoCart
         this.removeFromCart
-
     }
 }
 </script>

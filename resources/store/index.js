@@ -1,15 +1,12 @@
-import{createStore}from 'vuex'
+import Vuex from 'vuex'
 
 function updateLocalStorage(cart){
     localStorage.setItem('cart',JSON.stringify(cart))
-
 }
 
-
-export default createStore({
+const store = new Vuex.Store({
     state:{
         cart:[]
-
     },
     getters:{
         productQuantity: state => product =>{
@@ -27,7 +24,7 @@ export default createStore({
 
     },
     mutations:{
-        addtoCart (state, product){
+        addToCart (state, product){
             let item = state.cart.find(i => i.id === product.id)
 
             if(item){
@@ -65,3 +62,5 @@ export default createStore({
     }
 
 })
+
+export default store;

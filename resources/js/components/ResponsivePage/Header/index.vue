@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
     <header class="header">
         <div class="header-top">
             <img src="../../../../../public/images/lamancha.jpg" width="600">
@@ -40,19 +39,6 @@
             </ul>
         </div>
     </header>
-=======
-    <div class="headerFlex">
-        <router-link to="/">Home</router-link>
-        <router-link to="/prueba">Prueba</router-link>
-        <router-link to="/atencion-cliente">Atencion</router-link>
-        <router-link to="/pruebita">Pruebita</router-link>
-        <router-link to="/carrusel">Carrusel</router-link>
-        <router-link to="/form1">Formulario</router-link>
-        <router-link to="/form2">Formulario02</router-link>
-        <router-link to="/carrito">carrito</router-link>
-
-    </div>
->>>>>>> f7a99119078e075f1a0f2af92659cb75fcd094bd
 </template>
 
 <script>

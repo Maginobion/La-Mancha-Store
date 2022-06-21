@@ -5,21 +5,19 @@
         :active="active.product_drawer"
         v-on:close-product-drawer="closeProductDrawer()"
         />
-
-         <div class="product-cards-container">
-             <ProductSummaryCard
-             v-for="product in items"
-             :key="product.id"
-             :product="product"
-             v-on:view-product="viewProduct($event)"
-             />
-
-         </div>
-
+        <div class="product-cards-container">
+            <ProductSummaryCard
+            v-for="product in items"
+            :key="product.id"
+            :product="product"
+            v-on:view-product="viewProduct($event)"
+            />
+        </div>
+        
     </div>
+    <button @click="logItems">asd</button>
+    <p>HOLA</p>
 </template>
-
-
 
 <script>
 
@@ -31,7 +29,6 @@ export default {
     name:'Home',
     components:{
         ProductSummaryCard, ProductEditorialDrawer
-
     },
     data(){
         return{
@@ -39,8 +36,7 @@ export default {
             product: null,
             active:{
                 product_drawer: false
-            }
-            
+            }            
         }
     },
     methods: {
@@ -51,8 +47,10 @@ export default {
         },
         closeProductDrawer(){
             this.active.product_drawer = false
+        },
+        logItems(){
+            console.log(items)
         }
-
     }
 }
 </script>
