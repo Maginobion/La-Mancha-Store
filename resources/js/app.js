@@ -10,6 +10,11 @@ import ResponsivePage from './components/ResponsivePage/index.vue'
 import carrusel from './components/carrusel/carrusel.vue'
 import FORMULARIO from './components/formulario/formulario_1.vue'
 import FORMULARIO02 from './components/formulario/formulario_2.vue'
+import casita from './components/Home.vue'
+import carrito from './components/Cart.vue'
+import inicio from './components/App.vue'
+
+
 
 const routes = [
     {path:'/', component: Mensaje},
@@ -19,6 +24,9 @@ const routes = [
     {path:'/carrusel', component: carrusel},
     {path:'/form1', component: FORMULARIO},
     {path:'/form2', component: FORMULARIO02},
+    {path:'/casita', component: casita},
+    {path:'/carrito', component: carrito},
+  
 ]
 
 const router = VueRouter.createRouter({
@@ -34,6 +42,9 @@ app.component('Atencion-cliente',  AtencionCliente)
 app.component('responsive-page', ResponsivePage)
 app.component('nose', nose)
 app.component('carrusel', carrusel)
+app.component('casa', casita)
+app.component('carrito', carrito)
+app.component('inicio', inicio)
 app.use(router)
 
 

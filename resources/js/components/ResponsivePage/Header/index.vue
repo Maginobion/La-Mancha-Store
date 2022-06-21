@@ -7,6 +7,7 @@
         <router-link to="/carrusel">Carrusel</router-link>
         <router-link to="/form1">Formulario</router-link>
         <router-link to="/form2">Formulario02</router-link>
+        <router-link to="/carrito">carrito</router-link>
 
     </div>
 </template>

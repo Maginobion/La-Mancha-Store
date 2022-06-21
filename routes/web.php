@@ -17,6 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/hola', function () {
+    return view('pruebacarrito');
+});
 // Auth::routes();
 
 Route::view('/{any}','home')
