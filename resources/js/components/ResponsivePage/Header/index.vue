@@ -30,12 +30,11 @@
         <div class="header-bottom">
             <ul>
                 <Header-links routing="/" text="Home"/>
-                <Header-links routing="/prueba" text="Prueba"/>
                 <Header-links routing="/atencion-cliente" text="Atencion"/>
-                <Header-links routing="/pruebita" text="Pruebita"/>
                 <Header-links routing="/carrusel" text="Carrusel"/>
-                <Header-links routing="/form1" text="Formulario"/>
-                <Header-links routing="/form2" text="Formulario2"/>
+                <Header-links routing="/adduser" text="Formulario"/>
+                <Header-links routing="/edituser" text="Formulario2"/>
+                <Header-links routing="/addlibro" text="Formulario3"/>
             </ul>
         </div>
     </header>

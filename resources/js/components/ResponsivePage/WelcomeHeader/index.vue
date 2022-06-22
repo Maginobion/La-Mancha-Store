@@ -23,9 +23,7 @@
         <div class="header-bottom">
             <ul>
                 <Header-links routing="/" text="Home"/>
-                <Header-links routing="/prueba" text="Prueba"/>
                 <Header-links routing="/atencion-cliente" text="Atencion"/>
-                <Header-links routing="/pruebita" text="Pruebita"/>
                 <Header-links routing="/carrusel" text="Carrusel"/>
             </ul>
         </div>

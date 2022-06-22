@@ -8,26 +8,26 @@ Alpine.start();
 
 import { createApp } from 'vue';
 import * as VueRouter from 'vue-router'
-import Mensaje from './components/Mensaje.vue'
-import Prueba from './components/Prueba.vue'
+import Home from './components/Home'
 import AtencionCliente from './components/Atencion-cliente'
-import nose from './components/pruebita.vue'
 import ResponsivePage from './components/ResponsivePage'
 import carrusel from './components/carrusel'
 import HeaderPage from './components/ResponsivePage/Header'
 import DropdownUser from './components/DropdownUser'
 import WelcomeHeader from './components/ResponsivePage/WelcomeHeader'
-import Form from './components/Formularios/formulario1.vue'
-import Form2 from './components/Formularios/formulario2.vue'
+import AddUserForm from './components/Formularios/addUserForm.vue'
+import EditUserForm from './components/Formularios/editUserForm.vue'
+import AddLibroForm from './components/Formularios/addLibroForm.vue'
+import LibroDescripcion from './components/LibroDescripcion'
 
 const routes = [
-    {path:'/', component: Mensaje},
-    {path:'/prueba', component: Prueba},
+    {path:'/', component: Home},
     {path:'/atencion-cliente', component: AtencionCliente},
-    {path:'/pruebita', component: nose},
     {path:'/carrusel', component: carrusel},
-    {path:'/form1', component: Form},
-    {path:'/form2', component: Form2},
+    {path:'/adduser', component: AddUserForm},
+    {path:'/edituser', component: EditUserForm},
+    {path:'/addlibro', component: AddLibroForm},
+    {path:'/libro/:id', name:'descripcion' ,component: LibroDescripcion}
 ]
 
 const router = VueRouter.createRouter({

@@ -1,9 +1,8 @@
 <template>
-    <div class="contenedor" style=" margin-bottom: 10%">
-        <form action="" class="form" style="height:640px">
+    <div class="contenedor">
+        <form action="" class="form">
             <div class="form-header">
-                <h1 class="form-title">E<span>dit Client</span></h1>
-
+                <h1 class="form-title">Edit Client</h1>
             </div>
             <label for="nombre" class="form-label">Nombres:</label>
             <input type="text" id="nombre" class="form-input" placeholder="Escriba su nombre">
@@ -36,12 +35,18 @@
     box-sizing: border-box;
     
 }
+.contenedor{
+    margin: 50px 0;
+}
 .contenedor .form .form-header .form-title{
     font-weight: normal;
     font-family: sans-serif;
-    color:#ff851b;
+    color:#fff;
     text-align: center;
     padding: 14px 0;
+}
+.form-header::first-letter{
+    color:#ff851b;
 }
 .contenedor .form .form-header .form-title span{
     color:#fff;
