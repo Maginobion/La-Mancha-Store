@@ -8,7 +8,7 @@
         <form class="formulario">
             <h2 style="font-size: 27px;">{{libro.titulo}}</h2>
             <p type="Autor:">{{libro.autor}}</p>
-            <p type="Genero">Drama</p>
+            <p type="Genero">{{libro.genero}}</p>
             <p type="Contenido Apto">Mayores de 18 Años</p>
             <p type="Precio">S/. {{libro.precio}}</p>
             <p type="Resume">La Novela habla sobre la relación madre-hija. Delia ha perdido a su madre, que ha muerto misteriosamente ahogada cuando estaba de camino a visitarla. Cuando regresa a Nápoles, ciudad en la que creció y de la que siempre ha querido huir, se reencuentra con unos personajes y un pasado perturbadores.
