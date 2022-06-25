@@ -1,6 +1,5 @@
 <template>
     <div>
-
         <h1>Your Cart</h1>
 
         <CartItemCard
@@ -17,6 +16,8 @@
 <script>
 
 import CartItemCard from '../components/cart/CartItemCard.vue'
+import store from '../../store/index'
+
 import CartSummaryPaymentCard from '../components/cart/CartSummaryPaymentCard.vue'
 
 export default{
@@ -25,10 +26,10 @@ export default{
     },
     computed:{
         products(){
-            return this.$store.getters.cartItems
+            return store.getters.cartItems
         }
-
     }
 }
 
 </script>
+

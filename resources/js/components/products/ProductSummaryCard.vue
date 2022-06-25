@@ -1,11 +1,11 @@
 <template>
     <div class="card">
-        <h3>{{product.name}}</h3>
+        <h3>Libro:{{product.name}}</h3>
 
-        <h5 class="price">Price: ${{product.price.toFixed(2)}}</h5>
+        <h5 class="price">Precio: ${{product.price.toFixed(2)}}</h5>
         <p class="editorial">Editorial:{{editorial}}</p>
-        <p class="text-muted">{{product.genero}}</p>
-        <button class="view-product-button" @click="$emit('view-product',product)">View Product</button>
+        <p class="text-muted">Genero: {{product.genero}}</p>
+        <button class="view-product-button" @click="$emit('view-product',product)">Ver el Producto</button>
 
 
     </div>

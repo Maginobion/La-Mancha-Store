@@ -1,18 +1,19 @@
 <template>
     <div class="cart-item-card">
-        <h3>Cart Total: ${{cart_total.toFixed(2)}}</h3>
+        <h3>Costo Total: ${{cart_total.toFixed(2)}}</h3>
 
         <button class="view-product-button">Pay by Credit Card</button>
-
 
     </div>
 </template>
 
 <script>
+import store from '../../../store/index'
+
     export default{
     computed:{
         cart_total(){
-            return this.$store.getters.cartTotal
+            return store.getters.cartTotal
         }
     }
 }

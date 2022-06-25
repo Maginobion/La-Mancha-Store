@@ -1,15 +1,15 @@
 <template>
-   <div class="drawer-background" :class="{show: active}" @click="$emit('close-product-drawer')"/>
+   <div class="drawer-background" :class="{show: active}" @click="$emit('close-product-drawer')">
    <div class="drawer" :class="{show: active}">
        <div class="drawer-close" @click="$emit('close-product-drawer')">
            x
        </div>
        <div v-if="product" class="product-details">
-           <h3 class="text-center">{{product.name}}</h3>
-           <p class="editorial">{{product.editorial}}</p>
+           <h3 class="text-center">Libro: {{product.name}}</h3>
+           <p class="editorial">Editorial: {{product.editorial}}</p>
            <h3 class="text-center">${{product.price.toFixed(2)}}</h3>
            <div class="cart-total" v-if="product_total">
-               <h3>In cart</h3>
+               <h3>Cantidad: </h3>
                <h4>{{product_total}}</h4>
            </div>
            <div class="button-container">
@@ -18,11 +18,14 @@
            </div>
        </div>
    </div>   
+   </div>
 </template>
 
 <script>
 import store from '../../../store/index'
+
 export default{
+
     props:['product','active'],
     methods:{
         addToCart(){
@@ -81,13 +84,14 @@ export default{
     right: 10px;
     border:2px solid gray;
     color: gray;
-    width: 15px;
+    width: 25px;
+    padding-bottom: 8px;
     float: right;
     cursor: pointer;
 }
 
 .drawer-close:hover{
-    background-color: lightgray;
+    background-color: rgb(211, 211, 211);
 }
 
 .product-details{

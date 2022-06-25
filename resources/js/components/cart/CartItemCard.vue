@@ -1,16 +1,17 @@
 <template>
     <div class="cart-item-card">
         <div class="header">
-            <h3>{{product.name}}</h3>
-            <h4>In Cart:{{product.quantity}}</h4>
-            <h4>Total Cost:{{item_cost.toFixed(2)}}</h4>
+            <h3>Nombre del libro: {{product.name}}</h3>
+            <h4>Cantidad de libros: {{product.quantity}}</h4>
+            <h4>Costo Total: {{item_cost.toFixed(2)}}</h4>
         </div>
-
-        <p>{{editorial}}</p>
+        <p>Editorial: {{editorial}}</p>
     </div>
 </template>
 
 <script>
+
+
 export default{
     props:['product'],
     computed:{

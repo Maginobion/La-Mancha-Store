@@ -15,8 +15,9 @@
         </div>
         
     </div>
-    <button @click="logItems">asd</button>
-    <p>HOLA</p>
+  
+    
+    
 </template>
 
 <script>
