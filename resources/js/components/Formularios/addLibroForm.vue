@@ -1,6 +1,6 @@
 <template>
     <div class="contenedor">
-        <form v-on:submit.prevent="submitForm" class="form">
+        <form v-on:submit.prevent="submitForm" class="form" enctype="multipart/form-data">
             <div class="form-header">
                 <h1 class="form-title">Add Libro</h1>
             </div>
@@ -13,8 +13,11 @@
             <label for="editorial" class="form-label">Editorial:</label>
             <input class="form-input" id="editorial" v-model="form.editorial" placeholder="Escriba su telefono">
 
-             <label for="descripcion" class="form-label">Descripcion:</label>
+            <label for="descripcion" class="form-label">Descripcion:</label>
             <input class="form-input" v-model="form.descripcion" id="descripcion" placeholder="Escriba su descripción">
+
+            <label for="caratula" class="form-label">Caratula:</label>
+            <input type="file" @change="uploadFile" id="caratula" accept="image/png, image/jpeg">
 
             <label for="precio" class="form-label">Precio:</label>
             <input type="number" id="precio" class="form-input" v-model="form.precio" placeholder="Escriba el precio">
@@ -41,19 +44,42 @@ export default {
                 descripcion:'',
                 precio:0,
                 genero:'',
-            }
+            },
+            caratula: null,
         }
     },
     methods:{
+        uploadFile(event) {
+            this.caratula = event.target.files[0];
+        },
         submitForm(){
-            if(this.form.titulo==='' || this.form.autor==='' || this.form.editorial==='' || this.form.descripcion==='' || this.form.genero==='' || this.form.precio===0){
-                console.log('nel')
+            if(this.form.titulo==='' || 
+                this.form.autor==='' || 
+                this.form.editorial==='' || 
+                this.form.descripcion==='' || 
+                this.form.genero==='' || 
+                this.form.precio===0 ||
+                this.image===null){
+                console.log('Llena todo')
             }
             else{
-                axios.post('http://127.0.0.1:8000/api/libros',this.form)
-                    .then(res => console.log(res))
+                //agregar cada append
+                const formData = new FormData();
+                formData.append('titulo',this.form.titulo);
+                formData.append('autor',this.form.autor);
+                formData.append('editorial',this.form.editorial);
+                formData.append('descripcion',this.form.descripcion);
+                formData.append('precio',this.form.precio);
+                formData.append('caratula',this.caratula, this.caratula.name);
+                formData.append('genero',this.form.genero);               
+                console.log(this.caratula)
+                axios.post('http://127.0.0.1:8000/api/libros',formData,{
+                    headers:{
+                        'Content-Type':'multipart/form-data'
+                    }
+                }).then(res => console.log(res))
                     .catch(err=>console.log(err))
-                    .finally(()=>window.location.replace('http://127.0.0.1:8000/dashboard'))
+                    // .finally(()=>window.location.replace('http://127.0.0.1:8000/dashboard'))
             }          
         }
     }

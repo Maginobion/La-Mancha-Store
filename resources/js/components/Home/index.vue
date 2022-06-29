@@ -69,6 +69,7 @@
         </div>
         <div class="wordCont">
             <router-link v-for="libro of libros" :to="{name:'descripcion', params:{id:libro.id}}" v-bind:key="libro" class="cardCont">
+                <img :src="`/storage/${getOriginalPath(libro.caratula)}`" alt="">
                 <p>Titulo: {{libro.titulo}}</p>
                 <p>Autor: {{libro.autor}}</p>
             </router-link>
@@ -105,7 +106,6 @@ p{
 
 <script>
 export default {
-    //Estare probando aca si funcionan las APIs
     data(){
         return{
                 url:'http://127.0.0.1:8000/api/libros',
@@ -115,6 +115,7 @@ export default {
                         titulo:'',
                         autor:'',
                         editorial:'',
+                        caratula:'',
                         descripcion:'',
                         precio: 0,
                         genero:'',
@@ -126,6 +127,10 @@ export default {
                 fetch(this.url)
                 .then(res => res.json())
                 .then(data=>this.libros = data);
+        },
+        getOriginalPath(caratula){
+                let index = caratula.indexOf('/')
+                return caratula.substring(index+1)           
         }
     },
     mounted(){

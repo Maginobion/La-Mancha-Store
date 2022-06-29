@@ -22608,21 +22608,37 @@ __webpack_require__.r(__webpack_exports__);
         descripcion: '',
         precio: 0,
         genero: ''
-      }
+      },
+      caratula: null
     };
   },
   methods: {
+    uploadFile: function uploadFile(event) {
+      this.caratula = event.target.files[0];
+    },
     submitForm: function submitForm() {
-      if (this.form.titulo === '' || this.form.autor === '' || this.form.editorial === '' || this.form.descripcion === '' || this.form.genero === '' || this.form.precio === 0) {
-        console.log('nel');
+      if (this.form.titulo === '' || this.form.autor === '' || this.form.editorial === '' || this.form.descripcion === '' || this.form.genero === '' || this.form.precio === 0 || this.image === null) {
+        console.log('Llena todo');
       } else {
-        axios__WEBPACK_IMPORTED_MODULE_0___default().post('http://127.0.0.1:8000/api/libros', this.form).then(function (res) {
+        //agregar cada append
+        var formData = new FormData();
+        formData.append('titulo', this.form.titulo);
+        formData.append('autor', this.form.autor);
+        formData.append('editorial', this.form.editorial);
+        formData.append('descripcion', this.form.descripcion);
+        formData.append('precio', this.form.precio);
+        formData.append('caratula', this.caratula, this.caratula.name);
+        formData.append('genero', this.form.genero);
+        console.log(this.caratula);
+        axios__WEBPACK_IMPORTED_MODULE_0___default().post('http://127.0.0.1:8000/api/libros', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        }).then(function (res) {
           return console.log(res);
         })["catch"](function (err) {
           return console.log(err);
-        })["finally"](function () {
-          return window.location.replace('http://127.0.0.1:8000/dashboard');
-        });
+        }); // .finally(()=>window.location.replace('http://127.0.0.1:8000/dashboard'))
       }
     }
   }
@@ -22642,7 +22658,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  //Estare probando aca si funcionan las APIs
   data: function data() {
     return {
       url: 'http://127.0.0.1:8000/api/libros',
@@ -22652,6 +22667,7 @@ __webpack_require__.r(__webpack_exports__);
         titulo: '',
         autor: '',
         editorial: '',
+        caratula: '',
         descripcion: '',
         precio: 0,
         genero: ''
@@ -22667,6 +22683,10 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (data) {
         return _this.libros = data;
       });
+    },
+    getOriginalPath: function getOriginalPath(caratula) {
+      var index = caratula.indexOf('/');
+      return caratula.substring(index + 1);
     }
   },
   mounted: function mounted() {
@@ -22694,7 +22714,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       url: 'http://127.0.0.1:8000/api/libros/',
-      libro: {}
+      libro: {},
+      loading: true
     };
   },
   methods: {
@@ -22704,10 +22725,16 @@ __webpack_require__.r(__webpack_exports__);
       axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.url + this.$route.params.id).then(function (res) {
         return _this.libro = res.data;
       });
+    },
+    getOriginalPath: function getOriginalPath(caratula) {
+      var index = caratula.indexOf('/');
+      return caratula.substring(index + 1);
     }
   },
   mounted: function mounted() {
+    console.log(this.$route.params.id);
     this.getLibro();
+    this.loading = false;
   }
 });
 
@@ -22969,20 +22996,27 @@ var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 );
 
 var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "caratula",
+  "class": "form-label"
+}, "Caratula:", -1
+/* HOISTED */
+);
+
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "precio",
   "class": "form-label"
 }, "Precio:", -1
 /* HOISTED */
 );
 
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "genero",
   "class": "form-label"
 }, "Género:", -1
 /* HOISTED */
 );
 
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
   type: "submit",
   "class": "btn-submit",
   value: "Confirmar"
@@ -22990,22 +23024,23 @@ var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
 /* HOISTED */
 );
 
-var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)();
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)();
 
-var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
 /* HOISTED */
 );
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
-    onSubmit: _cache[6] || (_cache[6] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+    onSubmit: _cache[7] || (_cache[7] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
       return $options.submitForm && $options.submitForm.apply($options, arguments);
     }, ["prevent"])),
-    "class": "form"
+    "class": "form",
+    enctype: "multipart/form-data"
   }, [_hoisted_2, _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "text",
     id: "titulo",
@@ -23043,26 +23078,35 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     placeholder: "Escriba su descripción"
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.descripcion]]), _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.descripcion]]), _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "file",
+    onChange: _cache[4] || (_cache[4] = function () {
+      return $options.uploadFile && $options.uploadFile.apply($options, arguments);
+    }),
+    id: "caratula",
+    accept: "image/png, image/jpeg"
+  }, null, 32
+  /* HYDRATE_EVENTS */
+  ), _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "number",
     id: "precio",
     "class": "form-input",
-    "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
+    "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
       return $data.form.precio = $event;
     }),
     placeholder: "Escriba el precio"
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.precio]]), _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.precio]]), _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     id: "genero",
     "class": "form-input",
-    "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
+    "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
       return $data.form.genero = $event;
     }),
     placeholder: "Escriba el genero"
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.genero]]), _hoisted_9, _hoisted_10, _hoisted_11, _hoisted_12], 32
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.genero]]), _hoisted_10, _hoisted_11, _hoisted_12, _hoisted_13], 32
   /* HYDRATE_EVENTS */
   )]);
 }
@@ -23168,6 +23212,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVN
 var _hoisted_2 = {
   "class": "wordCont"
 };
+var _hoisted_3 = ["src"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
 
@@ -23183,7 +23228,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       "class": "cardCont"
     }, {
       "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-        return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Titulo: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(libro.titulo), 1
+        return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+          src: "/storage/".concat($options.getOriginalPath(libro.caratula)),
+          alt: ""
+        }, null, 8
+        /* PROPS */
+        , _hoisted_3), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Titulo: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(libro.titulo), 1
         /* TEXT */
         ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Autor: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(libro.autor), 1
         /* TEXT */
@@ -23216,50 +23266,64 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render)
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-/* harmony import */ var _public_images_libro1_jpg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../public/images/libro1.jpg */ "./public/images/libro1.jpg");
-
 
 
 var _withScopeId = function _withScopeId(n) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-18ec83b9"), n = n(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)(), n;
 };
 
-var _hoisted_1 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    "class": "dibujo1"
-  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-    style: {
-      "color": "white",
-      "font-size": "35px"
-    }
-  }, "Detalles del Libro"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-    src: _public_images_libro1_jpg__WEBPACK_IMPORTED_MODULE_1__["default"],
-    width: "220",
-    height: "300"
-  })], -1
+var _hoisted_1 = {
+  key: 0
+};
+
+var _hoisted_2 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Cargando...", -1
   /* HOISTED */
   );
 });
 
-var _hoisted_2 = {
+var _hoisted_3 = [_hoisted_2];
+var _hoisted_4 = {
+  key: 1
+};
+
+var _hoisted_5 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+    style: {
+      "color": "white",
+      "font-size": "35px"
+    }
+  }, "Detalles del Libro", -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_6 = {
+  "class": "totalCont"
+};
+var _hoisted_7 = {
   "class": "dibujo1"
 };
-var _hoisted_3 = {
+var _hoisted_8 = ["src"];
+var _hoisted_9 = {
+  "class": "dibujo1"
+};
+var _hoisted_10 = {
   "class": "formulario"
 };
-var _hoisted_4 = {
+var _hoisted_11 = {
   style: {
     "font-size": "27px"
   }
 };
-var _hoisted_5 = {
+var _hoisted_12 = {
   type: "Autor:"
 };
-var _hoisted_6 = {
+var _hoisted_13 = {
   type: "Genero"
 };
 
-var _hoisted_7 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_14 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
     type: "Contenido Apto"
   }, "Mayores de 18 Años", -1
@@ -23267,30 +23331,34 @@ var _hoisted_7 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_8 = {
+var _hoisted_15 = {
   type: "Precio"
 };
 
-var _hoisted_9 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_16 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-    type: "Resume"
+    type: "Sinopsis"
   }, "La Novela habla sobre la relación madre-hija. Delia ha perdido a su madre, que ha muerto misteriosamente ahogada cuando estaba de camino a visitarla. Cuando regresa a Nápoles, ciudad en la que creció y de la que siempre ha querido huir, se reencuentra con unos personajes y un pasado perturbadores. ", -1
   /* HOISTED */
   );
 });
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.libro.titulo), 1
+  return $data.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, _hoisted_3)) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+    src: "/storage/".concat($options.getOriginalPath($data.libro.caratula)),
+    width: "200",
+    height: "90"
+  }, null, 8
+  /* PROPS */
+  , _hoisted_8)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.libro.titulo), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.libro.autor), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.libro.autor), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.libro.genero), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.libro.genero), 1
   /* TEXT */
-  ), _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_8, "S/. " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.libro.precio), 1
+  ), _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_15, "S/. " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.libro.precio), 1
   /* TEXT */
-  ), _hoisted_9])])], 64
-  /* STABLE_FRAGMENT */
-  );
+  ), _hoisted_16])])])]));
 }
 
 /***/ }),
@@ -23832,7 +23900,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.formulario[data-v-18ec83b9]{\r\n    position:relative;\r\n    background:white;\r\n    width: 450px;\r\n    border-radius:8px;\r\n    padding: 20px 30px;\r\n    font-family: \"Montserrat\",sans-serif;\r\n    left: 250px;\r\n    top: -350px;\n}\n.dibujo1[data-v-18ec83b9]{\r\n    position:relative;\r\n    left: 200px;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.totalCont[data-v-18ec83b9]{\r\n    display: flex;\r\n    justify-content: center;\r\n    gap: 200px;\n}\n.formulario[data-v-18ec83b9]{\r\n    position:relative;\r\n    background:white;\r\n    width: 450px;\r\n    border-radius:8px;\r\n    padding: 20px 30px;\r\n    font-family: \"Montserrat\",sans-serif;\n}\n.dibujo1[data-v-18ec83b9]{\r\n    left: 200px;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

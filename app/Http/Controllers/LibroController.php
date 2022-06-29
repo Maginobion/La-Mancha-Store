@@ -36,15 +36,19 @@ class LibroController extends Controller
      */
     public function store(Request $request)
     {
+        $destination_path = "public/images";
+        $path = $request->file('caratula')->store($destination_path);
         $libro = new Libro();
         $libro->titulo = $request->titulo;
         $libro->autor = $request->autor;
         $libro->editorial = $request->editorial;
+        $libro->caratula = $path;
         $libro->descripcion = $request->descripcion;
         $libro->precio = $request->precio;
         $libro->genero = $request->genero;
 
-        $libro->save();
+        $result = $libro->save();
+        return "guardado";
     }
 
     /**
@@ -84,6 +88,7 @@ class LibroController extends Controller
         $libro->titulo = $request->titulo;
         $libro->autor = $request->autor;
         $libro->editorial = $request->editorial;
+        $libro->caratula = $request->file('caratula')->store('apiDocs');
         $libro->descripcion = $request->descripcion;
         $libro->precio = $request->precio;
         $libro->genero = $request->genero;
