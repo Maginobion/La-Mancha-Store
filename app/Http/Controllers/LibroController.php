@@ -38,11 +38,12 @@ class LibroController extends Controller
     {
         $destination_path = "public/images";
         $path = $request->file('caratula')->store($destination_path);
+        $real_path = str_replace("public/","", $path);
         $libro = new Libro();
         $libro->titulo = $request->titulo;
         $libro->autor = $request->autor;
         $libro->editorial = $request->editorial;
-        $libro->caratula = $path;
+        $libro->caratula = $real_path;
         $libro->descripcion = $request->descripcion;
         $libro->precio = $request->precio;
         $libro->genero = $request->genero;

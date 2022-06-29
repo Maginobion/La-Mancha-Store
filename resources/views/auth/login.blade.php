@@ -47,6 +47,12 @@
                     </a>
                 @endif
 
+                @if (Route::has('password.request'))
+                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="/register">
+                        {{ __('No tienes cuenta? Regístrate') }}
+                    </a>
+                @endif
+
                 <x-button class="ml-3">
                     {{ __('Log in') }}
                 </x-button>

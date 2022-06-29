@@ -22683,10 +22683,6 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (data) {
         return _this.libros = data;
       });
-    },
-    getOriginalPath: function getOriginalPath(caratula) {
-      var index = caratula.indexOf('/');
-      return caratula.substring(index + 1);
     }
   },
   mounted: function mounted() {
@@ -23229,7 +23225,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }, {
       "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
         return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-          src: "/storage/".concat($options.getOriginalPath(libro.caratula)),
+          src: "/storage/".concat(libro.caratula),
           alt: ""
         }, null, 8
         /* PROPS */
@@ -23291,7 +23287,8 @@ var _hoisted_5 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
     style: {
       "color": "white",
-      "font-size": "35px"
+      "font-size": "35px",
+      "text-align": "center"
     }
   }, "Detalles del Libro", -1
   /* HOISTED */
@@ -23302,7 +23299,7 @@ var _hoisted_6 = {
   "class": "totalCont"
 };
 var _hoisted_7 = {
-  "class": "dibujo1"
+  "class": "imageCont"
 };
 var _hoisted_8 = ["src"];
 var _hoisted_9 = {
@@ -23345,7 +23342,7 @@ var _hoisted_16 = /*#__PURE__*/_withScopeId(function () {
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return $data.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, _hoisted_3)) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-    src: "/storage/".concat($options.getOriginalPath($data.libro.caratula)),
+    src: "/storage/".concat($data.libro.caratula),
     width: "200",
     height: "90"
   }, null, 8
@@ -23900,7 +23897,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.totalCont[data-v-18ec83b9]{\r\n    display: flex;\r\n    justify-content: center;\r\n    gap: 200px;\n}\n.formulario[data-v-18ec83b9]{\r\n    position:relative;\r\n    background:white;\r\n    width: 450px;\r\n    border-radius:8px;\r\n    padding: 20px 30px;\r\n    font-family: \"Montserrat\",sans-serif;\n}\n.dibujo1[data-v-18ec83b9]{\r\n    left: 200px;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.totalCont[data-v-18ec83b9]{\r\n    display: flex;\r\n    justify-content: center;\r\n    gap: 200px;\n}\n.formulario[data-v-18ec83b9]{\r\n    position:relative;\r\n    background:white;\r\n    width: 450px;\r\n    border-radius:8px;\r\n    padding: 20px 30px;\r\n    font-family: \"Montserrat\",sans-serif;\n}\n.dibujo1[data-v-18ec83b9]{\r\n    left: 200px;\n}\r\n\r\n/* .imageCont{\r\n    max-width: 600px;\r\n    max-height: 1800px;\r\n    overflow: hidden;\r\n} */\nimg[data-v-18ec83b9]{ \r\n    height: auto;\r\n    width: auto;\r\n    max-width: 1800px;\r\n    max-height: 1800px;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

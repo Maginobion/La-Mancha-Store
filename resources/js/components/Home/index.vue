@@ -69,7 +69,7 @@
         </div>
         <div class="wordCont">
             <router-link v-for="libro of libros" :to="{name:'descripcion', params:{id:libro.id}}" v-bind:key="libro" class="cardCont">
-                <img :src="`/storage/${getOriginalPath(libro.caratula)}`" alt="">
+                <img :src="`/storage/${libro.caratula}`" alt="">
                 <p>Titulo: {{libro.titulo}}</p>
                 <p>Autor: {{libro.autor}}</p>
             </router-link>
@@ -128,10 +128,6 @@ export default {
                 .then(res => res.json())
                 .then(data=>this.libros = data);
         },
-        getOriginalPath(caratula){
-                let index = caratula.indexOf('/')
-                return caratula.substring(index+1)           
-        }
     },
     mounted(){
         this.fillLibros()

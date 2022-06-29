@@ -10,7 +10,7 @@
 
         <title>La Mancha</title>
 
-        <link href={{ asset('css/app.css') }} rel="stylesheet">  
+        <link href={{ mix('css/app.css') }} rel="stylesheet">  
         <style>
             html, body, #app{
                 height: 100%;

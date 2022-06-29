@@ -3,10 +3,10 @@
         <p>Cargando...</p>
     </div>
     <div v-else>
-        <p style="color:white; font-size: 35px;">Detalles del Libro</p>
+        <p style="color:white; font-size: 35px; text-align:center">Detalles del Libro</p>
         <div class="totalCont">
-            <div class="dibujo1">           
-                <img :src="`/storage/${getOriginalPath(libro.caratula)}`" width="200" height="90">
+            <div class="imageCont">
+                <img :src="`/storage/${libro.caratula}`" width="200" height="90">
             </div>
             <div class="dibujo1">
                 <form class="formulario">
@@ -67,5 +67,17 @@ export default {
 }
 .dibujo1{
     left: 200px;
+}
+
+/* .imageCont{
+    max-width: 600px;
+    max-height: 1800px;
+    overflow: hidden;
+} */
+img{ 
+    height: auto;
+    width: auto;
+    max-width: 1800px;
+    max-height: 1800px;
 }
 </style>
