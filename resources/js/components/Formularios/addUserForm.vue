@@ -22,7 +22,7 @@
 
 </template>
 
-<style>
+<style scoped>
 .form{
     background:white;
     margin:0;
@@ -92,7 +92,7 @@ button:hover{
 }
 
 body{
-    background:rgb(80, 79, 79);
+    background:white;
 }
 /* .form .btn1{
     margin-right: 10%;

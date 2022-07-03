@@ -3,8 +3,11 @@
 </template>
 
 <style scoped>
+a{
+    color: white;
+}
 a.router-link-exact-active{
-    color: #002f84;
+    color: #335eae;
 }
 </style>
 

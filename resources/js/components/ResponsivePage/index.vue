@@ -1,14 +1,14 @@
 <template>
     <div class="cont">
-        <slot/>
-        <VueFooter/>
-    </div>   
+        <slot/>        
+    </div>
+    <VueFooter/>
 </template>
 
 <style scoped>
     .cont{
         position: relative;
-        height: 100%;
+        padding: 20px;
     }
 </style>
 

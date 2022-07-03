@@ -1,33 +1,31 @@
 <template>
-    <div class="contenedor">
-        <form v-on:submit.prevent="submitForm" class="form" enctype="multipart/form-data">
-            <div class="form-header">
-                <h1 class="form-title">Add Libro</h1>
-            </div>
-            <label for="titulo" class="form-label">Titulo:</label>
-            <input type="text" id="titulo" class="form-input" v-model="form.titulo" placeholder="Escriba el titulo">
+    <form v-on:submit.prevent="submitForm" class="form" enctype="multipart/form-data">
+        <div class="form-header">
+            <h1 class="form-title">Add Libro</h1>
+        </div>
+        <label for="titulo" class="form-label">Titulo:</label>
+        <input type="text" id="titulo" class="form-input" v-model="form.titulo" placeholder="Escriba el titulo">
 
-            <label for="autor" class="form-label">Autor:</label>
-            <input class="form-input" id="autor" v-model="form.autor" placeholder="Escriba el autor">
+        <label for="autor" class="form-label">Autor:</label>
+        <input class="form-input" id="autor" v-model="form.autor" placeholder="Escriba el autor">
 
-            <label for="editorial" class="form-label">Editorial:</label>
-            <input class="form-input" id="editorial" v-model="form.editorial" placeholder="Escriba su telefono">
+        <label for="editorial" class="form-label">Editorial:</label>
+        <input class="form-input" id="editorial" v-model="form.editorial" placeholder="Escriba su telefono">
 
-            <label for="descripcion" class="form-label">Descripcion:</label>
-            <input class="form-input" v-model="form.descripcion" id="descripcion" placeholder="Escriba su descripción">
+        <label for="descripcion" class="form-label">Descripcion:</label>
+        <input class="form-input" v-model="form.descripcion" id="descripcion" placeholder="Escriba su descripción">
 
-            <label for="caratula" class="form-label">Caratula:</label>
-            <input type="file" @change="uploadFile" id="caratula" accept="image/png, image/jpeg">
+        <label for="caratula" class="form-label">Caratula:</label>
+        <input type="file" @change="uploadFile" id="caratula" accept="image/png, image/jpeg">
 
-            <label for="precio" class="form-label">Precio:</label>
-            <input type="number" id="precio" class="form-input" v-model="form.precio" placeholder="Escriba el precio">
+        <label for="precio" class="form-label">Precio:</label>
+        <input type="number" id="precio" class="form-input" v-model="form.precio" placeholder="Escriba el precio">
 
-            <label for="genero" class="form-label">Género:</label>
-            <input id="genero" class="form-input" v-model="form.genero" placeholder="Escriba el genero">
+        <label for="genero" class="form-label">Género:</label>
+        <input id="genero" class="form-input" v-model="form.genero" placeholder="Escriba el genero">
 
-            <input type="submit" class="btn-submit" value="Confirmar"><br> <br> 
-        </form>
-    </div>
+        <input type="submit" class="btn-submit" value="Confirmar"><br> <br> 
+    </form>
 </template>
 
 <script>
@@ -86,19 +84,9 @@ export default {
 }
 </script>
 
-<style>
-*{
-    margin: 0;
-    padding: 0;
-    -webkit-box-sizing:border-box ;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    
-}
-.contenedor{
-    margin: 50px 0;
-}
-.contenedor .form .form-header .form-title{
+<style scoped>
+
+.form-header .form-title{
     font-weight: normal;
     font-family: sans-serif;
     color:#fff;
@@ -108,10 +96,10 @@ export default {
 .form-header::first-letter{
     color:#ff851b;
 }
-.contenedor .form .form-header .form-title span{
+.form-header .form-title span{
     color:#fff;
 }
-.contenedor .form{
+.form{
     background: rgba(0,0,0,.6);
     width: 90%;
     max-width: 650px;
@@ -121,14 +109,14 @@ export default {
     padding-bottom:30px;
     border-radius: 3px;
 }
-.contenedor .form .form-label{
+.form-label{
     display:block;
     color: #ff851b;
     font-size: 16px;
     font-family: Roboto;
     position: relative;
 }
-.contenedor .form .form-input, .form-textarea{
+.form-input, .form-textarea{
     background: rgb(0, 0, 0,.7);
     border: none;
     outline:none;
@@ -141,28 +129,23 @@ export default {
     color: #FFF;
     font-family: Roboto;
 }
-   .contenedor .form .form-textarea{
-       resize:vertical;
-       max-height: 100px;
-       min-height:50px;
-   }
-   .contenedor .form .btn-submit {
-       width: 100%;
-       font-family: Roboto;
-       outline:none;
-       background: #ff851b;
-       font-size: 16px;
-       border:none;
-       color:#fff;
-       padding: 15px 0;
-       cursor: pointer;
-       transition: all .5s ease;
-   }
-.contenedor .form .btn-submit:hover{
-    background: #F29718;
+.form-textarea{
+    max-height: 100px;
+    min-height:50px;
 }
-body{
-    background-size:cover ;
-    background-attachment: fixed;
+.btn-submit {
+    width: 100%;
+    font-family: Roboto;
+    outline:none;
+    background: #ff851b;
+    font-size: 16px;
+    border:none;
+    color:#fff;
+    padding: 15px 0;
+    cursor: pointer;
+    transition: all .5s ease;
+}
+.form .btn-submit:hover{
+    background: #F29718;
 }
 </style>

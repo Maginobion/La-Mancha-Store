@@ -19,15 +19,17 @@ import AddUserForm from './components/Formularios/addUserForm.vue'
 import EditUserForm from './components/Formularios/editUserForm.vue'
 import AddLibroForm from './components/Formularios/addLibroForm.vue'
 import LibroDescripcion from './components/LibroDescripcion'
+import BusquedaLibros from './components/BusquedaLibros'
 
-const routes = [
-    {path:'/', component: Home},
+const routes = [ 
     {path:'/atencion-cliente', component: AtencionCliente},
     {path:'/carrusel', component: carrusel},
     {path:'/adduser', component: AddUserForm},
     {path:'/edituser', component: EditUserForm},
     {path:'/addlibro', component: AddLibroForm},
-    {path:'/libro/:id', name:'descripcion' ,component: LibroDescripcion}
+    {path:'/libro/:id', name:'descripcion' ,component: LibroDescripcion},
+    {path:'/search/:id', name:'busqueda', component: BusquedaLibros},
+    {path:'/', component: Home},
 ]
 
 const router = VueRouter.createRouter({

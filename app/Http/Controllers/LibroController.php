@@ -61,7 +61,6 @@ class LibroController extends Controller
     public function show(Request $request)
     {
         $libro = Libro::find($request->id);
-
         return $libro;
     }
 

@@ -12,11 +12,11 @@
                 <form class="formulario">
                     <h2 style="font-size: 27px;">{{libro.titulo}}</h2>
                     <p type="Autor:">{{libro.autor}}</p>
+                    <p type="Editorial:">{{libro.editorial}}</p>
                     <p type="Genero">{{libro.genero}}</p>
                     <p type="Contenido Apto">Mayores de 18 Años</p>
                     <p type="Precio">S/. {{libro.precio}}</p>
-                    <p type="Sinopsis">La Novela habla sobre la relación madre-hija. Delia ha perdido a su madre, que ha muerto misteriosamente ahogada cuando estaba de camino a visitarla. Cuando regresa a Nápoles, ciudad en la que creció y de la que siempre ha querido huir, se reencuentra con unos personajes y un pasado perturbadores.
-                    </p>
+                    <p type="Sinopsis">{{libro.descripcion}}</p>
                 </form>
             </div>
         </div>
@@ -37,16 +37,11 @@ export default {
         getLibro(){
             axios.get(this.url+this.$route.params.id)
                 .then(res => this.libro = res.data)
+                .finally(()=>this.loading=false)
         },
-        getOriginalPath(caratula){
-            let index = caratula.indexOf('/')
-            return caratula.substring(index+1)           
-        }
     },
     mounted(){
-        console.log(this.$route.params.id)
         this.getLibro()
-        this.loading=false
     }
 }
 </script>

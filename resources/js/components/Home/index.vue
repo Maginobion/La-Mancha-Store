@@ -68,11 +68,7 @@
                 </div>
         </div>
         <div class="wordCont">
-            <router-link v-for="libro of libros" :to="{name:'descripcion', params:{id:libro.id}}" v-bind:key="libro" class="cardCont">
-                <img :src="`/storage/${libro.caratula}`" alt="">
-                <p>Titulo: {{libro.titulo}}</p>
-                <p>Autor: {{libro.autor}}</p>
-            </router-link>
+            <LibroDisplay :libros="libros"/>
         </div>       
 </template>
 
@@ -105,7 +101,9 @@ p{
 </style>
 
 <script>
+import LibroDisplay from '../LibroDisplay'
 export default {
+        components:{ LibroDisplay },
     data(){
         return{
                 url:'http://127.0.0.1:8000/api/libros',
