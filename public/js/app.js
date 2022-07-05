@@ -22547,6 +22547,74 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/BusquedaLibros/index.vue?vue&type=script&setup=true&lang=js":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/BusquedaLibros/index.vue?vue&type=script&setup=true&lang=js ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm-bundler.js");
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  setup: function setup(__props, _ref) {
+    var expose = _ref.expose;
+    expose();
+    var route = (0,vue_router__WEBPACK_IMPORTED_MODULE_1__.useRouter)();
+    var libros = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)([]);
+    var filtrados = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)([]);
+
+    var filter = function filter() {
+      return filtrados = libros.value.filter(function (a) {
+        return a.title.includes(route.params.id);
+      });
+    };
+
+    var cargando = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(true);
+    var url = 'http://127.0.0.1:8000/api/libros';
+
+    var fillLibros = function fillLibros() {
+      fetch(url).then(function (res) {
+        return res.json();
+      }).then(function (data) {
+        return libros.value = data;
+      })["finally"](function () {
+        return cargando.value = false;
+      });
+    };
+
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onMounted)(function () {
+      fillLibros();
+      filter();
+    });
+    var __returned__ = {
+      route: route,
+      libros: libros,
+      filtrados: filtrados,
+      filter: filter,
+      cargando: cargando,
+      url: url,
+      fillLibros: fillLibros,
+      onMounted: vue__WEBPACK_IMPORTED_MODULE_0__.onMounted,
+      ref: vue__WEBPACK_IMPORTED_MODULE_0__.ref,
+      useRouter: vue_router__WEBPACK_IMPORTED_MODULE_1__.useRouter
+    };
+    Object.defineProperty(__returned__, '__isScriptSetup', {
+      enumerable: false,
+      value: true
+    });
+    return __returned__;
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/DropdownUser/index.vue?vue&type=script&lang=js":
 /*!************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/DropdownUser/index.vue?vue&type=script&lang=js ***!
@@ -22617,6 +22685,8 @@ __webpack_require__.r(__webpack_exports__);
       this.caratula = event.target.files[0];
     },
     submitForm: function submitForm() {
+      var _this = this;
+
       if (this.form.titulo === '' || this.form.autor === '' || this.form.editorial === '' || this.form.descripcion === '' || this.form.genero === '' || this.form.precio === 0 || this.image === null) {
         console.log('Llena todo');
       } else {
@@ -22638,7 +22708,9 @@ __webpack_require__.r(__webpack_exports__);
           return console.log(res);
         })["catch"](function (err) {
           return console.log(err);
-        }); // .finally(()=>window.location.replace('http://127.0.0.1:8000/dashboard'))
+        })["finally"](function () {
+          return _this.$router.push('/');
+        });
       }
     }
   }
@@ -22666,17 +22738,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       url: 'http://127.0.0.1:8000/api/libros',
-      libros: [],
-      libro: {
-        id: null,
-        titulo: '',
-        autor: '',
-        editorial: '',
-        caratula: '',
-        descripcion: '',
-        precio: 0,
-        genero: ''
-      }
+      libros: []
     };
   },
   methods: {
@@ -22912,16 +22974,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       url: 'http://127.0.0.1:8000/api/libros',
-      libros: [],
-      libro: {
-        id: null,
-        titulo: '',
-        autor: '',
-        editorial: '',
-        descripcion: '',
-        precio: 0,
-        genero: ''
-      }
+      libros: []
     };
   },
   methods: {
@@ -22986,13 +23039,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
-
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" XD ");
-
-function render(_ctx, _cache) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$route.params.id), 1
+var _hoisted_1 = {
+  key: 0
+};
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Término de búsqueda: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$route.params.id || 'Todos'), 1
   /* TEXT */
-  ), _hoisted_1], 64
+  ), $setup.cargando ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_1, "Cargando papu")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+    key: 1
+  }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.filtrados, function (libro) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", {
+      key: libro
+    }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(libro.titulo), 1
+    /* TEXT */
+    );
+  }), 128
+  /* KEYED_FRAGMENT */
+  ))], 64
   /* STABLE_FRAGMENT */
   );
 }
@@ -23409,40 +23472,56 @@ var _hoisted_7 = {
 };
 var _hoisted_8 = ["src"];
 var _hoisted_9 = {
-  "class": "dibujo1"
+  "class": "infoCard"
 };
 var _hoisted_10 = {
-  "class": "formulario"
-};
-var _hoisted_11 = {
   style: {
     "font-size": "27px"
   }
 };
-var _hoisted_12 = {
-  type: "Autor:"
-};
-var _hoisted_13 = {
-  type: "Editorial:"
-};
-var _hoisted_14 = {
-  type: "Genero"
-};
 
-var _hoisted_15 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-    type: "Contenido Apto"
-  }, "Mayores de 18 Años", -1
+var _hoisted_11 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "Autor:", -1
   /* HOISTED */
   );
 });
 
-var _hoisted_16 = {
-  type: "Precio"
-};
-var _hoisted_17 = {
-  type: "Sinopsis"
-};
+var _hoisted_12 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "Editorial:", -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_13 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "Genero", -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_14 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "Contenido Apto:", -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_15 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Mayores de 18 Años", -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_16 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "Precio:", -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_17 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "Sinopsis:", -1
+  /* HOISTED */
+  );
+});
+
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return $data.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, _hoisted_3)) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     src: "/storage/".concat($data.libro.caratula),
@@ -23450,19 +23529,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     height: "90"
   }, null, 8
   /* PROPS */
-  , _hoisted_8)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.libro.titulo), 1
+  , _hoisted_8)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.libro.titulo), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.libro.autor), 1
+  ), _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.libro.autor), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.libro.editorial), 1
+  ), _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.libro.editorial), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.libro.genero), 1
+  ), _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.libro.genero), 1
   /* TEXT */
-  ), _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_16, "S/. " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.libro.precio), 1
+  ), _hoisted_14, _hoisted_15, _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "S/. " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.libro.precio), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.libro.descripcion), 1
+  ), _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.libro.descripcion), 1
   /* TEXT */
-  )])])])]));
+  )])])]));
 }
 
 /***/ }),
@@ -23575,7 +23654,7 @@ var _withScopeId = function _withScopeId(n) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-89fd48e2"), n = n(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)(), n;
 };
 
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"contenedor-footer\" data-v-89fd48e2><div class=\"content-foo\" data-v-89fd48e2><p data-v-89fd48e2><a href=\"#\" data-v-89fd48e2><img src=\"images/mancha.jpeg\" style=\"height:80px;width:300px;\" data-v-89fd48e2></a></p><div class=\"content-foo\" data-v-89fd48e2><h4 data-v-89fd48e2>Siguenos en redes sociales</h4><a href=\"#\" data-v-89fd48e2><img src=\"images/facebook.png\" data-v-89fd48e2></a><a href=\"#\" data-v-89fd48e2><img src=\"images/instagram.png\" data-v-89fd48e2></a><a href=\"#\" data-v-89fd48e2><img src=\"images/twitter.png\" data-v-89fd48e2></a><a href=\"#\" data-v-89fd48e2><img src=\"images/linkedin.png\" data-v-89fd48e2></a><a href=\"#\" data-v-89fd48e2><img src=\"images/youtube.png\" data-v-89fd48e2></a></div></div><div class=\"content-foo\" data-v-89fd48e2><h4 data-v-89fd48e2>Sobre Nosotros</h4><p data-v-89fd48e2>Quienes somos</p><div class=\"content-foo\" data-v-89fd48e2><h4 data-v-89fd48e2>Política</h4><p data-v-89fd48e2>Políticas de privacidad</p><p data-v-89fd48e2>Políticas de cookies</p><p data-v-89fd48e2>Términos y condiciones</p></div></div><div class=\"content-foo\" data-v-89fd48e2><h4 data-v-89fd48e2>Categorías</h4><p data-v-89fd48e2>Los mas vendidos</p><p data-v-89fd48e2>Novedades</p><p data-v-89fd48e2>Ficcion</p><p data-v-89fd48e2>No ficcion</p><p data-v-89fd48e2>Infantil</p><p data-v-89fd48e2>Juvenil</p><p data-v-89fd48e2>Smartplay</p></div><div class=\"content-foo\" data-v-89fd48e2><h4 data-v-89fd48e2>Contáctanos</h4><p data-v-89fd48e2>Atención al cliente</p><p data-v-89fd48e2>947-391799</p><p data-v-89fd48e2>(llamadas y WhatsApp)</p><p data-v-89fd48e2>(Lun-Sab 9 a.m a 5 p.m)</p><p data-v-89fd48e2>atencion@crisol.com.pe</p><p data-v-89fd48e2>Comprobante electrónico</p></div><div class=\"content-foo\" data-v-89fd48e2><h4 data-v-89fd48e2>Mi cuenta</h4><p data-v-89fd48e2>Mis pedidos</p><p data-v-89fd48e2>Mis deseos</p><div class=\"content-foo\" data-v-89fd48e2><h4 data-v-89fd48e2>Medios de pago</h4><a href=\"#\" data-v-89fd48e2><img src=\"images/visa_i.png\" data-v-89fd48e2></a><a href=\"#\" data-v-89fd48e2><img src=\"images/america_i.png\" style=\"margin-left:10px;\" data-v-89fd48e2></a><a href=\"#\" data-v-89fd48e2><img src=\"images/cmr.png\" style=\"height:35px;width:50px;margin-left:10px;padding-bottom:6px;\" data-v-89fd48e2></a><div class=\"content-foo\" data-v-89fd48e2><a href=\"#\" data-v-89fd48e2><img src=\"images/efectivo.png\" style=\"height:35px;width:50px;\" data-v-89fd48e2></a><a href=\"#\" data-v-89fd48e2><img src=\"images/master.png\" style=\"height:35px;width:50px;margin-left:10px;\" data-v-89fd48e2></a><a href=\"#\" data-v-89fd48e2><img src=\"images/dinner.png\" style=\"height:35px;width:50px;margin-left:10px;\" data-v-89fd48e2></a></div></div></div></div><div class=\"titulo-final\" data-v-89fd48e2> ©LA MANCHA | INGENIERIA DE SISTEMAS </div>", 2);
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"contenedor-footer\" data-v-89fd48e2><div class=\"content-foo\" data-v-89fd48e2><a href=\"/\" data-v-89fd48e2><img src=\"images/mancha.jpeg\" style=\"height:80px;width:300px;margin-bottom:24px;\" data-v-89fd48e2></a><div class=\"content-foo\" data-v-89fd48e2><h1 data-v-89fd48e2>Síguenos en redes sociales</h1><a href=\"#\" data-v-89fd48e2><img src=\"images/facebook.png\" data-v-89fd48e2></a><a href=\"#\" data-v-89fd48e2><img src=\"images/instagram.png\" data-v-89fd48e2></a><a href=\"#\" data-v-89fd48e2><img src=\"images/twitter.png\" data-v-89fd48e2></a><a href=\"#\" data-v-89fd48e2><img src=\"images/linkedin.png\" data-v-89fd48e2></a><a href=\"#\" data-v-89fd48e2><img src=\"images/youtube.png\" data-v-89fd48e2></a></div></div><div class=\"content-foo\" data-v-89fd48e2><div class=\"content-foo\" data-v-89fd48e2><h1 data-v-89fd48e2>Sobre Nosotros</h1><p data-v-89fd48e2>Quienes somos</p></div><div class=\"content-foo\" data-v-89fd48e2><h1 data-v-89fd48e2>Política</h1><p data-v-89fd48e2>Políticas de privacidad</p><p data-v-89fd48e2>Políticas de cookies</p><p data-v-89fd48e2>Términos y condiciones</p></div></div><div class=\"content-foo\" data-v-89fd48e2><h1 data-v-89fd48e2>Categorías</h1><p data-v-89fd48e2>Los mas vendidos</p><p data-v-89fd48e2>Novedades</p><p data-v-89fd48e2>Ficcion</p><p data-v-89fd48e2>No ficcion</p><p data-v-89fd48e2>Infantil</p><p data-v-89fd48e2>Juvenil</p><p data-v-89fd48e2>Smartplay</p></div><div class=\"content-foo\" data-v-89fd48e2><h1 data-v-89fd48e2>Contáctanos</h1><p data-v-89fd48e2>Atención al cliente</p><p data-v-89fd48e2>947-391799</p><p data-v-89fd48e2>(llamadas y WhatsApp)</p><p data-v-89fd48e2>(Lun-Sab 9 a.m a 5 p.m)</p><p data-v-89fd48e2>atencion@crisol.com.pe</p><p data-v-89fd48e2>Comprobante electrónico</p></div><div class=\"content-foo\" data-v-89fd48e2><div class=\"content-foo\" data-v-89fd48e2><h1 data-v-89fd48e2>Mi cuenta</h1><p data-v-89fd48e2>Mis pedidos</p><p data-v-89fd48e2>Mis deseos</p></div><div class=\"content-foo\" data-v-89fd48e2><h1 data-v-89fd48e2>Medios de pago</h1><div class=\"content-foo\" data-v-89fd48e2><a href=\"#\" data-v-89fd48e2><img src=\"images/visa_i.png\" data-v-89fd48e2></a><a href=\"#\" data-v-89fd48e2><img src=\"images/america_i.png\" data-v-89fd48e2></a><a href=\"#\" data-v-89fd48e2><img src=\"images/cmr.png\" style=\"height:35px;width:50px;padding-bottom:6px;\" data-v-89fd48e2></a><a href=\"#\" data-v-89fd48e2><img src=\"images/efectivo.png\" style=\"height:35px;width:50px;\" data-v-89fd48e2></a><a href=\"#\" data-v-89fd48e2><img src=\"images/master.png\" style=\"height:35px;width:50px;\" data-v-89fd48e2></a><a href=\"#\" data-v-89fd48e2><img src=\"images/dinner.png\" style=\"height:35px;width:50px;\" data-v-89fd48e2></a></div></div></div></div><p class=\"titulo-final\" data-v-89fd48e2> © La Mancha | Ingeniería de Sistemas </p>", 2);
 
 var _hoisted_3 = [_hoisted_1];
 function render(_ctx, _cache) {
@@ -23665,9 +23744,9 @@ var _hoisted_6 = {
 };
 
 var _hoisted_7 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
     "class": "fa-solid fa-magnifying-glass"
-  })], -1
+  }, null, -1
   /* HOISTED */
   );
 });
@@ -23701,6 +23780,8 @@ var _hoisted_12 = {
   "class": "header-bottom"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
+
   var _component_DropdownUser = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("DropdownUser");
 
   var _component_Header_links = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Header-links");
@@ -23713,7 +23794,24 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     placeholder: "Buscar en toda la tienda"
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.search]]), _hoisted_7])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_DropdownUser, null, {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.search]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+    "class": "searchButton",
+    to: {
+      name: 'busqueda',
+      params: {
+        id: $data.search
+      }
+    }
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_7];
+    }),
+    _: 1
+    /* STABLE */
+
+  }, 8
+  /* PROPS */
+  , ["to"])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_DropdownUser, null, {
     trigger: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "loginname", {}, undefined, true)];
     }),
@@ -23984,7 +24082,7 @@ var routes = [{
   name: 'descripcion',
   component: _components_LibroDescripcion__WEBPACK_IMPORTED_MODULE_13__["default"]
 }, {
-  path: '/search/:id',
+  path: '/search/:id?',
   name: 'busqueda',
   component: _components_BusquedaLibros__WEBPACK_IMPORTED_MODULE_14__["default"]
 }, {
@@ -24101,7 +24199,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.form[data-v-2dd035f2]{\r\n    background:white;\r\n    margin:0;\r\n    width: 500px;\r\n    border-radius:8px;\r\n    box-shadow: 0 0 40px -10px #000;\r\n    margin:calc(50vh - 220px) auto;\r\n    padding: 20px 30px;\r\n    max-width: calc(100vw -40px);\r\n    box-sizing: border-box;\r\n    font-family: \"Montserrat\",sans-serif;\r\n    position:relative;\n}\nh2[data-v-2dd035f2]{\r\n    margin:10px 0;\r\n    padding-bottom: 10px;\r\n    width: 180px;\r\n    color: black;\r\n    border-bottom: 3px solid black;\n}\ninput[data-v-2dd035f2]{\r\n    width: 100%;\r\n    padding: 10px;\r\n    box-sizing: border-box;\r\n    background: none;\r\n    border:0;\r\n    font-family: \"Montserrat\",sans-serif;\r\n    transition: all .3s;\r\n    border-bottom: 2px solid grey;\n}\ninput[data-v-2dd035f2]:focus{\r\n    border-bottom: 2px solid lightblue;\n}\np[data-v-2dd035f2]:before{\r\n    content:attr(type);\r\n    display:block;\r\n    margin:28px 0 0;\r\n    font-size: 14px;\r\n    color:black;\n}\nbutton[data-v-2dd035f2]{\r\n    padding: 8px 12px;\r\n    margin:8px 0 0;\r\n    font-family: \"Montserrat\",sans-serif;\r\n    border:2px solid gray;\r\n    background: 0;\r\n    color:black;\r\n    cursor:pointer;\r\n    transition: all .3s;\r\n    align-content: center;\n}\nbutton[data-v-2dd035f2]:hover{\r\n    background: gray;\r\n    color: white;\n}\n.buttonCont[data-v-2dd035f2]{\r\n    display: flex;\r\n    justify-content: center;\r\n    gap:10px;\r\n    margin: 20px;\n}\n.botCont[data-v-2dd035f2]{\r\n    display: flex;\r\n    justify-content: space-between;\n}\nbody[data-v-2dd035f2]{\r\n    background:white;\n}\r\n/* .form .btn1{\r\n    margin-right: 10%;\r\n    margin-top: 7%;\r\n}\r\n    .form .btn2{\r\n    margin-right: 15%;\r\n    margin-top: 7%;\r\n}     */\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.form[data-v-2dd035f2]{\r\n    background:white;\r\n    margin:0;\r\n    width: 500px;\r\n    border-radius:8px;\r\n    box-shadow: 0 0 40px -10px #000;\r\n    margin: 40px auto;\r\n    padding: 20px 30px;\r\n    max-width: calc(100vw -40px);\r\n    box-sizing: border-box;\r\n    font-family: \"Montserrat\",sans-serif;\r\n    position:relative;\n}\nh2[data-v-2dd035f2]{\r\n    margin:10px 0;\r\n    padding-bottom: 10px;\r\n    width: 180px;\r\n    color: black;\r\n    border-bottom: 3px solid black;\n}\ninput[data-v-2dd035f2]{\r\n    width: 100%;\r\n    padding: 10px;\r\n    box-sizing: border-box;\r\n    background: none;\r\n    border:0;\r\n    font-family: \"Montserrat\",sans-serif;\r\n    transition: all .3s;\r\n    border-bottom: 2px solid grey;\n}\ninput[data-v-2dd035f2]:focus{\r\n    border-bottom: 2px solid lightblue;\n}\np[data-v-2dd035f2]:before{\r\n    content:attr(type);\r\n    display:block;\r\n    margin:28px 0 0;\r\n    font-size: 14px;\r\n    color:black;\n}\nbutton[data-v-2dd035f2]{\r\n    padding: 8px 12px;\r\n    margin:8px 0 0;\r\n    font-family: \"Montserrat\",sans-serif;\r\n    border:2px solid gray;\r\n    background: 0;\r\n    color:black;\r\n    cursor:pointer;\r\n    transition: all .3s;\r\n    align-content: center;\n}\nbutton[data-v-2dd035f2]:hover{\r\n    background: gray;\r\n    color: white;\n}\n.buttonCont[data-v-2dd035f2]{\r\n    display: flex;\r\n    justify-content: center;\r\n    gap:10px;\r\n    margin: 20px;\n}\n.botCont[data-v-2dd035f2]{\r\n    display: flex;\r\n    justify-content: space-between;\n}\r\n\r\n/* .form .btn1{\r\n    margin-right: 10%;\r\n    margin-top: 7%;\r\n}\r\n    .form .btn2{\r\n    margin-right: 15%;\r\n    margin-top: 7%;\r\n}     */\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -24173,7 +24271,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.totalCont[data-v-18ec83b9]{\r\n    display: flex;\r\n    justify-content: center;\r\n    gap: 200px;\n}\n.formulario[data-v-18ec83b9]{\r\n    position:relative;\r\n    background:white;\r\n    width: 450px;\r\n    border-radius:8px;\r\n    padding: 20px 30px;\r\n    font-family: \"Montserrat\",sans-serif;\n}\n.dibujo1[data-v-18ec83b9]{\r\n    left: 200px;\n}\r\n\r\n/* .imageCont{\r\n    max-width: 600px;\r\n    max-height: 1800px;\r\n    overflow: hidden;\r\n} */\nimg[data-v-18ec83b9]{ \r\n    height: auto;\r\n    width: auto;\r\n    max-width: 1800px;\r\n    max-height: 1800px;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.totalCont[data-v-18ec83b9]{\r\n    display: flex;\r\n    justify-content: center;\r\n    gap: 120px;\n}\n.infoCard[data-v-18ec83b9]{\r\n    position:relative;\r\n    background:white;\r\n    width: 450px;\r\n    border-radius:8px;\r\n    padding: 20px 30px;\r\n    font-family: \"Montserrat\",sans-serif;\r\n    border: 1px solid gray;\r\n    border-radius: 8px;\n}\n.infoCard p[data-v-18ec83b9]{\r\n    margin-bottom: 12px;\n}\n.imageCont[data-v-18ec83b9]{\r\n    text-align: center;\r\n    height: 330px;\r\n    max-width: 600px;\r\n    max-height: 1800px;\r\n    overflow: hidden;\n}\nimg[data-v-18ec83b9]{ \r\n    height: 100%;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n    max-width: 1800px;\r\n    max-height: 1800px;\n}\nh3[data-v-18ec83b9]{\r\n    font-size: 12px;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -24197,7 +24295,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.cardCont[data-v-cfe1d05e]{\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    border: 1px solid black;\r\n    width: 220px;\r\n    height: 380px;\r\n    padding: 4px;\r\n    border-radius: 8px;\r\n    background-color: #d1de21e4;\n}\n.imgCont[data-v-cfe1d05e]{ \r\n    text-align: center;\r\n    height: 330px;\n}\nimg[data-v-cfe1d05e]{\r\n    height: 100%;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\n}\np[data-v-cfe1d05e]::before{\r\n    margin: 0;\n}\n.title[data-v-cfe1d05e]{\r\n    font-weight: bold;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.cardCont[data-v-cfe1d05e]{\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    border: 1px solid black;\r\n    width: 220px;\r\n    height: 380px;\r\n    padding: 4px;\r\n    border-radius: 8px;\r\n    background-color: #f6f62a;\r\n    transition: all 0.4px ease-in;\n}\n.imgCont[data-v-cfe1d05e]{ \r\n    text-align: center;\r\n    height: 330px;\n}\nimg[data-v-cfe1d05e]{\r\n    height: 100%;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\n}\np[data-v-cfe1d05e]::before{\r\n    margin: 0;\n}\n.title[data-v-cfe1d05e]{\r\n    font-weight: bold;\n}\n.cardCont[data-v-cfe1d05e]:hover{\r\n    background-color: #f6f62add;\r\n    transform: scale(1.005);\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -24221,7 +24319,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nfooter[data-v-89fd48e2]{\r\n  display: block;\r\n  min-height: 60px;\r\n  background: #242323;\r\n  text-align: center;\r\n  padding-top: 15px;\r\n  border-top: 5px solid #4e96a8;\r\n  margin-top: 20px;\n}\n.contenedor-footer[data-v-89fd48e2]{\r\n  display: flex;\r\n  width: 100%;\r\n  justify-content: space-evenly;\r\n  margin: auto;\r\n  padding-bottom: 50px;\r\n  border-bottom: 2px solid #fff;\n}\n.content-foo[data-v-89fd48e2]{\r\n  text-align: left;\n}\n.content-foo h4[data-v-89fd48e2]{\r\n  color: #fff;\r\n  border-bottom: 1px outset #af20d3;\r\n  padding-bottom: 10px;\r\n  font-size: 20px;\r\n  text-shadow: 2px 2px 0 #000, 4px 4px 0 #000;\n}\n.content-foo p[data-v-89fd48e2]{\r\n  color: #fff;\r\n  font-size: 18px;\r\n  font-weight: 600;\r\n  text-shadow: 2px 2px 2px #1c6ea4;\n}\r\n\r\n/*.footer-social{\r\n  color: #fff;\r\n  font-size: 100%;\r\n  padding: 2%;\r\n}*/\n.titulo-final[data-v-89fd48e2]{\r\n  text-align: center;\r\n  font-size: 24px;\r\n  margin: 20px 0 0 0;\r\n  color: #fff;\r\n  padding: 5px;\r\n  text-shadow: 2px 2px 0 #000, 4px 4px 0 #000;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nfooter[data-v-89fd48e2]{\r\n  display: block;\r\n  min-height: 60px;\r\n  background: #242323;\r\n  text-align: center;\r\n  padding-top: 15px;\r\n  border-top: 5px solid #4e96a8;\r\n  margin-top: 20px;\n}\n.contenedor-footer[data-v-89fd48e2]{\r\n  display: flex;\r\n  width: 100%;\r\n  justify-content: space-evenly;\r\n  margin: auto;\r\n  padding-bottom: 50px;\r\n  border-bottom: 2px solid #fff;\n}\n.content-foo[data-v-89fd48e2]{\r\n  text-align: left;\r\n  margin-bottom: 16px;\n}\n.content-foo h1[data-v-89fd48e2]{\r\n  color: #fff;\r\n  border-bottom: 1px solid white;\r\n  padding-bottom: 4px;\r\n  margin-bottom: 8px;\r\n  font-size: 20px;\n}\n.content-foo p[data-v-89fd48e2]{\r\n  color: rgb(198, 205, 201);\r\n  margin: 4px 0;\r\n  font-size: 16px;\r\n  font-weight: normal;\n}\n.titulo-final[data-v-89fd48e2]{\r\n  text-align: center;\r\n  font-size: 20px;\r\n  color: #fff;\r\n  padding: 10px;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -24269,7 +24367,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n@media (max-width: 600) {\n.header[data-v-8d7cfbfe]{\r\n        display: flex;\r\n        justify-items: center;\r\n        margin-left: 20px;\n}\n}\n.header[data-v-8d7cfbfe] {\r\n    width: 100%;\r\n    padding: 1rem;\r\n    background-color: black;\n}\n.header-top[data-v-8d7cfbfe] {\r\n    padding: 1rem 1rem 0 1rem;\r\n    display: flex;\r\n    align-items: center;\n}\n.header-top .img[data-v-8d7cfbfe]{\r\n    width: 100%;\r\n    height: 100%;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\n}\nimg[data-v-8d7cfbfe]{\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n    height: 100%;\r\n    margin-bottom: 50px;\n}\n.search-bar[data-v-8d7cfbfe] {\r\n    flex-grow: 1;\r\n    width: 100%;\r\n    padding: 0 1.5rem;\r\n    display: flex;\r\n    flex-direction: column-reverse;\n}\nform[data-v-8d7cfbfe] {\r\n    width: 100%;\n}\n.search[data-v-8d7cfbfe] {\r\n    display: flex;\r\n    border: 1px solid #002f84;\r\n    border-radius: .5rem;\n}\ninput[data-v-8d7cfbfe] {\r\n    flex-grow: 1;\r\n    padding: .5rem 1rem;\r\n    font-size: 1.125rem;\r\n    border: none;\r\n    border-top-left-radius: 0.5rem;\r\n    border-bottom-left-radius: 0.5rem;\r\n    outline: none;\n}\n.search-bar form .search button[data-v-8d7cfbfe] {\r\n    border: none;\r\n    outline: none;\r\n    background: #ffbe07;\r\n    padding: 0 1rem;\r\n    border-radius: 0 .5rem .5rem 0;\r\n    cursor: pointer;\n}\ni[data-v-8d7cfbfe] {\r\n    font-size: 1.125rem;\r\n    color: #002f84;\n}\n.buttons[data-v-8d7cfbfe] {\r\n    padding: 0 1rem;\r\n    display: flex;\r\n    align-items: flex-end;\n}\n.login[data-v-8d7cfbfe] {\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    padding: 0 1rem;\r\n    align-items: center;\r\n    border: none;\r\n    outline: none;\r\n    cursor: pointer;\r\n    background: transparent;\n}\n.buttons .shopping-cart[data-v-8d7cfbfe] {\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    padding: 0 1rem;\r\n    align-items: center;\r\n    border: none;\r\n    outline: none;\r\n    cursor: pointer;\r\n    background: transparent;\n}\n.buttons .shopping-cart i[data-v-8d7cfbfe] {\r\n    font-size: 2.25rem;\r\n    padding-bottom: .5rem;\r\n    color: #002f84;\n}\n.header-bottom[data-v-8d7cfbfe] {\r\n    margin: 1rem 0;\n}\n.header-bottom ul[data-v-8d7cfbfe] {\r\n    display: flex;\r\n    list-style: none;\r\n    justify-content: center;\n}\n.header-bottom ul a[data-v-8d7cfbfe] {\r\n    padding: .5rem 1.75rem;\r\n    text-transform: uppercase;\r\n    border-right: 1px solid #002f84;\r\n    letter-spacing: 0.125rem;\r\n    transition: .3s ease;\r\n    text-decoration: none;\n}\n.header-bottom ul a[data-v-8d7cfbfe]:last-child {\r\n    border-right: 0px solid #002f84;\n}\n.header-bottom ul a[data-v-8d7cfbfe]:hover {\r\n    background: #002f84;\r\n    color: #fff;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n@media (max-width: 600) {\n.header[data-v-8d7cfbfe]{\r\n        display: flex;\r\n        justify-items: center;\r\n        margin-left: 20px;\n}\n}\n.header[data-v-8d7cfbfe] {\r\n    width: 100%;\r\n    padding: 1rem;\r\n    background-color: black;\n}\n.header-top[data-v-8d7cfbfe] {\r\n    padding: 1rem 1rem 0 1rem;\r\n    display: flex;\r\n    align-items: center;\r\n    margin-bottom: 20px;\n}\n.header-top .img[data-v-8d7cfbfe]{\r\n    width: 100%;\r\n    height: 100%;\r\n    align-self: center;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\n}\nimg[data-v-8d7cfbfe]{\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n    height: 100%;\n}\n.search-bar[data-v-8d7cfbfe] {\r\n    flex-grow: 1;\r\n    width: 100%;\r\n    padding: 0 1.5rem;\r\n    display: flex;\r\n    flex-direction: column-reverse;\n}\nform[data-v-8d7cfbfe] {\r\n    width: 100%;\n}\n.search[data-v-8d7cfbfe] {\r\n    display: flex;\r\n    border: 1px solid #002f84;\r\n    border-radius: .5rem;\n}\ninput[data-v-8d7cfbfe] {\r\n    flex-grow: 1;\r\n    padding: .5rem 1rem;\r\n    font-size: 1.125rem;\r\n    border: none;\r\n    border-top-left-radius: 0.5rem;\r\n    border-bottom-left-radius: 0.5rem;\r\n    outline: none;\n}\n.searchButton[data-v-8d7cfbfe] {\r\n    background: #ffbe07;\r\n    padding: 0 1rem;\r\n    display: flex;\r\n    align-items: center;\r\n    border-radius: 0 .5rem .5rem 0;\r\n    cursor: pointer;\n}\ni[data-v-8d7cfbfe] {\r\n    font-size: 1.125rem;\r\n    color: #002f84;\n}\n.buttons[data-v-8d7cfbfe] {\r\n    padding: 0 1rem;\r\n    display: flex;\r\n    align-items: flex-end;\n}\n.login[data-v-8d7cfbfe] {\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    padding: 0 1rem;\r\n    align-items: center;\r\n    border: none;\r\n    outline: none;\r\n    cursor: pointer;\r\n    background: transparent;\n}\n.buttons .shopping-cart[data-v-8d7cfbfe] {\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    padding: 0 1rem;\r\n    align-items: center;\r\n    border: none;\r\n    outline: none;\r\n    cursor: pointer;\r\n    background: transparent;\n}\n.buttons .shopping-cart i[data-v-8d7cfbfe] {\r\n    font-size: 2.25rem;\r\n    padding-bottom: .5rem;\r\n    color: #002f84;\n}\n.header-bottom[data-v-8d7cfbfe] {\r\n    margin: 1rem 0;\n}\n.header-bottom ul[data-v-8d7cfbfe] {\r\n    display: flex;\r\n    list-style: none;\r\n    justify-content: center;\n}\n.header-bottom ul a[data-v-8d7cfbfe] {\r\n    padding: .5rem 1.75rem;\r\n    text-transform: uppercase;\r\n    border-right: 1px solid #002f84;\r\n    letter-spacing: 0.125rem;\r\n    transition: .3s ease;\r\n    text-decoration: none;\n}\n.header-bottom ul a[data-v-8d7cfbfe]:last-child {\r\n    border-right: 0px solid #002f84;\n}\n.header-bottom ul a[data-v-8d7cfbfe]:hover {\r\n    background: #002f84;\r\n    color: #fff;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -24317,7 +24415,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.cont[data-v-095b6fde]{\r\n        position: relative;\r\n        padding: 20px;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.cont[data-v-095b6fde]{\r\n        position: relative;\r\n        padding: 20px;\r\n        min-height: calc(100vh - 775px);\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -42802,12 +42900,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _index_vue_vue_type_template_id_d88fcc06__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.vue?vue&type=template&id=d88fcc06 */ "./resources/js/components/BusquedaLibros/index.vue?vue&type=template&id=d88fcc06");
-/* harmony import */ var C_Users_USUARIO_Desktop_PROGRAMAGOD_Proyectos_Laravel_la_mancha_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var _index_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.vue?vue&type=script&setup=true&lang=js */ "./resources/js/components/BusquedaLibros/index.vue?vue&type=script&setup=true&lang=js");
+/* harmony import */ var C_Users_USUARIO_Desktop_PROGRAMAGOD_Proyectos_Laravel_la_mancha_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
-const script = {}
+
+
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_Users_USUARIO_Desktop_PROGRAMAGOD_Proyectos_Laravel_la_mancha_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__["default"])(script, [['render',_index_vue_vue_type_template_id_d88fcc06__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/BusquedaLibros/index.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_USUARIO_Desktop_PROGRAMAGOD_Proyectos_Laravel_la_mancha_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_index_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_index_vue_vue_type_template_id_d88fcc06__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/BusquedaLibros/index.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -43250,6 +43350,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_index_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_index_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./index.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Atencion-cliente/index.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./resources/js/components/BusquedaLibros/index.vue?vue&type=script&setup=true&lang=js":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/components/BusquedaLibros/index.vue?vue&type=script&setup=true&lang=js ***!
+  \*********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_index_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_index_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./index.vue?vue&type=script&setup=true&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/BusquedaLibros/index.vue?vue&type=script&setup=true&lang=js");
  
 
 /***/ }),

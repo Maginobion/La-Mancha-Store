@@ -9,6 +9,7 @@
     .cont{
         position: relative;
         padding: 20px;
+        min-height: calc(100vh - 775px);
     }
 </style>
 

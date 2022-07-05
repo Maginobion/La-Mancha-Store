@@ -98,15 +98,6 @@ export default {
         return{
                 url:'http://127.0.0.1:8000/api/libros',
                 libros:[],
-                libro:{
-                        id: null,
-                        titulo:'',
-                        autor:'',
-                        editorial:'',
-                        descripcion:'',
-                        precio: 0,
-                        genero:'',
-                }
         }
     },
     methods: {

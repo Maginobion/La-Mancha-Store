@@ -77,7 +77,7 @@ export default {
                     }
                 }).then(res => console.log(res))
                     .catch(err=>console.log(err))
-                    // .finally(()=>window.location.replace('http://127.0.0.1:8000/dashboard'))
+                    .finally(()=>this.$router.push('/'))
             }          
         }
     }

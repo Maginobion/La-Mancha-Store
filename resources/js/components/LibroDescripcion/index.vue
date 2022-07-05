@@ -8,16 +8,20 @@
             <div class="imageCont">
                 <img :src="`/storage/${libro.caratula}`" width="200" height="90">
             </div>
-            <div class="dibujo1">
-                <form class="formulario">
-                    <h2 style="font-size: 27px;">{{libro.titulo}}</h2>
-                    <p type="Autor:">{{libro.autor}}</p>
-                    <p type="Editorial:">{{libro.editorial}}</p>
-                    <p type="Genero">{{libro.genero}}</p>
-                    <p type="Contenido Apto">Mayores de 18 Años</p>
-                    <p type="Precio">S/. {{libro.precio}}</p>
-                    <p type="Sinopsis">{{libro.descripcion}}</p>
-                </form>
+            <div class="infoCard">
+                <h2 style="font-size: 27px;">{{libro.titulo}}</h2>
+                <h3>Autor:</h3>
+                <p>{{libro.autor}}</p>
+                <h3>Editorial:</h3>
+                <p>{{libro.editorial}}</p>
+                <h3>Genero</h3>
+                <p>{{libro.genero}}</p>
+                <h3>Contenido Apto:</h3>
+                <p>Mayores de 18 Años</p>
+                <h3>Precio:</h3>
+                <p>S/. {{libro.precio}}</p>
+                <h3>Sinopsis:</h3>
+                <p>{{libro.descripcion}}</p>
             </div>
         </div>
     </div>
@@ -50,29 +54,38 @@ export default {
 .totalCont{
     display: flex;
     justify-content: center;
-    gap: 200px;
+    gap: 120px;
 }
-.formulario{
+.infoCard{
     position:relative;
     background:white;
     width: 450px;
     border-radius:8px;
     padding: 20px 30px;
     font-family: "Montserrat",sans-serif;
-}
-.dibujo1{
-    left: 200px;
+    border: 1px solid gray;
+    border-radius: 8px;
 }
 
-/* .imageCont{
+.infoCard p{
+    margin-bottom: 12px;
+}
+
+.imageCont{
+    text-align: center;
+    height: 330px;
     max-width: 600px;
     max-height: 1800px;
     overflow: hidden;
-} */
+}
+
 img{ 
-    height: auto;
-    width: auto;
+    height: 100%;
+    object-fit: cover;
     max-width: 1800px;
     max-height: 1800px;
+}
+h3{
+    font-size: 12px;
 }
 </style>

@@ -28,7 +28,7 @@ const routes = [
     {path:'/edituser', component: EditUserForm},
     {path:'/addlibro', component: AddLibroForm},
     {path:'/libro/:id', name:'descripcion' ,component: LibroDescripcion},
-    {path:'/search/:id', name:'busqueda', component: BusquedaLibros},
+    {path:'/search/:id?', name:'busqueda', component: BusquedaLibros},
     {path:'/', component: Home},
 ]
 

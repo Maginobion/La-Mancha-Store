@@ -1,33 +1,31 @@
 <template>
 <footer>
       <div class="contenedor-footer">
+        <div class="content-foo">
+          <a href="/"><img src="images/mancha.jpeg" style="height: 80px; width:300px; margin-bottom: 24px;"> </a>
           <div class="content-foo">
-          <p>
-          <a href="#"><img src="images/mancha.jpeg" style="height: 80px; width:300px"> </a>
-          </p>
-          <div class="content-foo">
-          <h4>Siguenos en redes sociales</h4>
-          <a href="#"><img src="images/facebook.png"> </a>
-          <a href="#"><img src="images/instagram.png"> </a>
-          <a href="#"><img src="images/twitter.png"> </a>
-          <a href="#"><img src="images/linkedin.png"> </a>
-          <a href="#"><img src="images/youtube.png"> </a>
-          
-        </div>
-         
+            <h1>Síguenos en redes sociales</h1>
+            <a href="#"><img src="images/facebook.png"> </a>
+            <a href="#"><img src="images/instagram.png"> </a>
+            <a href="#"><img src="images/twitter.png"> </a>
+            <a href="#"><img src="images/linkedin.png"> </a>
+            <a href="#"><img src="images/youtube.png"> </a>          
+          </div>        
         </div>
         <div class="content-foo">
-          <h4>Sobre Nosotros</h4>
-          <p>Quienes somos</p>
           <div class="content-foo">
-          <h4>Política</h4>
-          <p>Políticas de privacidad</p>
-          <p>Políticas de cookies</p>
-          <p>Términos y condiciones</p>
-        </div>
+            <h1>Sobre Nosotros</h1>
+            <p>Quienes somos</p>
+          </div>
+          <div class="content-foo">
+            <h1>Política</h1>
+            <p>Políticas de privacidad</p>
+            <p>Políticas de cookies</p>
+            <p>Términos y condiciones</p>
+          </div>
         </div>
         <div class="content-foo">
-          <h4>Categorías</h4>
+          <h1>Categorías</h1>
           <p>Los mas vendidos</p>
           <p>Novedades</p>
           <p>Ficcion</p>
@@ -38,7 +36,7 @@
         </div>
         
         <div class="content-foo">
-          <h4>Contáctanos</h4>
+          <h1>Contáctanos</h1>
           <p>Atención al cliente</p>
           <p>947-391799</p>
           <p>(llamadas y WhatsApp)</p>
@@ -47,31 +45,28 @@
           <p>Comprobante electrónico</p>
         </div>
         <div class="content-foo">
-          <h4>Mi cuenta</h4>
-          <p>Mis pedidos</p>
-          <p>Mis deseos</p>
           <div class="content-foo">
-          <h4>Medios de pago</h4>
-          <a href="#"><img src="images/visa_i.png"> </a>
-          <a href="#"><img src="images/america_i.png" style="margin-left:10px"> </a>
-          <a href="#"><img src="images/cmr.png" style="height: 35px; width:50px  ;margin-left:10px;padding-bottom: 6px;"> </a>
+            <h1>Mi cuenta</h1>
+            <p>Mis pedidos</p>
+            <p>Mis deseos</p>
+          </div>
           <div class="content-foo">
-          <a href="#"><img src="images/efectivo.png" style="height: 35px; width:50px"> </a>
-          <a href="#"><img src="images/master.png" style="height: 35px; width:50px ;margin-left:10px"> </a>
-          <a href="#"><img src="images/dinner.png" style="height: 35px; width:50px ;margin-left:10px"> </a>
+            <h1>Medios de pago</h1>
+            <div class="content-foo">
+              <a href="#"><img src="images/visa_i.png"> </a>
+              <a href="#"><img src="images/america_i.png"> </a>
+              <a href="#"><img src="images/cmr.png" style="height: 35px; width:50px;padding-bottom: 6px;"> </a>      
+              <a href="#"><img src="images/efectivo.png" style="height: 35px; width:50px"> </a>
+              <a href="#"><img src="images/master.png" style="height: 35px; width:50px"> </a>
+              <a href="#"><img src="images/dinner.png" style="height: 35px; width:50px"> </a>
+            </div>
           </div>
         </div>
-
-        </div>
-        
-
       </div>
-      <div class="titulo-final">
-        &copy;LA MANCHA | INGENIERIA DE SISTEMAS
-      </div>
+      <p class="titulo-final">
+        ©	La Mancha | Ingeniería de Sistemas
+      </p>
     </footer>
-
-
 </template>
 
 
@@ -98,35 +93,28 @@ footer{
 
 .content-foo{
   text-align: left;
+  margin-bottom: 16px;
 }
 
-.content-foo h4{
+.content-foo h1{
   color: #fff;
-  border-bottom: 1px outset #af20d3;
-  padding-bottom: 10px;
+  border-bottom: 1px solid white;
+  padding-bottom: 4px;
+  margin-bottom: 8px;
   font-size: 20px;
-  text-shadow: 2px 2px 0 #000, 4px 4px 0 #000;
 }
 
 .content-foo p{
-  color: #fff;
-  font-size: 18px;
-  font-weight: 600;
-  text-shadow: 2px 2px 2px #1c6ea4;
+  color: rgb(198, 205, 201);
+  margin: 4px 0;
+  font-size: 16px;
+  font-weight: normal;
 }
-
-/*.footer-social{
-  color: #fff;
-  font-size: 100%;
-  padding: 2%;
-}*/
 
 .titulo-final{
   text-align: center;
-  font-size: 24px;
-  margin: 20px 0 0 0;
+  font-size: 20px;
   color: #fff;
-  padding: 5px;
-  text-shadow: 2px 2px 0 #000, 4px 4px 0 #000;
+  padding: 10px;
 }
 </style>

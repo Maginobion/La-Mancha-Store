@@ -5,8 +5,7 @@
         </div>       
         <p class="title">Titulo: {{libro.titulo}}</p>
         <p>Autor: {{libro.autor}}</p>
-    </div>
-    
+    </div>    
 </template>
 
 <script setup>
@@ -23,7 +22,8 @@
     height: 380px;
     padding: 4px;
     border-radius: 8px;
-    background-color: #d1de21e4;
+    background-color: #f6f62a;
+    transition: all 0.4px ease-in;
 }
 .imgCont{ 
     text-align: center;
@@ -38,5 +38,9 @@ p::before{
 }
 .title{
     font-weight: bold;
+}
+.cardCont:hover{
+    background-color: #f6f62add;
+    transform: scale(1.005);
 }
 </style>

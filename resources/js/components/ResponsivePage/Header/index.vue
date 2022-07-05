@@ -6,9 +6,9 @@
                 <form action="#">
                     <div class="search">
                         <input type="text" v-model="search" placeholder="Buscar en toda la tienda">
-                        <button>
+                        <router-link class="searchButton" :to="{name:'busqueda', params:{id: search}}">
                             <i class="fa-solid fa-magnifying-glass"></i>
-                        </button>
+                        </router-link>
                     </div>
                 </form>
             </div>
@@ -78,18 +78,19 @@ export default {
     padding: 1rem 1rem 0 1rem;
     display: flex;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 .header-top .img{
     width: 100%;
     height: 100%;
+    align-self: center;
     object-fit: cover;
 }
 
 img{
     object-fit: cover;
     height: 100%;
-    margin-bottom: 50px;
 }
 
 .search-bar {
@@ -120,11 +121,11 @@ input {
     outline: none;
 }
 
-.search-bar form .search button {
-    border: none;
-    outline: none;
+.searchButton {
     background: #ffbe07;
     padding: 0 1rem;
+    display: flex;
+    align-items: center;
     border-radius: 0 .5rem .5rem 0;
     cursor: pointer;
 }
