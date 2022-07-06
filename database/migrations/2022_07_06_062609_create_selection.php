@@ -14,7 +14,7 @@ return new class extends Migration {
     {
         Schema::create('selection', function (Blueprint $table) {
             $table->id();
-            $table->string("id_usuario");
+            $table->integer("id_usuario");
             $table->integer("id_libro");
             $table->timestamps();
         });
