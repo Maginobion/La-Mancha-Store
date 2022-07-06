@@ -29,7 +29,7 @@ const routes = [
     {path:'/edituser', component: EditUserForm},
     {path:'/addlibro', component: AddLibroForm},
     {path:'/libro/:id', name:'descripcion' ,component: LibroDescripcion},
-    {path:'/search/:id?', name:'busqueda', component: BusquedaLibros},
+    {path:'/search/:word?', name:'busqueda', component: BusquedaLibros},
     {path: '/listaSeleccion', name:'listaSeleccion', component: ListaSeleccion},
     {path:'/', component: Home},
 ]

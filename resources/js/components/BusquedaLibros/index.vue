@@ -1,33 +1,41 @@
 <template>
-    <p>Término de búsqueda: {{$route.params.id || 'Todos'}}</p>
+    <p>Término de búsqueda: {{$route.params.word || 'Todos'}}</p>
     <p v-if="cargando">Cargando papu</p>
-    <p v-else v-for="libro in filtrados" :key="libro">{{libro.titulo}}</p>
+    <div v-else class="xd">
+        <LibroDisplay :libros="filtrados"/>
+    </div>   
 </template>
 
 <script setup>
-import { onMounted, ref } from "vue";
-import { useRouter } from 'vue-router'
+import LibroDisplay from '../LibroDisplay'
+import { computed, onMounted, ref } from "vue";
+import { useRoute } from 'vue-router'
+import axios from 'axios';
 
-    const route = useRouter();
+    const route = useRoute();
     const libros = ref([]);
-    let filtrados = ref([])
-    const filter = () => filtrados = libros.value.filter(a=>a.title.includes(route.params.id))
     const cargando = ref(true);
-    const url = 'https://la-mancha.herokuapp.com/api/libros'
+    const url = 'http://127.0.0.1:8000/api/libros'
+    const filtrados = computed(()=>{
+        return libros.value.filter(a=>a.titulo.includes(route.params.word))
+    })   
     const fillLibros = () =>{
-        fetch(url)
-            .then(res => res.json())
-            .then(data => libros.value = data)
-            .finally(()=>cargando.value=false);
+        axios.get(url)
+            .then(data => libros.value = data.data)
+            .finally(()=>{
+                cargando.value=false
+                console.log(libros.value.toString)    
+            });
     }      
     
     onMounted(() => {
-        fillLibros()
-        filter()
+        fillLibros()       
     })
     
 </script>
 
 <style scoped>
-
+.xd{
+    display: flex;
+}
 </style>

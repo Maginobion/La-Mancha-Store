@@ -48,7 +48,7 @@ try {
 export default {
     data() {
         return {
-            url: 'https://la-mancha.herokuapp.com/api/libros/',
+            url: 'http://127.0.0.1:8000/api/libros',
             libro: {},
             loading: true,
             usuario: final,

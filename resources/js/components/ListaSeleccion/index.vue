@@ -46,7 +46,7 @@ try {
 export default {
     data() {
         return {
-            url: 'https://la-mancha.herokuapp.com/api/listado/',
+            url: 'http://127.0.0.1:8000/api/listado/',
             listado: [],
             loading: true,
             usuario: final,

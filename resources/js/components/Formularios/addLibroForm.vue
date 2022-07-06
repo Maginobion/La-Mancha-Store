@@ -71,7 +71,7 @@ export default {
                 formData.append('caratula',this.caratula, this.caratula.name);
                 formData.append('genero',this.form.genero);               
                 console.log(this.caratula)
-                axios.post('https://la-mancha.herokuapp.com/api/libros',formData,{
+                axios.post('http://127.0.0.1:8000/api/libros',formData,{
                     headers:{
                         'Content-Type':'multipart/form-data'
                     }

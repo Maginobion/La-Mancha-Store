@@ -6,7 +6,7 @@
                 <form action="#">
                     <div class="search">
                         <input type="text" v-model="search" placeholder="Buscar en toda la tienda">
-                        <router-link class="searchButton" :to="{name:'busqueda', params:{id: search}}">
+                        <router-link class="searchButton" :to="{name:'busqueda', params:{word: search}}">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </router-link>
                     </div>
