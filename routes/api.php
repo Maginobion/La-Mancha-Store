@@ -18,9 +18,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/libros','App\Http\Controllers\LibroController@index');
-Route::post('/libros','App\Http\Controllers\LibroController@store');
+Route::get('/libros', 'App\Http\Controllers\LibroController@index');
+Route::post('/libros', 'App\Http\Controllers\LibroController@store');
 Route::get('/libros/{id}', 'App\Http\Controllers\LibroController@show');
-Route::put('/libros/{id}','App\Http\Controllers\LibroController@update');
-Route::delete('/libros/{id}','App\Http\Controllers\LibroController@destroy');
+Route::put('/libros/{id}', 'App\Http\Controllers\LibroController@update');
+Route::delete('/libros/{id}', 'App\Http\Controllers\LibroController@destroy');
 Route::post('/libros/{id}', '\App\Http\Controllers\LibroController@addSelection');
+Route::get('/listado/{id}', '\App\Http\Controllers\listadoController@obtenerListado');

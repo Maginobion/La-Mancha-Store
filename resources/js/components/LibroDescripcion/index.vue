@@ -22,7 +22,7 @@
                 <p>S/. {{ libro.precio }}</p>
                 <h3>Sinopsis:</h3>
                 <p>{{ libro.descripcion }}</p>
-                <button v-on:click="guardarSeleccion"
+                <button v-on:click="guardarSeleccion(libro.titulo, libro.precio)"
                         style="background: #1a202c; border-radius: 5px; padding: 10px; color: white">
                     Agregar libro
                 </button>
@@ -60,10 +60,11 @@ export default {
                 .then(res => this.libro = res.data)
                 .finally(() => this.loading = false)
         },
-        guardarSeleccion() {
+        guardarSeleccion(titulo, precio) {
             axios.post(this.url + this.$route.params.id, {
                 "id_usuario": this.usuario,
-                "id_libro": this.$route.params.id
+                "libro": titulo,
+                "precio": precio
             })
                 .then(console.log("hola"))
                 .finally(console.log("Se acabo pto"))

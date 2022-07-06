@@ -21,14 +21,16 @@
                         </template>
                         <template #content>
                             <slot name="dropcontent"></slot>
-                        </template> 
+                        </template>
                     </DropdownUser>
                 </div>
                 <button class="shopping-cart">
-                    <i class="fa-solid fa-cart-plus"></i>
+                    <router-link :to="{name:'listaSeleccion'}">
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </router-link>
                 </button>
             </div>
-        </div>      
+        </div>
         <div class="header-bottom">
             <ul>
                 <Header-links routing="/" text="Home"/>
@@ -45,14 +47,15 @@
 <script>
 import HeaderLinks from '../HeaderLinks'
 import DropdownUser from '../../DropdownUser'
+
 export default {
-    components:{
+    components: {
         HeaderLinks,
         DropdownUser
     },
-    data(){
-        return{
-            search:''
+    data() {
+        return {
+            search: ''
         }
     }
 }
@@ -60,12 +63,12 @@ export default {
 
 <style scoped>
 @media (max-width: 600) {
-    .header{
+    .header {
         display: flex;
         justify-items: center;
         margin-left: 20px;
     }
-    
+
 }
 
 .header {
@@ -81,14 +84,14 @@ export default {
     margin-bottom: 20px;
 }
 
-.header-top .img{
+.header-top .img {
     width: 100%;
     height: 100%;
     align-self: center;
     object-fit: cover;
 }
 
-img{
+img {
     object-fit: cover;
     height: 100%;
 }

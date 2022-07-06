@@ -15,7 +15,9 @@ return new class extends Migration {
         Schema::create('selection', function (Blueprint $table) {
             $table->id();
             $table->integer("id_usuario");
-            $table->integer("id_libro");
+            $table->string("libro");
+            $table->integer("cantidad");
+            $table->double("precio");
             $table->timestamps();
         });
     }

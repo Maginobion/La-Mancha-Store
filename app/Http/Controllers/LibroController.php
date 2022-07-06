@@ -115,9 +115,15 @@ class LibroController extends Controller
 
     public function addSelection(Request $request)
     {
-        $selection = new Selection();
+
+        $selection = Selection::all()->where("libro", $request->libro)->first();
+        if (is_null($selection)) {
+            $selection = new Selection();
+        }
         $selection->id_usuario = $request->id_usuario;
-        $selection->id_libro = $request->id_libro;
+        $selection->libro = $request->libro;
+        $selection->cantidad = $selection->cantidad + 1;
+        $selection->precio = $selection->precio + $request->precio;
         $selection->save();
     }
 }

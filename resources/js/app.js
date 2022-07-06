@@ -20,8 +20,9 @@ import EditUserForm from './components/Formularios/editUserForm.vue'
 import AddLibroForm from './components/Formularios/addLibroForm.vue'
 import LibroDescripcion from './components/LibroDescripcion'
 import BusquedaLibros from './components/BusquedaLibros'
+import ListaSeleccion from "./components/ListaSeleccion";
 
-const routes = [ 
+const routes = [
     {path:'/atencion-cliente', component: AtencionCliente},
     {path:'/carrusel', component: carrusel},
     {path:'/adduser', component: AddUserForm},
@@ -29,12 +30,13 @@ const routes = [
     {path:'/addlibro', component: AddLibroForm},
     {path:'/libro/:id', name:'descripcion' ,component: LibroDescripcion},
     {path:'/search/:id?', name:'busqueda', component: BusquedaLibros},
+    {path: '/listaSeleccion', name:'listaSeleccion', component: ListaSeleccion},
     {path:'/', component: Home},
 ]
 
 const router = VueRouter.createRouter({
     history: VueRouter.createWebHashHistory(),
-    routes  
+    routes
 })
 
 const app = createApp({})
