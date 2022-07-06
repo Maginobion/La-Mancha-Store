@@ -2,7 +2,7 @@
     <div v-if="loading">
         <p>Cargando...</p>
     </div>
-    <div v-else>
+    <div v-else style="display: flex;justify-content: center;gap: 120px;">
         <table>
             <thead>
             <tr>
@@ -17,11 +17,11 @@
                 <td>{{ index + 1 }}</td>
                 <td>{{ lista.libro }}</td>
                 <td>{{ lista.cantidad }}</td>
-                <td>{{ lista.precio }}</td>
+                <td>$/. {{ lista.precio.toFixed(2) }}</td>
             </tr>
             <tr>
                 <td colspan="3">Resumen</td>
-                <td>{{ listado.reduce((sum, valor) => (sum + valor.precio), 0) }}</td>
+                <td>$/. {{ listado.reduce((sum, valor) => (sum + valor.precio), 0).toFixed(2) }}</td>
             </tr>
             </tbody>
         </table>
@@ -71,5 +71,18 @@ export default {
 </script>
 
 <style scoped>
+*{
+    font-size: 18px;
+}
+thead {
+    background: #4a5568;
+    color: white;
+    font-weight: 600;
+}
 
+td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
 </style>
