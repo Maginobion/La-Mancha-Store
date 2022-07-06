@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Selection;
+use GuzzleHttp\Promise\Promise;
 use Illuminate\Http\Request;
 use App\Models\Libro;
+use Illuminate\Support\Facades\Auth;
 
 class LibroController extends Controller
 {
@@ -31,14 +34,14 @@ class LibroController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         $destination_path = "public/images";
         $path = $request->file('caratula')->store($destination_path);
-        $real_path = str_replace("public/","", $path);
+        $real_path = str_replace("public/", "", $path);
         $libro = new Libro();
         $libro->titulo = $request->titulo;
         $libro->autor = $request->autor;
@@ -55,7 +58,7 @@ class LibroController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request)
@@ -67,7 +70,7 @@ class LibroController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -78,8 +81,8 @@ class LibroController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
@@ -101,12 +104,20 @@ class LibroController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request)
     {
         $libro = Libro::destroy($request->id);
         return $libro;
+    }
+
+    public function addSelection(Request $request)
+    {
+        $selection = new Selection();
+        $selection->id_usuario = $request->id_usuario;
+        $selection->id_libro = $request->id_libro;
+        $selection->save();
     }
 }
