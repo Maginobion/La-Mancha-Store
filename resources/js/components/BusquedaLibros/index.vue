@@ -13,7 +13,7 @@ import { useRouter } from 'vue-router'
     let filtrados = ref([])
     const filter = () => filtrados = libros.value.filter(a=>a.title.includes(route.params.id))
     const cargando = ref(true);
-    const url = 'http://127.0.0.1:8000/api/libros'
+    const url = 'https://la-mancha.herokuapp.com/api/libros'
     const fillLibros = () =>{
         fetch(url)
             .then(res => res.json())
