@@ -22791,7 +22791,7 @@ try {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      url: 'http://127.0.0.1:8000/api/libros',
+      url: 'http://127.0.0.1:8000/api/libros/',
       libro: {},
       loading: true,
       usuario: _final
@@ -22803,6 +22803,8 @@ try {
 
       axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.url + this.$route.params.id).then(function (res) {
         return _this.libro = res.data;
+      })["catch"](function (err) {
+        return console.log(err);
       })["finally"](function () {
         return _this.loading = false;
       });

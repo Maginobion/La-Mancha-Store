@@ -48,7 +48,7 @@ try {
 export default {
     data() {
         return {
-            url: 'http://127.0.0.1:8000/api/libros',
+            url: 'http://127.0.0.1:8000/api/libros/',
             libro: {},
             loading: true,
             usuario: final,
@@ -58,6 +58,7 @@ export default {
         getLibro() {
             axios.get(this.url + this.$route.params.id)
                 .then(res => this.libro = res.data)
+                .catch(err=>console.log(err))
                 .finally(() => this.loading = false)
         },
         guardarSeleccion(titulo, precio) {
