@@ -103,6 +103,7 @@ export default {
         }
     },
     mounted() {
+        console.log(this.usuario)
         this.getListado()
     }
 }

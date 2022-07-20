@@ -62,14 +62,15 @@ export default {
                 .finally(() => this.loading = false)
         },
         guardarSeleccion(id, titulo, precio) {
-            this.$http.post('/api/libros/' + this.$route.params.id, {
+            this.$http.post('/api/selection', {
                 "id_usuario": this.usuario,
                 "id_libro": id,
                 "libro": titulo,
                 "precio": precio
             })
-                .then(console.log("hola"))
-                .finally(console.log("Se acabo pto"))
+                .then(res=> console.log(res))
+                .catch(err=>console.log(err))
+                
         }
     },
     mounted() {

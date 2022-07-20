@@ -22878,12 +22878,16 @@ try {
       });
     },
     guardarSeleccion: function guardarSeleccion(id, titulo, precio) {
-      this.$http.post('/api/libros/' + this.$route.params.id, {
+      this.$http.post('/api/selection', {
         "id_usuario": this.usuario,
         "id_libro": id,
         "libro": titulo,
         "precio": precio
-      }).then(console.log("hola"))["finally"](console.log("Se acabo pto"));
+      }).then(function (res) {
+        return console.log(res);
+      })["catch"](function (err) {
+        return console.log(err);
+      });
     }
   },
   mounted: function mounted() {
@@ -23051,6 +23055,7 @@ try {
     }
   },
   mounted: function mounted() {
+    console.log(this.usuario);
     this.getListado();
   }
 });
