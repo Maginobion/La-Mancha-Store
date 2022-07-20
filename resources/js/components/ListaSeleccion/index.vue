@@ -26,7 +26,7 @@
             </tr>
             <tr>
                 <td colspan="3">Resumen</td>
-                <td>S/. {{ listado.reduce((sum, valor) => (sum + valor.precio), 0).toFixed(2) }}</td>
+                <td>S/. {{ listado.reduce((sum, valor) => (sum + parseFloat(valor.precio)), 0).toFixed(2) }}</td>
             </tr>
             </tbody>
         </table>
