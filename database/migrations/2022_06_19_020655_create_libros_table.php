@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('autor');
             $table->string('editorial');
             $table->string('descripcion');
+            $table->string('caratula');
+            $table->string('readable');
             $table->float('precio');
             $table->string('genero');
             $table->timestamps();
