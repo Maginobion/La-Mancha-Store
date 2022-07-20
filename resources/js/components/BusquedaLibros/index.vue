@@ -37,5 +37,6 @@ import axios from 'axios';
 <style scoped>
 .xd{
     display: flex;
+    gap: 20px;
 }
 </style>

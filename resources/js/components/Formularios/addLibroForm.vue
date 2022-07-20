@@ -16,7 +16,10 @@
         <input class="form-input" v-model="form.descripcion" id="descripcion" placeholder="Escriba su descripción">
 
         <label for="caratula" class="form-label">Caratula:</label>
-        <input type="file" @change="uploadFile" id="caratula" accept="image/png, image/jpeg">
+        <input type="file" class="form-file" @change="uploadImage" id="caratula" accept="image/png, image/jpeg">
+
+        <label for="readable" class="form-label">Archivo:</label>
+        <input type="file" class="form-file" @change="uploadFile" id="readable" accept=".pdf">
 
         <label for="precio" class="form-label">Precio:</label>
         <input type="number" id="precio" class="form-input" v-model="form.precio" placeholder="Escriba el precio">
@@ -44,11 +47,15 @@ export default {
                 genero:'',
             },
             caratula: null,
+            readable: null
         }
     },
     methods:{
-        uploadFile(event) {
+        uploadImage(event) {
             this.caratula = event.target.files[0];
+        },
+        uploadFile(event) {
+            this.readable = event.target.files[0];
         },
         submitForm(){
             if(this.form.titulo==='' || 
@@ -57,7 +64,8 @@ export default {
                 this.form.descripcion==='' || 
                 this.form.genero==='' || 
                 this.form.precio===0 ||
-                this.image===null){
+                this.image===null ||
+                this.readable===null){
                 console.log('Llena todo')
             }
             else{
@@ -69,8 +77,8 @@ export default {
                 formData.append('descripcion',this.form.descripcion);
                 formData.append('precio',this.form.precio);
                 formData.append('caratula',this.caratula, this.caratula.name);
+                formData.append('readable',this.readable, this.readable.name);
                 formData.append('genero',this.form.genero);               
-                console.log(this.caratula)
                 axios.post('http://127.0.0.1:8000/api/libros',formData,{
                     headers:{
                         'Content-Type':'multipart/form-data'
@@ -128,6 +136,9 @@ export default {
     font-size: 14px;
     color: #FFF;
     font-family: Roboto;
+}
+.form-file{
+    margin: 0 0 10px 0;
 }
 .form-textarea{
     max-height: 100px;

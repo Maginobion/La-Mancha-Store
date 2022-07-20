@@ -24,7 +24,6 @@
             <ul>
                 <Header-links routing="/" text="Home"/>
                 <Header-links routing="/atencion-cliente" text="Atencion"/>
-                <Header-links routing="/carrusel" text="Carrusel"/>
             </ul>
         </div>
     </header>

@@ -6,6 +6,7 @@ use App\Models\Selection;
 use GuzzleHttp\Promise\Promise;
 use Illuminate\Http\Request;
 use App\Models\Libro;
+use App\Models\Comprado;
 use Illuminate\Support\Facades\Auth;
 
 class LibroController extends Controller
@@ -39,14 +40,20 @@ class LibroController extends Controller
      */
     public function store(Request $request)
     {
-        $destination_path = "public/images";
-        $path = $request->file('caratula')->store($destination_path);
-        $real_path = str_replace("public/", "", $path);
+        $image = $request->file('caratula');
+        $imagename = $image->getClientOriginalName();
+        $image->storeAs('caratulas', $imagename, 's3');
+
+        $pdf = $request->file('readable');
+        $pdfname = $pdf->getClientOriginalName();
+        $pdf->storeAs('pdf', $pdfname, 's3');
+
         $libro = new Libro();
         $libro->titulo = $request->titulo;
         $libro->autor = $request->autor;
         $libro->editorial = $request->editorial;
-        $libro->caratula = $real_path;
+        $libro->caratula = $imagename;
+        $libro->readable = $pdfname;
         $libro->descripcion = $request->descripcion;
         $libro->precio = $request->precio;
         $libro->genero = $request->genero;
@@ -121,9 +128,41 @@ class LibroController extends Controller
             $selection = new Selection();
         }
         $selection->id_usuario = $request->id_usuario;
+        $selection->id_libro = $request->id_libro;
         $selection->libro = $request->libro;
         $selection->cantidad = $selection->cantidad + 1;
         $selection->precio = $selection->precio + $request->precio;
         $selection->save();
+    }
+
+    public function getLibrary(Request $request){
+        $compradosUser = Comprado::all()->where("id_usuario", $request->id);
+        $arr = [];
+        foreach($compradosUser as $compra){
+            $arr[]=$compra->id_libro;
+        };
+        return Libro::find($arr);
+    }
+
+    public function buyAll(Request $request, $id)
+    {
+        $lista = json_decode($request->lista);
+        
+        foreach($lista as $elemento){
+            $bought = new Comprado();
+            $bought->id_usuario = $request->id;       
+            $bought->id_libro = $elemento->id_libro;
+            $bought->save();
+        }
+
+        $deletingItem = Selection::all()->where("id_usuario", $id);
+        if($deletingItem) $deletingItem->each(function ($product, $key) {
+            $product->delete();
+        });
+    }
+
+    public function getImage(Request $request){
+        $imagename = $request->caratula;
+        return Storage::disk('s3')->response('caratulas/'.$imagename);
     }
 }

@@ -14,6 +14,7 @@ class Libro extends Model
         "autor",
         "editorial",
         "caratula",
+        "readable",
         "descripcion",
         "precio",
         "genero"

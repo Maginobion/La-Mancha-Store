@@ -12,4 +12,11 @@ class listadoController extends Controller
         $listadoLibros = Selection::all()->where("id_usuario", $request->usuario);
         return $listadoLibros;
     }
+    public function deleteItemList(Request $request)
+    {
+        $deletingItem = Selection::findOrFail($request->id);
+        if($deletingItem) $deletingItem->delete();
+        else return response()->json(error);
+    }
+    
 }

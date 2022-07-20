@@ -35,10 +35,10 @@
             <ul>
                 <Header-links routing="/" text="Home"/>
                 <Header-links routing="/atencion-cliente" text="Atencion"/>
-                <Header-links routing="/carrusel" text="Carrusel"/>
                 <Header-links routing="/adduser" text="Formulario"/>
                 <Header-links routing="/edituser" text="Formulario2"/>
                 <Header-links routing="/addlibro" text="Formulario3"/>
+                <Header-links routing="/libreria" text="Tus libros"/>
             </ul>
         </div>
     </header>

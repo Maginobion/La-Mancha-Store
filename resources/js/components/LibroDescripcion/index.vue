@@ -6,7 +6,7 @@
         <p style="color:white; font-size: 35px; text-align:center">Detalles del Libro</p>
         <div class="totalCont">
             <div class="imageCont">
-                <img :src="`/storage/${libro.caratula}`" width="200" height="90">
+                <img :src="`https://ads-proyectofinal.s3.sa-east-1.amazonaws.com/caratulas/${libro.caratula}`" width="200" height="90">
             </div>
             <div class="infoCard">
                 <h2 style="font-size: 27px;">{{ libro.titulo }}</h2>
@@ -22,10 +22,11 @@
                 <p>S/. {{ libro.precio }}</p>
                 <h3>Sinopsis:</h3>
                 <p>{{ libro.descripcion }}</p>
-                <button v-on:click="guardarSeleccion(libro.titulo, libro.precio)"
+                <button v-on:click="guardarSeleccion(libro.id, libro.titulo, libro.precio)"
                         style="background: #1a202c; border-radius: 5px; padding: 10px; color: white">
                     Agregar libro
                 </button>
+                <a :href="`https://ads-proyectofinal.s3.sa-east-1.amazonaws.com/pdf/${libro.readable}`">Leer</a>
             </div>
         </div>
     </div>
@@ -61,9 +62,10 @@ export default {
                 .catch(err=>console.log(err))
                 .finally(() => this.loading = false)
         },
-        guardarSeleccion(titulo, precio) {
+        guardarSeleccion(id, titulo, precio) {
             axios.post(this.url + this.$route.params.id, {
                 "id_usuario": this.usuario,
+                "id_libro": id,
                 "libro": titulo,
                 "precio": precio
             })
