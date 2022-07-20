@@ -13,11 +13,6 @@
     import { computed } from '@vue/runtime-core'
     import axios from 'axios'
     const props = defineProps(['libro'])
-    const url = 'http://127.0.0.1:8000/api/image/'
-    const xd = computed(async()=>{
-        return await axios.get(url+libro.caratula)
-                    .then(res=>res.data)
-    })
 </script>
 
 <style scoped>

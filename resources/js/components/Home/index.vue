@@ -112,7 +112,7 @@ export default {
     },
     methods: {
         fillLibros(){
-                fetch(this.url)
+                $http.get('/api/libros')
                 .then(res => res.json())
                 .then(data=>this.libros = data);
         },

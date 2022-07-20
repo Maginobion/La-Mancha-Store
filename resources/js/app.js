@@ -22,6 +22,7 @@ import BusquedaLibros from './components/BusquedaLibros'
 import ListaSeleccion from "./components/ListaSeleccion";
 import MiLibreria from "./components/MiLibreria"
 import LectorLibro from "./components/LectorLibro"
+import axios from 'axios';
 
 const routes = [
     {path:'/atencion-cliente', component: AtencionCliente},
@@ -42,6 +43,10 @@ const router = VueRouter.createRouter({
 })
 
 const app = createApp({})
+
+app.config.globalProperties.$http = axios.create({
+    baseURL: 'https://la-mancha.herokuapp.com',
+})
 
 app.component('responsive-page', ResponsivePage)
 app.component('header-page', HeaderPage)
