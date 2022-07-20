@@ -28,10 +28,9 @@ import { useRoute } from "vue-router";
     const route = useRoute()
     const libro = ref({})
     const loading = ref(true)
-    const url = 'http://127.0.0.1:8000/api/libros/'
 
     const getLibro = () => {
-        axios.get(url + route.params.id)
+        axios.get('https://la-mancha.herokuapp.com/api/libros/' + route.params.id)
             .then(res => libro.value = res.data)
             .catch(err=>console.log(err))
             .finally(() => loading.value = false)

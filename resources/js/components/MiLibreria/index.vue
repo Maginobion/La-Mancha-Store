@@ -12,6 +12,9 @@
 import MyBooks from './MyBooks'
 import { onMounted, ref } from "@vue/runtime-core";
 import axios from 'axios';
+import { getCurrentInstance } from 'vue'
+
+    const app = getCurrentInstance()
     let user;
     let final;
     try {
@@ -26,7 +29,7 @@ import axios from 'axios';
     const loading = ref(true);
 
     const getLibreria = () => {
-        axios.get('http://127.0.0.1:8000/api/library/' + final)
+        axios.get('https://la-mancha.herokuapp.com/api/library/' + final)
             .then(res => {
                 libros.value = res.data
                 console.log(res.data)    

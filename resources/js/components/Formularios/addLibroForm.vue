@@ -79,7 +79,7 @@ export default {
                 formData.append('caratula',this.caratula, this.caratula.name);
                 formData.append('readable',this.readable, this.readable.name);
                 formData.append('genero',this.form.genero);               
-                axios.post('http://127.0.0.1:8000/api/libros',formData,{
+                this.$http.post('/api/libros',formData,{
                     headers:{
                         'Content-Type':'multipart/form-data'
                     }

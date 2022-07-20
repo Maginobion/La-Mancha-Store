@@ -20,7 +20,7 @@ import axios from 'axios';
         return libros.value.filter(a=>a.titulo.includes(route.params.word))
     })   
     const fillLibros = () =>{
-        $http.get('/api/libros')
+        this.$http.get('/api/libros')
             .then(data => libros.value = data.data)
             .finally(()=>{
                 cargando.value=false

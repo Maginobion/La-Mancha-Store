@@ -61,16 +61,12 @@ export default {
     },
     methods: {
         getListado() {
-            axios.get(this.url + this.usuario, {
-                params: {
-                    'usuario': this.usuario,
-                }
-            })
+            this.$http.get('/api/listado/' + this.usuario)
                 .then(res => this.listado = res.data)
                 .finally(() => this.loading = false)
         },
         deleteItem(id){
-            axios.delete(this.url+id)
+            this.$http.delete('/api/listado/'+id)
             .then(res=>console.log(res))
             .then(()=>this.$router.go())
         },
@@ -80,7 +76,7 @@ export default {
             data.append('lista', JSON.stringify(this.listado));
             console.log(this.listado)
             if(this.listado.length>0)
-            axios.post('http://127.0.0.1:8000/api/compra/'+this.usuario, data,{
+            this.$http.post('/api/compra/'+this.usuario, data,{
                 headers:{
                     'Content-Type':'multipart/form-data'
                 }

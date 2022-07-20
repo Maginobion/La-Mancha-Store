@@ -49,7 +49,6 @@ try {
 export default {
     data() {
         return {
-            url: 'http://127.0.0.1:8000/api/libros/',
             libro: {},
             loading: true,
             usuario: final,
@@ -57,13 +56,13 @@ export default {
     },
     methods: {
         getLibro() {
-            axios.get(this.url + this.$route.params.id)
+            this.$http.get('/api/libros/' + this.$route.params.id)
                 .then(res => this.libro = res.data)
                 .catch(err=>console.log(err))
                 .finally(() => this.loading = false)
         },
         guardarSeleccion(id, titulo, precio) {
-            axios.post(this.url + this.$route.params.id, {
+            this.$http.post('/api/libros/' + this.$route.params.id, {
                 "id_usuario": this.usuario,
                 "id_libro": id,
                 "libro": titulo,
