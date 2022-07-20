@@ -21,7 +21,7 @@
                 <td>{{ index + 1 }}</td>
                 <td>{{ lista.libro }}</td>
                 <td>{{ lista.cantidad }}</td>
-                <td>S/. {{ lista.precio.toFixed(2) }}</td>
+                <td>S/. {{ parseFloat(lista.precio).toFixed(2) }}</td>
                 <td style="color:red"><button @click="deleteItem(lista.id)">Borrar</button></td>
             </tr>
             <tr>
