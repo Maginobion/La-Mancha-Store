@@ -113,8 +113,7 @@ export default {
     methods: {
         fillLibros(){
                 $http.get('/api/libros')
-                .then(res => res.json())
-                .then(data=>this.libros = data);
+                .then(data => this.libros = data.data);
         },
     },
     mounted(){
