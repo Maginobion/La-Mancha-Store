@@ -25,7 +25,7 @@ Route::get('/image', 'App\Http\Controllers\LibroController@getImage');
 Route::put('/libros/{id}', 'App\Http\Controllers\LibroController@update');
 Route::delete('/libros/{id}', 'App\Http\Controllers\LibroController@destroy');
 Route::post('/selection', '\App\Http\Controllers\LibroController@addSelection');
-Route::get('/listado/{id}', '\App\Http\Controllers\listadoController@obtenerListado');
+Route::get('/listado/{usuario}', '\App\Http\Controllers\listadoController@obtenerListado');
 Route::delete('/listado/{id}', 'App\Http\Controllers\listadoController@deleteItemList');
 Route::post('/compra/{id}', 'App\Http\Controllers\LibroController@buyAll');
 Route::get('/library/{id}', 'App\Http\Controllers\LibroController@getLibrary');
