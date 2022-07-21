@@ -75,7 +75,7 @@ export default {
     },
     methods:{
         isAdmin(){
-            axios.get('http://127.0.0.1:8000/api/admin/'+this.id)
+            this.$http.get('/api/admin/'+this.id)
                 .then(res=> {
                     this.isadmin = res.data
                     this.loading = false    
