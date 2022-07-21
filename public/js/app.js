@@ -25006,7 +25006,7 @@ var _hoisted_7 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"buttons\" data-v-0ff3b39e><div class=\"login\" data-v-0ff3b39e><i class=\"fa-solid fa-user\" data-v-0ff3b39e></i><a class=\"text-white\" href=\"/dashboard\" data-v-0ff3b39e>Login</a></div><button class=\"shopping-cart\" data-v-0ff3b39e><i class=\"fa-solid fa-cart-plus\" data-v-0ff3b39e></i></button></div>", 1);
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"buttons\" data-v-0ff3b39e><div class=\"login\" data-v-0ff3b39e><i class=\"fa-solid fa-user\" data-v-0ff3b39e></i><a class=\"text-white\" href=\"/dashboard\" data-v-0ff3b39e>Login</a></div><a href=\"/login\" class=\"shopping-cart\" data-v-0ff3b39e><i class=\"fa-solid fa-cart-plus\" data-v-0ff3b39e></i></a></div>", 1);
 
 var _hoisted_9 = {
   "class": "header-bottom"

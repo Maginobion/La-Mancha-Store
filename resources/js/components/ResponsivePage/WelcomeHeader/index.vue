@@ -15,9 +15,9 @@
                     <i class="fa-solid fa-user"></i>
                     <a class="text-white" href="/dashboard">Login</a>
                 </div>
-                <button class="shopping-cart">
+                <a href="/login" class="shopping-cart">
                     <i class="fa-solid fa-cart-plus"></i>
-                </button>
+                </a>
             </div>
         </div>      
         <div class="header-bottom">
