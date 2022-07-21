@@ -8,19 +8,23 @@
 
 <script setup>
 import LibroDisplay from '../LibroDisplay'
-import { computed, onMounted, ref } from "vue";
+import { computed, inject, onMounted, ref } from "vue";
 import { useRoute } from 'vue-router'
 import axios from 'axios';
 
     const route = useRoute();
     const libros = ref([]);
     const cargando = ref(true);
-    const url = 'http://127.0.0.1:8000/api/libros'
+
+    const http = inject('http', axios.create({
+        baseURL: 'http://127.0.0.1:8000/api/',
+    }))
+
     const filtrados = computed(()=>{
         return libros.value.filter(a=>a.titulo.includes(route.params.word))
     })   
     const fillLibros = () =>{
-        this.$http.get('/api/libros')
+        http.get('libros')
             .then(data => libros.value = data.data)
             .finally(()=>{
                 cargando.value=false

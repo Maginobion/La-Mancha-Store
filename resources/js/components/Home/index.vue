@@ -120,7 +120,7 @@ export default {
     },
     methods: {
         fillLibros(){
-                this.$http.get('/api/libros')
+                this.$http.get('libros')
                 .then(data => this.libros = data.data);
         },
     },

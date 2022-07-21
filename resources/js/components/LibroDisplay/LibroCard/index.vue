@@ -10,8 +10,6 @@
 </template>
 
 <script setup>
-    import { computed } from '@vue/runtime-core'
-    import axios from 'axios'
     const props = defineProps(['libro'])
 </script>
 

@@ -37,7 +37,6 @@
 <script>
 
 //Inicializando variable para controlar el usuario
-import axios from "axios";
 
 var user;
 var final;
@@ -60,12 +59,12 @@ export default {
     },
     methods: {
         getListado() {
-            this.$http.get('/api/listado/' + this.usuario)
+            this.$http.get('listado/' + this.usuario)
                 .then(res => this.listado = res.data)
                 .finally(() => this.loading = false)
         },
         deleteItem(id){
-            this.$http.delete('/api/listado/'+id)
+            this.$http.delete('listado/'+id)
             .then(res=>console.log(res))
             .then(()=>this.$router.go())
         },
@@ -75,30 +74,12 @@ export default {
             data.append('lista', JSON.stringify(this.listado));
             console.log(this.listado)
             if(this.listado.length>0)
-            this.$http.post('/api/compra/'+this.usuario, data,{
+            this.$http.post('compra/'+this.usuario, data,{
                 headers:{
                     'Content-Type':'multipart/form-data'
                 }
                 })
-                .then(()=>this.$router.go())
-
-            //agregar cada append
-            // const formData = new FormData();
-            // formData.append('titulo',this.form.titulo);
-            // formData.append('autor',this.form.autor);
-            // formData.append('editorial',this.form.editorial);
-            // formData.append('descripcion',this.form.descripcion);
-            // formData.append('precio',this.form.precio);
-            // formData.append('caratula',this.caratula, this.caratula.name);
-            // formData.append('readable',this.readable, this.readable.name);
-            // formData.append('genero',this.form.genero);               
-            // axios.post('http://127.0.0.1:8000/api/libros',formData,{
-            //     headers:{
-            //         'Content-Type':'multipart/form-data'
-            //     }
-            // }).then(res => console.log(res))
-            //     .catch(err=>console.log(err))
-            //     .finally(()=>this.$router.push('/'))
+                .then(()=>this.$router.push('/libreria'))
         }
     },
     mounted() {

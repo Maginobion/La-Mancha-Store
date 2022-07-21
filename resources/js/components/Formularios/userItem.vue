@@ -3,7 +3,7 @@
     <td>{{user.email}}</td>
     <td v-if="loading">Cargando...</td>
     <template v-else>
-        <td class="option" v-if="user.id==1">Admin</td>
+        <td class="option" v-if="user.id==1 || user.id == id">Admin</td>
         <td class="option" v-else-if="isadmin===0">
             <button class="add" @click="makeAdmin(user.id)">
                 Hacer admin
@@ -18,29 +18,44 @@
 </template>
 
 <script setup>
-import { computed, onMounted, ref } from "@vue/runtime-core"
+
+let pageuser;
+let final;
+try {
+    pageuser = document.head.querySelector('meta[name="user"]');
+    final = JSON.parse(pageuser.content).id;
+} catch (e) {
+    final = "";
+}
+
+import { inject, onMounted, ref } from "@vue/runtime-core"
 import axios from "axios"
-import { useRoute, useRouter } from "vue-router"
+import { useRouter } from "vue-router"
 
     const router = useRouter()
     const isadmin = ref()
     const loading = ref(true)
+    const id = ref(final)
     const props = defineProps(['user'])
 
+    const http = inject('http', axios.create({
+        baseURL: 'http://127.0.0.1:8000/api/',
+    }))
+
     const makeAdmin = (id) =>{
-        axios.post('http://127.0.0.1:8000/api/admin',{
+        http.post('admin',{
             id: id
         })
         .then(res=>console.log(res))
         .finally(router.go('/'))
     }
     const removeAdmin = (id) =>{
-        axios.delete('http://127.0.0.1:8000/api/admin/'+id)
+        http.delete('admin/'+id)
         .then(res=>console.log(res))
         .finally(router.go('/'))
     }
     const isAdmin = () =>{
-        axios.get('http://127.0.0.1:8000/api/admin/'+props.user.id)
+        http.get('admin/'+props.user.id)
                 .then(res=> {
                     isadmin.value = res.data
                     loading.value = false    

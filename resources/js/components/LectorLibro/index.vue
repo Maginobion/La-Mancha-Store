@@ -20,17 +20,21 @@
 
 <script setup>
     import { ref } from "@vue/reactivity";
-    import { onMounted } from "@vue/runtime-core";
+    import { inject, onMounted } from "@vue/runtime-core";
     import axios from 'axios';
     import VuePdfEmbed from 'vue-pdf-embed'
-import { useRoute } from "vue-router";
+    import { useRoute } from "vue-router";
 
     const route = useRoute()
     const libro = ref({})
     const loading = ref(true)
 
+    const http = inject('http', axios.create({
+        baseURL: 'http://127.0.0.1:8000/api/',
+    }))
+
     const getLibro = () => {
-        axios.get('https://la-mancha.herokuapp.com/api/libros/' + route.params.id)
+        http.get('libros/' + route.params.id)
             .then(res => libro.value = res.data)
             .catch(err=>console.log(err))
             .finally(() => loading.value = false)

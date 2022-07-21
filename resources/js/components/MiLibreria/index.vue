@@ -20,7 +20,7 @@
 
 <script setup>
 import MyBooks from './MyBooks'
-import { onMounted, ref } from "@vue/runtime-core";
+import { inject, onMounted, ref } from "@vue/runtime-core";
 import axios from 'axios';
 
     let user;
@@ -32,13 +32,16 @@ import axios from 'axios';
         final = "";
     }
 
+    const http = inject('http', axios.create({
+        baseURL: 'http://127.0.0.1:8000/api/',
+    }))
     const libros = ref([]);
     const loading = ref(true);
     const id = final;
     
 
     const getLibreria = () => {
-        axios.get('https://la-mancha.herokuapp.com/api/library/' + final)
+        http.get('library/' + final)
             .then(res => {
                 libros.value = res.data
                 console.log(res.data)    

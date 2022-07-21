@@ -37,7 +37,7 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from "@vue/runtime-core";
+import { inject, onMounted, ref } from "@vue/runtime-core";
 import axios from "axios";
 import UserList from "./userList.vue"
 
@@ -52,9 +52,13 @@ try {
 
     const users = ref([])
     const loading = ref([true])
+
+    const http = inject('http', axios.create({
+        baseURL: 'http://127.0.0.1:8000/api/',
+    }))
     
     const getUsers = () =>{
-        axios.get('http://127.0.0.1:8000/api/user')
+        http.get('user')
             .then(res => {
                 users.value = res.data
                 loading.value=false

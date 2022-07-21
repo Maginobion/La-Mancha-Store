@@ -32,7 +32,7 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from "@vue/runtime-core";
+import { inject, onMounted, ref } from "@vue/runtime-core";
 import axios from "axios";
 import { useRoute, useRouter } from "vue-router";
 import UserList from "./userList.vue"
@@ -51,9 +51,13 @@ try {
     const myUser = ref({})
     const loading = ref([true])
     const error = ref('')
+
+    const http = inject('http', axios.create({
+        baseURL: 'http://127.0.0.1:8000/api/',
+    }))
     
     const getMyUser = () =>{
-        axios.get('http://127.0.0.1:8000/api/user/'+final)
+        http.get('user/'+final)
             .then(res => {
                 myUser.value = res.data
                 loading.value=false
@@ -62,7 +66,7 @@ try {
     }
 
     const save = () =>{
-        axios.patch('http://127.0.0.1:8000/api/user/'+final,{
+        http.patch('user/'+final,{
             name: myUser.value.name,
             email: myUser.value.email,
         }).catch(err => { 

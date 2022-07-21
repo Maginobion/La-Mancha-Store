@@ -22569,14 +22569,14 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   setup: function setup(__props, _ref) {
-    var _this = this;
-
     var expose = _ref.expose;
     expose();
     var route = (0,vue_router__WEBPACK_IMPORTED_MODULE_3__.useRoute)();
     var libros = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)([]);
     var cargando = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)(true);
-    var url = 'http://127.0.0.1:8000/api/libros';
+    var http = (0,vue__WEBPACK_IMPORTED_MODULE_1__.inject)('http', axios__WEBPACK_IMPORTED_MODULE_2___default().create({
+      baseURL: 'http://127.0.0.1:8000/api/'
+    }));
     var filtrados = (0,vue__WEBPACK_IMPORTED_MODULE_1__.computed)(function () {
       return libros.value.filter(function (a) {
         return a.titulo.includes(route.params.word);
@@ -22584,7 +22584,7 @@ __webpack_require__.r(__webpack_exports__);
     });
 
     var fillLibros = function fillLibros() {
-      _this.$http.get('/api/libros').then(function (data) {
+      http.get('libros').then(function (data) {
         return libros.value = data.data;
       })["finally"](function () {
         cargando.value = false;
@@ -22599,11 +22599,12 @@ __webpack_require__.r(__webpack_exports__);
       route: route,
       libros: libros,
       cargando: cargando,
-      url: url,
+      http: http,
       filtrados: filtrados,
       fillLibros: fillLibros,
       LibroDisplay: _LibroDisplay__WEBPACK_IMPORTED_MODULE_0__["default"],
       computed: vue__WEBPACK_IMPORTED_MODULE_1__.computed,
+      inject: vue__WEBPACK_IMPORTED_MODULE_1__.inject,
       onMounted: vue__WEBPACK_IMPORTED_MODULE_1__.onMounted,
       ref: vue__WEBPACK_IMPORTED_MODULE_1__.ref,
       useRoute: vue_router__WEBPACK_IMPORTED_MODULE_3__.useRoute,
@@ -22667,9 +22668,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -22708,7 +22706,7 @@ __webpack_require__.r(__webpack_exports__);
         formData.append('caratula', this.caratula, this.caratula.name);
         formData.append('readable', this.readable, this.readable.name);
         formData.append('genero', this.form.genero);
-        this.$http.post('/api/libros', formData, {
+        this.$http.post('libros', formData, {
           headers: {
             'Content-Type': 'multipart/form-data'
           }
@@ -22767,9 +22765,12 @@ __webpack_require__.r(__webpack_exports__);
     var myUser = (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_3__.ref)({});
     var loading = (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_3__.ref)([true]);
     var error = (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_3__.ref)('');
+    var http = (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_4__.inject)('http', axios__WEBPACK_IMPORTED_MODULE_0___default().create({
+      baseURL: 'http://127.0.0.1:8000/api/'
+    }));
 
     var getMyUser = function getMyUser() {
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get('http://127.0.0.1:8000/api/user/' + _final).then(function (res) {
+      http.get('user/' + _final).then(function (res) {
         myUser.value = res.data;
         loading.value = false;
       })["catch"](function (err) {
@@ -22778,7 +22779,7 @@ __webpack_require__.r(__webpack_exports__);
     };
 
     var save = function save() {
-      axios__WEBPACK_IMPORTED_MODULE_0___default().patch('http://127.0.0.1:8000/api/user/' + _final, {
+      http.patch('user/' + _final, {
         name: myUser.value.name,
         email: myUser.value.email
       })["catch"](function (err) {
@@ -22800,8 +22801,10 @@ __webpack_require__.r(__webpack_exports__);
       myUser: myUser,
       loading: loading,
       error: error,
+      http: http,
       getMyUser: getMyUser,
       save: save,
+      inject: _vue_runtime_core__WEBPACK_IMPORTED_MODULE_4__.inject,
       onMounted: _vue_runtime_core__WEBPACK_IMPORTED_MODULE_4__.onMounted,
       ref: _vue_runtime_core__WEBPACK_IMPORTED_MODULE_3__.ref,
       axios: (axios__WEBPACK_IMPORTED_MODULE_0___default()),
@@ -22855,9 +22858,12 @@ __webpack_require__.r(__webpack_exports__);
 
     var users = (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_2__.ref)([]);
     var loading = (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_2__.ref)([true]);
+    var http = (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_3__.inject)('http', axios__WEBPACK_IMPORTED_MODULE_0___default().create({
+      baseURL: 'http://127.0.0.1:8000/api/'
+    }));
 
     var getUsers = function getUsers() {
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get('http://127.0.0.1:8000/api/user').then(function (res) {
+      http.get('user').then(function (res) {
         users.value = res.data;
         loading.value = false;
       })["catch"](function (err) {
@@ -22873,7 +22879,9 @@ __webpack_require__.r(__webpack_exports__);
       "final": _final,
       users: users,
       loading: loading,
+      http: http,
       getUsers: getUsers,
+      inject: _vue_runtime_core__WEBPACK_IMPORTED_MODULE_3__.inject,
       onMounted: _vue_runtime_core__WEBPACK_IMPORTED_MODULE_3__.onMounted,
       ref: _vue_runtime_core__WEBPACK_IMPORTED_MODULE_2__.ref,
       axios: (axios__WEBPACK_IMPORTED_MODULE_0___default()),
@@ -22914,12 +22922,27 @@ __webpack_require__.r(__webpack_exports__);
     var expose = _ref.expose;
     expose();
     var props = __props;
+    var pageuser;
+
+    var _final;
+
+    try {
+      pageuser = document.head.querySelector('meta[name="user"]');
+      _final = JSON.parse(pageuser.content).id;
+    } catch (e) {
+      _final = "";
+    }
+
     var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_1__.useRouter)();
     var isadmin = (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_2__.ref)();
     var loading = (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_2__.ref)(true);
+    var id = (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_2__.ref)(_final);
+    var http = (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_3__.inject)('http', axios__WEBPACK_IMPORTED_MODULE_0___default().create({
+      baseURL: 'http://127.0.0.1:8000/api/'
+    }));
 
     var makeAdmin = function makeAdmin(id) {
-      axios__WEBPACK_IMPORTED_MODULE_0___default().post('http://127.0.0.1:8000/api/admin', {
+      http.post('admin', {
         id: id
       }).then(function (res) {
         return console.log(res);
@@ -22927,13 +22950,13 @@ __webpack_require__.r(__webpack_exports__);
     };
 
     var removeAdmin = function removeAdmin(id) {
-      axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]('http://127.0.0.1:8000/api/admin/' + id).then(function (res) {
+      http["delete"]('admin/' + id).then(function (res) {
         return console.log(res);
       })["finally"](router.go('/'));
     };
 
     var isAdmin = function isAdmin() {
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get('http://127.0.0.1:8000/api/admin/' + props.user.id).then(function (res) {
+      http.get('admin/' + props.user.id).then(function (res) {
         isadmin.value = res.data;
         loading.value = false;
       });
@@ -22943,18 +22966,21 @@ __webpack_require__.r(__webpack_exports__);
       isAdmin();
     });
     var __returned__ = {
+      pageuser: pageuser,
+      "final": _final,
       router: router,
       isadmin: isadmin,
       loading: loading,
+      id: id,
       props: props,
+      http: http,
       makeAdmin: makeAdmin,
       removeAdmin: removeAdmin,
       isAdmin: isAdmin,
-      computed: _vue_runtime_core__WEBPACK_IMPORTED_MODULE_3__.computed,
+      inject: _vue_runtime_core__WEBPACK_IMPORTED_MODULE_3__.inject,
       onMounted: _vue_runtime_core__WEBPACK_IMPORTED_MODULE_3__.onMounted,
       ref: _vue_runtime_core__WEBPACK_IMPORTED_MODULE_2__.ref,
       axios: (axios__WEBPACK_IMPORTED_MODULE_0___default()),
-      useRoute: vue_router__WEBPACK_IMPORTED_MODULE_1__.useRoute,
       useRouter: vue_router__WEBPACK_IMPORTED_MODULE_1__.useRouter
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
@@ -23038,7 +23064,7 @@ try {
     fillLibros: function fillLibros() {
       var _this = this;
 
-      this.$http.get('/api/libros').then(function (data) {
+      this.$http.get('libros').then(function (data) {
         return _this.libros = data.data;
       });
     }
@@ -23080,9 +23106,12 @@ __webpack_require__.r(__webpack_exports__);
     var route = (0,vue_router__WEBPACK_IMPORTED_MODULE_2__.useRoute)();
     var libro = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_3__.ref)({});
     var loading = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_3__.ref)(true);
+    var http = (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_4__.inject)('http', axios__WEBPACK_IMPORTED_MODULE_0___default().create({
+      baseURL: 'http://127.0.0.1:8000/api/'
+    }));
 
     var getLibro = function getLibro() {
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get('https://la-mancha.herokuapp.com/api/libros/' + route.params.id).then(function (res) {
+      http.get('libros/' + route.params.id).then(function (res) {
         return libro.value = res.data;
       })["catch"](function (err) {
         return console.log(err);
@@ -23098,8 +23127,10 @@ __webpack_require__.r(__webpack_exports__);
       route: route,
       libro: libro,
       loading: loading,
+      http: http,
       getLibro: getLibro,
       ref: _vue_reactivity__WEBPACK_IMPORTED_MODULE_3__.ref,
+      inject: _vue_runtime_core__WEBPACK_IMPORTED_MODULE_4__.inject,
       onMounted: _vue_runtime_core__WEBPACK_IMPORTED_MODULE_4__.onMounted,
       axios: (axios__WEBPACK_IMPORTED_MODULE_0___default()),
       VuePdfEmbed: (vue_pdf_embed__WEBPACK_IMPORTED_MODULE_1___default()),
@@ -23126,10 +23157,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
- //Inicializando variable para controlar el usuario
-
+//Inicializando variable para controlar el usuario
 var user;
 
 var _final;
@@ -23153,7 +23181,7 @@ try {
     getLibro: function getLibro() {
       var _this = this;
 
-      this.$http.get('/api/libros/' + this.$route.params.id).then(function (res) {
+      this.$http.get('libros/' + this.$route.params.id).then(function (res) {
         return _this.libro = res.data;
       })["catch"](function (err) {
         return console.log(err);
@@ -23162,7 +23190,7 @@ try {
       });
     },
     guardarSeleccion: function guardarSeleccion(id, titulo, precio) {
-      this.$http.post('/api/selection', {
+      if (this.usuario == '') window.location.replace('/login');else this.$http.post('selection', {
         "id_usuario": this.usuario,
         "id_libro": id,
         "libro": titulo,
@@ -23192,11 +23220,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _vue_runtime_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @vue/runtime-core */ "./node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['libro'],
   setup: function setup(__props, _ref) {
@@ -23204,9 +23227,7 @@ __webpack_require__.r(__webpack_exports__);
     expose();
     var props = __props;
     var __returned__ = {
-      props: props,
-      computed: _vue_runtime_core__WEBPACK_IMPORTED_MODULE_1__.computed,
-      axios: (axios__WEBPACK_IMPORTED_MODULE_0___default())
+      props: props
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -23262,10 +23283,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //Inicializando variable para controlar el usuario
-
 var user;
 
 var _final;
@@ -23291,7 +23309,7 @@ try {
     getListado: function getListado() {
       var _this = this;
 
-      this.$http.get('/api/listado/' + this.usuario).then(function (res) {
+      this.$http.get('listado/' + this.usuario).then(function (res) {
         return _this.listado = res.data;
       })["finally"](function () {
         return _this.loading = false;
@@ -23300,7 +23318,7 @@ try {
     deleteItem: function deleteItem(id) {
       var _this2 = this;
 
-      this.$http["delete"]('/api/listado/' + id).then(function (res) {
+      this.$http["delete"]('listado/' + id).then(function (res) {
         return console.log(res);
       }).then(function () {
         return _this2.$router.go();
@@ -23312,29 +23330,13 @@ try {
       var data = new FormData();
       data.append('lista', JSON.stringify(this.listado));
       console.log(this.listado);
-      if (this.listado.length > 0) this.$http.post('/api/compra/' + this.usuario, data, {
+      if (this.listado.length > 0) this.$http.post('compra/' + this.usuario, data, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
       }).then(function () {
-        return _this3.$router.go();
-      }); //agregar cada append
-      // const formData = new FormData();
-      // formData.append('titulo',this.form.titulo);
-      // formData.append('autor',this.form.autor);
-      // formData.append('editorial',this.form.editorial);
-      // formData.append('descripcion',this.form.descripcion);
-      // formData.append('precio',this.form.precio);
-      // formData.append('caratula',this.caratula, this.caratula.name);
-      // formData.append('readable',this.readable, this.readable.name);
-      // formData.append('genero',this.form.genero);               
-      // axios.post('http://127.0.0.1:8000/api/libros',formData,{
-      //     headers:{
-      //         'Content-Type':'multipart/form-data'
-      //     }
-      // }).then(res => console.log(res))
-      //     .catch(err=>console.log(err))
-      //     .finally(()=>this.$router.push('/'))
+        return _this3.$router.push('/libreria');
+      });
     }
   },
   mounted: function mounted() {
@@ -23390,8 +23392,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _MyBooks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MyBooks */ "./resources/js/components/MiLibreria/MyBooks/index.vue");
-/* harmony import */ var _vue_runtime_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @vue/runtime-core */ "./node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js");
-/* harmony import */ var _vue_runtime_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @vue/runtime-core */ "./node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js");
+/* harmony import */ var _vue_runtime_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @vue/runtime-core */ "./node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js");
+/* harmony import */ var _vue_runtime_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @vue/runtime-core */ "./node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 
@@ -23412,12 +23414,15 @@ __webpack_require__.r(__webpack_exports__);
       _final = "";
     }
 
-    var libros = (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_2__.ref)([]);
-    var loading = (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_2__.ref)(true);
+    var http = (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_2__.inject)('http', axios__WEBPACK_IMPORTED_MODULE_1___default().create({
+      baseURL: 'http://127.0.0.1:8000/api/'
+    }));
+    var libros = (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_3__.ref)([]);
+    var loading = (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_3__.ref)(true);
     var id = _final;
 
     var getLibreria = function getLibreria() {
-      axios__WEBPACK_IMPORTED_MODULE_1___default().get('https://la-mancha.herokuapp.com/api/library/' + _final).then(function (res) {
+      http.get('library/' + _final).then(function (res) {
         libros.value = res.data;
         console.log(res.data);
       })["finally"](function () {
@@ -23425,19 +23430,21 @@ __webpack_require__.r(__webpack_exports__);
       });
     };
 
-    (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_3__.onMounted)(function () {
+    (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_2__.onMounted)(function () {
       getLibreria();
     });
     var __returned__ = {
       user: user,
       "final": _final,
+      http: http,
       libros: libros,
       loading: loading,
       id: id,
       getLibreria: getLibreria,
       MyBooks: _MyBooks__WEBPACK_IMPORTED_MODULE_0__["default"],
-      onMounted: _vue_runtime_core__WEBPACK_IMPORTED_MODULE_3__.onMounted,
-      ref: _vue_runtime_core__WEBPACK_IMPORTED_MODULE_2__.ref,
+      inject: _vue_runtime_core__WEBPACK_IMPORTED_MODULE_2__.inject,
+      onMounted: _vue_runtime_core__WEBPACK_IMPORTED_MODULE_2__.onMounted,
+      ref: _vue_runtime_core__WEBPACK_IMPORTED_MODULE_3__.ref,
       axios: (axios__WEBPACK_IMPORTED_MODULE_1___default())
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
@@ -23513,7 +23520,7 @@ try {
     isAdmin: function isAdmin() {
       var _this = this;
 
-      axios.get('http://127.0.0.1:8000/api/admin/' + this.id).then(function (res) {
+      this.$http.get('admin/' + this.id).then(function (res) {
         _this.isadmin = res.data;
         _this.loading = false;
       });
@@ -24064,7 +24071,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* TEXT */
   ), $setup.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("td", _hoisted_1, "Cargando...")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
     key: 1
-  }, [$props.user.id == 1 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("td", _hoisted_2, "Admin")) : $setup.isadmin === 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("td", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  }, [$props.user.id == 1 || $props.user.id == $setup.id ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("td", _hoisted_2, "Admin")) : $setup.isadmin === 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("td", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     "class": "add",
     onClick: _cache[0] || (_cache[0] = function ($event) {
       return $setup.makeAdmin($props.user.id);
@@ -25097,14 +25104,19 @@ var router = vue_router__WEBPACK_IMPORTED_MODULE_18__.createRouter({
   history: vue_router__WEBPACK_IMPORTED_MODULE_18__.createWebHashHistory(),
   routes: routes
 });
-var app = (0,vue__WEBPACK_IMPORTED_MODULE_2__.createApp)({});
+var app = (0,vue__WEBPACK_IMPORTED_MODULE_2__.createApp)({}); //   http://127.0.0.1:8000/api/
+//   https://la-mancha.herokuapp.com/api/
+
 app.config.globalProperties.$http = axios__WEBPACK_IMPORTED_MODULE_17___default().create({
-  baseURL: 'https://la-mancha.herokuapp.com'
+  baseURL: 'https://la-mancha.herokuapp.com/api/'
 });
 app.component('responsive-page', _components_ResponsivePage__WEBPACK_IMPORTED_MODULE_5__["default"]);
 app.component('header-page', _components_ResponsivePage_Header__WEBPACK_IMPORTED_MODULE_6__["default"]);
 app.component('dropdown-user', _components_DropdownUser__WEBPACK_IMPORTED_MODULE_7__["default"]);
 app.component('welcome-header', _components_ResponsivePage_WelcomeHeader__WEBPACK_IMPORTED_MODULE_8__["default"]);
+app.provide('http', axios__WEBPACK_IMPORTED_MODULE_17___default().create({
+  baseURL: 'https://la-mancha.herokuapp.com/api/'
+}));
 app.use(router);
 app.mount('#app');
 

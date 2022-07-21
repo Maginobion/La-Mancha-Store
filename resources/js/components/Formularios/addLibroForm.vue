@@ -33,8 +33,6 @@
 
 <script>
 
-import axios from 'axios';
-
 export default {
     data(){
         return{
@@ -79,7 +77,7 @@ export default {
                 formData.append('caratula',this.caratula, this.caratula.name);
                 formData.append('readable',this.readable, this.readable.name);
                 formData.append('genero',this.form.genero);               
-                this.$http.post('/api/libros',formData,{
+                this.$http.post('libros',formData,{
                     headers:{
                         'Content-Type':'multipart/form-data'
                     }

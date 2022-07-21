@@ -33,7 +33,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 
 //Inicializando variable para controlar el usuario
 var user;
@@ -55,13 +54,15 @@ export default {
     },
     methods: {
         getLibro() {
-            this.$http.get('/api/libros/' + this.$route.params.id)
+            this.$http.get('libros/' + this.$route.params.id)
                 .then(res => this.libro = res.data)
                 .catch(err=>console.log(err))
                 .finally(() => this.loading = false)
         },
         guardarSeleccion(id, titulo, precio) {
-            this.$http.post('/api/selection', {
+            if(this.usuario=='') window.location.replace('/login')
+            else
+            this.$http.post('selection', {
                 "id_usuario": this.usuario,
                 "id_libro": id,
                 "libro": titulo,

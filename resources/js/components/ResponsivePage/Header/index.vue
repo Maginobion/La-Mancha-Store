@@ -75,7 +75,7 @@ export default {
     },
     methods:{
         isAdmin(){
-            this.$http.get('/api/admin/'+this.id)
+            this.$http.get('admin/'+this.id)
                 .then(res=> {
                     this.isadmin = res.data
                     this.loading = false    
