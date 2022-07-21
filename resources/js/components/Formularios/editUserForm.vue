@@ -21,7 +21,51 @@
         <input type="submit" class="btn-submit" value="Confirmar"><br> <br> 
         <input type="submit" class="btn-submit" value="Cancelar">
     </form>
+    <p class="loading" v-if="loading">Cargando...</p>
+    <table v-else>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <UserList :users="users"></UserList>
+        </tbody>
+    </table>
 </template>
+
+<script setup>
+import { onMounted, ref } from "@vue/runtime-core";
+import axios from "axios";
+import UserList from "./userList.vue"
+
+let user;
+let final;
+try {
+    user = document.head.querySelector('meta[name="user"]');
+    final = JSON.parse(user.content).id;
+} catch (e) {
+    final = "";
+}
+
+    const users = ref([])
+    const loading = ref([true])
+    
+    const getUsers = () =>{
+        axios.get('http://127.0.0.1:8000/api/user')
+            .then(res => {
+                users.value = res.data
+                loading.value=false
+            })
+            .catch(err => console.log(err))
+    }
+
+    onMounted(()=>{
+        getUsers()
+    })
+</script>
 
 <style scoped>
 .form .form-header .form-title{
@@ -91,4 +135,15 @@ body{
     background-size:cover ;
     background-attachment: fixed;
 }
+td{
+    padding: 16px;
+}
+table{
+    margin: 80px auto;
+}
+.loading{
+    margin: 80px 0;
+    text-align: center;
+}
+
 </style>

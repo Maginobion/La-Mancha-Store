@@ -45,7 +45,6 @@ try {
     user = document.head.querySelector('meta[name="user"]');
     final = JSON.parse(user.content).id;
 } catch (e) {
-    console.log(e)
     final = "";
 }
 

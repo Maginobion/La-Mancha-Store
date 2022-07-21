@@ -32,19 +32,31 @@
             </div>
         </div>
         <div class="header-bottom">
-            <ul>
+            <ul v-if="!loading">
                 <Header-links routing="/" text="Home"/>
                 <Header-links routing="/atencion-cliente" text="Atencion"/>
-                <Header-links routing="/adduser" text="Formulario"/>
-                <Header-links routing="/edituser" text="Formulario2"/>
-                <Header-links routing="/addlibro" text="Formulario3"/>
-                <Header-links routing="/libreria" text="Tus libros"/>
+                <Header-links routing="/adduser" text="Mi Perfil"/>              
+                <template v-if="id===1 || isadmin">                   
+                    <Header-links routing="/edituser" text="Editar usuarios"/>
+                    <Header-links routing="/addlibro" text="Agregar libro"/>
+                    <Header-links routing="/libreria" text="Tus libros"/>
+                </template>              
             </ul>
         </div>
     </header>
 </template>
 
 <script>
+
+let user;
+let final;
+try {
+    user = document.head.querySelector('meta[name="user"]');
+    final = JSON.parse(user.content).id;
+} catch (e) {
+    final = "";
+}
+
 import HeaderLinks from '../HeaderLinks'
 import DropdownUser from '../../DropdownUser'
 
@@ -55,8 +67,23 @@ export default {
     },
     data() {
         return {
-            search: ''
+            search: '',
+            isadmin: false,
+            loading: true,
+            id: final,
         }
+    },
+    methods:{
+        isAdmin(){
+            axios.get('http://127.0.0.1:8000/api/admin/'+this.id)
+                .then(res=> {
+                    this.isadmin = res.data
+                    this.loading = false    
+                })
+        }
+    },
+    mounted(){
+        this.isAdmin();
     }
 }
 </script>
@@ -183,6 +210,7 @@ i {
     display: flex;
     list-style: none;
     justify-content: center;
+    align-items: center;
 }
 
 .header-bottom ul a {

@@ -14,7 +14,7 @@ import ResponsivePage from './components/ResponsivePage'
 import HeaderPage from './components/ResponsivePage/Header'
 import DropdownUser from './components/DropdownUser'
 import WelcomeHeader from './components/ResponsivePage/WelcomeHeader'
-import AddUserForm from './components/Formularios/addUserForm.vue'
+import EditProfileForm from './components/Formularios/editProfileForm.vue'
 import EditUserForm from './components/Formularios/editUserForm.vue'
 import AddLibroForm from './components/Formularios/addLibroForm.vue'
 import LibroDescripcion from './components/LibroDescripcion'
@@ -26,7 +26,7 @@ import axios from 'axios';
 
 const routes = [
     {path:'/atencion-cliente', component: AtencionCliente},
-    {path:'/adduser', component: AddUserForm},
+    {path:'/adduser', component: EditProfileForm},
     {path:'/edituser', component: EditUserForm},
     {path:'/addlibro', component: AddLibroForm},
     {path:'/libro/:id', name:'descripcion' ,component: LibroDescripcion},

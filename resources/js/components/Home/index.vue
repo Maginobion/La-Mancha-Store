@@ -101,13 +101,21 @@ p{
 </style>
 
 <script>
+let user;
+let final;
+try {
+        user = document.head.querySelector('meta[name="user"]');
+        final = JSON.parse(user.content).id;
+} catch (e) {
+        final = "";
+}
 import LibroDisplay from '../LibroDisplay'
 export default {
         components:{ LibroDisplay },
     data(){
         return{
-                url:'http://127.0.0.1:8000/api/libros',
                 libros:[],
+                id: final,
         }
     },
     methods: {

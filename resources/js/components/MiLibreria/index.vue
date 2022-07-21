@@ -1,6 +1,7 @@
 <template>
-    <p v-if="loading">Cargando.</p>
+    <p v-if="loading">Cargando...</p>
     <div v-else>
+        <p class="titulo">Tus Libros</p>
         <p v-if="libros.length < 1">Aun no has comprado ningún libro.</p>
         <div v-else class="flex">
             <MyBooks :libros="libros"/>
@@ -8,25 +9,33 @@
     </div>
 </template>
 
+<style scoped>
+.titulo{
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(30, 15, 238);
+}
+</style>
+
 <script setup>
 import MyBooks from './MyBooks'
 import { onMounted, ref } from "@vue/runtime-core";
 import axios from 'axios';
-import { getCurrentInstance } from 'vue'
 
-    const app = getCurrentInstance()
     let user;
     let final;
     try {
         user = document.head.querySelector('meta[name="user"]');
         final = JSON.parse(user.content).id;
     } catch (e) {
-        console.log(e)
         final = "";
     }
 
     const libros = ref([]);
     const loading = ref(true);
+    const id = final;
+    
 
     const getLibreria = () => {
         axios.get('https://la-mancha.herokuapp.com/api/library/' + final)
@@ -36,6 +45,7 @@ import { getCurrentInstance } from 'vue'
             })
             .finally(() => loading.value = false)
     }
+
     onMounted(()=>{
         getLibreria()
     })

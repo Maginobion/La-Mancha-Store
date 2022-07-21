@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Selection;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class listadoController extends Controller
 {
@@ -18,5 +19,4 @@ class listadoController extends Controller
         if($deletingItem) $deletingItem->delete();
         else return response()->json(error);
     }
-    
 }

@@ -38,10 +38,10 @@
         <div class="content-foo">
           <h1>Contáctanos</h1>
           <p>Atención al cliente</p>
-          <p>947-391799</p>
+          <p>918-500700</p>
           <p>(llamadas y WhatsApp)</p>
           <p>(Lun-Sab 9 a.m a 5 p.m)</p>
-          <p>atencion@crisol.com.pe</p>
+          <p>soporte@lamancha.com.pe</p>
           <p>Comprobante electrónico</p>
         </div>
         <div class="content-foo">
