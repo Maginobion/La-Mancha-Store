@@ -22,11 +22,21 @@
                 <p>S/. {{ libro.precio }}</p>
                 <h3>Sinopsis:</h3>
                 <p>{{ libro.descripcion }}</p>
-                <button v-on:click="guardarSeleccion(libro.id, libro.titulo, libro.precio)"
+                <button v-if="carted==1"
+                        disabled
+                        style="background: red; border-radius: 5px; padding: 10px; color: white">
+                    En el carrito
+                </button>
+                <button v-else-if="bought==1"
+                        disabled
+                        style="background: red; border-radius: 5px; padding: 10px; color: white">
+                    Comprado
+                </button>
+                <button v-else v-on:click="guardarSeleccion(libro.id, libro.titulo, libro.precio)"
                         style="background: #1a202c; border-radius: 5px; padding: 10px; color: white">
                     Agregar libro
                 </button>
-                <a :href="`https://ads-proyectofinal.s3.sa-east-1.amazonaws.com/pdf/${libro.readable}`">Leer</a>
+                <!-- <a :href="`https://ads-proyectofinal.s3.sa-east-1.amazonaws.com/pdf/${libro.readable}`">Leer</a> -->
             </div>
         </div>
     </div>
@@ -49,7 +59,9 @@ export default {
         return {
             libro: {},
             loading: true,
-            usuario: final,
+            id: final,
+            carted: false,
+            bought: false,
         }
     },
     methods: {
@@ -57,24 +69,39 @@ export default {
             this.$http.get('libros/' + this.$route.params.id)
                 .then(res => this.libro = res.data)
                 .catch(err=>console.log(err))
-                .finally(() => this.loading = false)
         },
         guardarSeleccion(id, titulo, precio) {
             if(this.usuario=='') window.location.replace('/login')
             else
             this.$http.post('selection', {
-                "id_usuario": this.usuario,
+                "id_usuario": this.id,
                 "id_libro": id,
                 "libro": titulo,
                 "precio": precio
             })
                 .then(res=> console.log(res))
                 .catch(err=>console.log(err))
-                
+                .finally(()=>this.$router.push('/listaSeleccion'))              
+        },
+        inCart(){
+            this.$http.post('selected/'+this.$route.params.id, {
+                "id_usuario": this.id,
+            }).then(res=>{this.carted=res.data
+            console.log(res.data)})
+        },
+        inLibrary(){
+            this.$http.post('libraryfind', {
+                'id_usuario': this.id,
+                'id_libro': this.$route.params.id,
+            }).then(res=>{this.bought=res.data
+            console.log(res.data)})
+            .then(()=>this.loading = false)
         }
     },
     mounted() {
         this.getLibro()
+        this.inCart()
+        this.inLibrary()
     }
 }
 </script>

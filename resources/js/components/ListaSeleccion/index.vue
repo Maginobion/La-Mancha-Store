@@ -50,8 +50,8 @@ try {
 export default {
     data() {
         return {
-            url: 'http://127.0.0.1:8000/api/listado/',
             listado: [],
+            computado: 0,
             loading: true,
             usuario: final,
             total: 0,
@@ -72,7 +72,6 @@ export default {
             const data = new FormData();
 
             data.append('lista', JSON.stringify(this.listado));
-            console.log(this.listado)
             if(this.listado.length>0)
             this.$http.post('compra/'+this.usuario, data,{
                 headers:{
@@ -82,8 +81,12 @@ export default {
                 .then(()=>this.$router.push('/libreria'))
         }
     },
+    watch:{
+        listado(){
+            this.computado = Object.values(this.listado).reduce((sum, valor) => (sum + parseFloat(valor.precio.value)), 0).toFixed(2)
+        }
+    },
     mounted() {
-        console.log(this.usuario)
         this.getListado()
     }
 }

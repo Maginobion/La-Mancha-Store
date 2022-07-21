@@ -144,6 +144,17 @@ class LibroController extends Controller
         return Libro::find($arr);
     }
 
+    public function findLibrary(Request $request){
+        $comprado = Comprado::all()
+                    ->where("id_usuario", $request->id_usuario)
+                    ->where("id_libro", $request->id_libro)
+                    ->toArray();
+        if($comprado==null){
+            return "0";
+        }
+        return "1";
+    }
+
     public function buyAll(Request $request, $id)
     {
         $lista = json_decode($request->lista);

@@ -23174,7 +23174,9 @@ try {
     return {
       libro: {},
       loading: true,
-      usuario: _final
+      id: _final,
+      carted: false,
+      bought: false
     };
   },
   methods: {
@@ -23185,13 +23187,13 @@ try {
         return _this.libro = res.data;
       })["catch"](function (err) {
         return console.log(err);
-      })["finally"](function () {
-        return _this.loading = false;
       });
     },
     guardarSeleccion: function guardarSeleccion(id, titulo, precio) {
+      var _this2 = this;
+
       if (this.usuario == '') window.location.replace('/login');else this.$http.post('selection', {
-        "id_usuario": this.usuario,
+        "id_usuario": this.id,
         "id_libro": id,
         "libro": titulo,
         "precio": precio
@@ -23199,11 +23201,38 @@ try {
         return console.log(res);
       })["catch"](function (err) {
         return console.log(err);
+      })["finally"](function () {
+        return _this2.$router.push('/listaSeleccion');
+      });
+    },
+    inCart: function inCart() {
+      var _this3 = this;
+
+      this.$http.post('selected/' + this.$route.params.id, {
+        "id_usuario": this.id
+      }).then(function (res) {
+        _this3.carted = res.data;
+        console.log(res.data);
+      });
+    },
+    inLibrary: function inLibrary() {
+      var _this4 = this;
+
+      this.$http.post('libraryfind', {
+        'id_usuario': this.id,
+        'id_libro': this.$route.params.id
+      }).then(function (res) {
+        _this4.bought = res.data;
+        console.log(res.data);
+      }).then(function () {
+        return _this4.loading = false;
       });
     }
   },
   mounted: function mounted() {
     this.getLibro();
+    this.inCart();
+    this.inLibrary();
   }
 });
 
@@ -23298,8 +23327,8 @@ try {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      url: 'http://127.0.0.1:8000/api/listado/',
       listado: [],
+      computado: 0,
       loading: true,
       usuario: _final,
       total: 0
@@ -23329,7 +23358,6 @@ try {
 
       var data = new FormData();
       data.append('lista', JSON.stringify(this.listado));
-      console.log(this.listado);
       if (this.listado.length > 0) this.$http.post('compra/' + this.usuario, data, {
         headers: {
           'Content-Type': 'multipart/form-data'
@@ -23339,8 +23367,14 @@ try {
       });
     }
   },
+  watch: {
+    listado: function listado() {
+      this.computado = Object.values(this.listado).reduce(function (sum, valor) {
+        return sum + parseFloat(valor.precio.value);
+      }, 0).toFixed(2);
+    }
+  },
   mounted: function mounted() {
-    console.log(this.usuario);
     this.getListado();
   }
 });
@@ -24333,7 +24367,26 @@ var _hoisted_17 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_18 = ["href"];
+var _hoisted_18 = {
+  key: 0,
+  disabled: "",
+  style: {
+    "background": "red",
+    "border-radius": "5px",
+    "padding": "10px",
+    "color": "white"
+  }
+};
+var _hoisted_19 = {
+  key: 1,
+  disabled: "",
+  style: {
+    "background": "red",
+    "border-radius": "5px",
+    "padding": "10px",
+    "color": "white"
+  }
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return $data.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, _hoisted_3)) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     src: "https://ads-proyectofinal.s3.sa-east-1.amazonaws.com/caratulas/".concat($data.libro.caratula),
@@ -24353,7 +24406,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* TEXT */
   ), _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.libro.descripcion), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  ), $data.carted == 1 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", _hoisted_18, " En el carrito ")) : $data.bought == 1 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", _hoisted_19, " Comprado ")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", {
+    key: 2,
     onClick: _cache[0] || (_cache[0] = function ($event) {
       return $options.guardarSeleccion($data.libro.id, $data.libro.titulo, $data.libro.precio);
     }),
@@ -24363,11 +24417,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       "padding": "10px",
       "color": "white"
     }
-  }, " Agregar libro "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-    href: "https://ads-proyectofinal.s3.sa-east-1.amazonaws.com/pdf/".concat($data.libro.readable)
-  }, "Leer", 8
-  /* PROPS */
-  , _hoisted_18)])])]));
+  }, " Agregar libro ")), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <a :href=\"`https://ads-proyectofinal.s3.sa-east-1.amazonaws.com/pdf/${libro.readable}`\">Leer</a> ")])])]));
 }
 
 /***/ }),

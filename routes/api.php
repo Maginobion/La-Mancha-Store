@@ -36,6 +36,7 @@ Route::delete('/libros/{id}', 'App\Http\Controllers\LibroController@destroy');
 
 //Manage cart selection
 
+Route::post('/selected/{id}', '\App\Http\Controllers\listadoController@show');
 Route::post('/selection', '\App\Http\Controllers\LibroController@addSelection');
 Route::get('/listado/{usuario}', '\App\Http\Controllers\listadoController@obtenerListado');
 Route::delete('/listado/{id}', 'App\Http\Controllers\listadoController@deleteItemList');
@@ -45,6 +46,7 @@ Route::delete('/listadoBorrado/{id}', 'App\Http\Controllers\listadoController@de
 //Manage user libraries
 
 Route::get('/library/{id}', 'App\Http\Controllers\LibroController@getLibrary');
+Route::post('/libraryfind', 'App\Http\Controllers\LibroController@findLibrary');
 
 //Manage admins
 
