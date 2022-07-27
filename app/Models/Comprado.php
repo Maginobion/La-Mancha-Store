@@ -11,6 +11,8 @@ class Comprado extends Model
     protected $table = "comprados";
     protected $fillable = [
         "id_usuario",
-        "id_libro"
+        "id_libro",
+        "finished",
+        "page"
     ];
 }

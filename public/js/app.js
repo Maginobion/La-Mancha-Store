@@ -23102,9 +23102,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
-    expose();
+    expose(); // `https://ads-proyectofinal.s3.sa-east-1.amazonaws.com/pdf/${libro.readable}`
+    // `https:ads-proyectofinal.s3.sa-east-1.amazonaws.com/pdf/DÍA 5 - SEMANA 16 - CIENCIA.pdf`
+
+    var user;
+
+    var _final;
+
+    try {
+      user = document.head.querySelector('meta[name="user"]');
+      _final = JSON.parse(user.content).id;
+    } catch (e) {
+      _final = "";
+    }
+
     var route = (0,vue_router__WEBPACK_IMPORTED_MODULE_2__.useRoute)();
-    var libro = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_3__.ref)({});
+    var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_2__.useRouter)();
+    var pageCount = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_3__.ref)(1);
+    var libro = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_3__.ref)();
+    var pdf = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_3__.ref)(null);
+    var pdfLoaded = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_3__.ref)(false);
+    var actualPage = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_3__.ref)(1);
     var loading = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_3__.ref)(true);
     var http = (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_4__.inject)('http', axios__WEBPACK_IMPORTED_MODULE_0___default().create({
       baseURL: 'http://127.0.0.1:8000/api/'
@@ -23113,28 +23131,94 @@ __webpack_require__.r(__webpack_exports__);
     var getLibro = function getLibro() {
       http.get('libros/' + route.params.id).then(function (res) {
         return libro.value = res.data;
-      })["catch"](function (err) {
-        return console.log(err);
+      });
+    };
+
+    var getActualPage = function getActualPage() {
+      http.post('library/page', {
+        id_usuario: _final,
+        id_libro: route.params.id
+      }).then(function (res) {
+        return actualPage.value = res.data;
       })["finally"](function () {
         return loading.value = false;
       });
     };
 
+    var clickedDownload = function clickedDownload(libro) {
+      var url = "https:ads-proyectofinal.s3.sa-east-1.amazonaws.com/pdf/D\xCDA 5 - SEMANA 16 - CIENCIA.pdf";
+
+      try {
+        axios__WEBPACK_IMPORTED_MODULE_0___default().get(url, {
+          responseType: 'blob'
+        }).then(function (response) {
+          var blob = new Blob([response.data], {
+            type: 'application/pdf'
+          });
+          var link = document.createElement('a');
+          link.href = URL.createObjectURL(blob);
+          link.download = 'download';
+          link.click();
+          URL.revokeObjectURL(link.href);
+        })["catch"](console.error);
+      } catch (err) {
+        console.log({
+          err: err
+        });
+      }
+    };
+
+    var finishBook = function finishBook(libro) {
+      http.patch('library/complete', {
+        id_usuario: _final,
+        id_libro: route.params.id
+      }).then(function () {
+        return router.push('/libreria');
+      });
+    };
+
+    (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_4__.watch)(actualPage, function () {
+      http.patch('library/page', {
+        id_usuario: _final,
+        id_libro: route.params.id,
+        page: actualPage.value
+      });
+    });
+
+    var handleDocumentParams = function handleDocumentParams() {
+      pageCount.value = pdf.value.pageCount;
+      pdfLoaded.value = true;
+    };
+
     (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_4__.onMounted)(function () {
-      return getLibro();
+      getLibro();
+      getActualPage();
     });
     var __returned__ = {
+      user: user,
+      "final": _final,
       route: route,
+      router: router,
+      pageCount: pageCount,
       libro: libro,
+      pdf: pdf,
+      pdfLoaded: pdfLoaded,
+      actualPage: actualPage,
       loading: loading,
       http: http,
       getLibro: getLibro,
+      getActualPage: getActualPage,
+      clickedDownload: clickedDownload,
+      finishBook: finishBook,
+      handleDocumentParams: handleDocumentParams,
       ref: _vue_reactivity__WEBPACK_IMPORTED_MODULE_3__.ref,
       inject: _vue_runtime_core__WEBPACK_IMPORTED_MODULE_4__.inject,
       onMounted: _vue_runtime_core__WEBPACK_IMPORTED_MODULE_4__.onMounted,
+      watch: _vue_runtime_core__WEBPACK_IMPORTED_MODULE_4__.watch,
       axios: (axios__WEBPACK_IMPORTED_MODULE_0___default()),
       VuePdfEmbed: (vue_pdf_embed__WEBPACK_IMPORTED_MODULE_1___default()),
-      useRoute: vue_router__WEBPACK_IMPORTED_MODULE_2__.useRoute
+      useRoute: vue_router__WEBPACK_IMPORTED_MODULE_2__.useRoute,
+      useRouter: vue_router__WEBPACK_IMPORTED_MODULE_2__.useRouter
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -23249,14 +23333,74 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _vue_runtime_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @vue/runtime-core */ "./node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js");
+/* harmony import */ var _vue_runtime_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @vue/runtime-core */ "./node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['libro'],
+  props: ['libro', 'showState'],
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
     var props = __props;
+    var user;
+
+    var _final;
+
+    try {
+      user = document.head.querySelector('meta[name="user"]');
+      _final = JSON.parse(user.content).id;
+    } catch (e) {
+      _final = "";
+    }
+
+    var completedState = (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_1__.ref)(false);
+    var actualPage = (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_1__.ref)(0);
+    var loaded = (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_1__.ref)(false);
+    var http = (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_2__.inject)('http', axios__WEBPACK_IMPORTED_MODULE_0___default().create({
+      baseURL: 'http://127.0.0.1:8000/api/'
+    }));
+
+    var getCompletedState = function getCompletedState() {
+      http.post('library/complete', {
+        id_usuario: _final,
+        id_libro: props.libro.id
+      }).then(function (res) {
+        return completedState.value = res.data;
+      });
+    };
+
+    var getActualPage = function getActualPage() {
+      http.post('library/page', {
+        id_usuario: _final,
+        id_libro: props.libro.id
+      }).then(function (res) {
+        return actualPage.value = res.data;
+      })["finally"](function () {
+        return loaded.value = true;
+      });
+    };
+
+    (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_2__.onMounted)(function () {
+      getCompletedState();
+      getActualPage();
+    });
     var __returned__ = {
-      props: props
+      user: user,
+      "final": _final,
+      props: props,
+      completedState: completedState,
+      actualPage: actualPage,
+      loaded: loaded,
+      http: http,
+      getCompletedState: getCompletedState,
+      getActualPage: getActualPage,
+      inject: _vue_runtime_core__WEBPACK_IMPORTED_MODULE_2__.inject,
+      onMounted: _vue_runtime_core__WEBPACK_IMPORTED_MODULE_2__.onMounted,
+      ref: _vue_runtime_core__WEBPACK_IMPORTED_MODULE_1__.ref,
+      axios: (axios__WEBPACK_IMPORTED_MODULE_0___default())
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -24238,28 +24382,48 @@ var _hoisted_1 = {
 var _hoisted_2 = {
   key: 1
 };
-
-var _hoisted_3 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Habla", -1
-  /* HOISTED */
-  );
-});
-
-var _hoisted_4 = ["href"];
+var _hoisted_3 = {
+  "class": "cont"
+};
+var _hoisted_4 = ["disabled"];
 var _hoisted_5 = {
   "class": "pdf"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return $setup.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_1, "Cargando...")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-    href: "https://ads-proyectofinal.s3.sa-east-1.amazonaws.com/pdf/".concat($setup.libro.readable)
-  }, "Leer", 8
+  return $setup.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_1, "Cargando...")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    onClick: _cache[0] || (_cache[0] = function ($event) {
+      return $setup.clickedDownload($setup.libro);
+    })
+  }, "Descargar"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [$setup.pdfLoaded ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", {
+    key: 0,
+    disabled: $setup.actualPage <= 1,
+    onClick: _cache[1] || (_cache[1] = function ($event) {
+      return $setup.actualPage--;
+    })
+  }, "Anterior", 8
   /* PROPS */
-  , _hoisted_4), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["VuePdfEmbed"], {
-    source: "https://ads-proyectofinal.s3.sa-east-1.amazonaws.com/pdf/".concat($setup.libro.readable),
-    page: 2
+  , _hoisted_4)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["VuePdfEmbed"], {
+    ref: "pdf",
+    source: "https://ads-proyectofinal.s3.sa-east-1.amazonaws.com/pdf/D\xCDA 5 - SEMANA 16 - CIENCIA.pdf",
+    page: $setup.actualPage,
+    onLoaded: $setup.handleDocumentParams
   }, null, 8
   /* PROPS */
-  , ["source"])])]));
+  , ["source", "page"])]), $setup.pdfLoaded ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+    key: 1
+  }, [$setup.actualPage < $setup.pageCount ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", {
+    key: 0,
+    onClick: _cache[2] || (_cache[2] = function ($event) {
+      return $setup.actualPage++;
+    })
+  }, "Siguiente")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", {
+    key: 1,
+    onClick: _cache[3] || (_cache[3] = function ($event) {
+      return $setup.finishBook($setup.libro);
+    })
+  }, "Finalizar lectura"))], 2112
+  /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */
+  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]));
 }
 
 /***/ }),
@@ -24451,7 +24615,15 @@ var _hoisted_4 = {
   "class": "title"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [$props.showState && $setup.loaded ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+    key: 0
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.completedState ? 'Completado' : 'Sin completar'), 1
+  /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Página: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.actualPage), 1
+  /* TEXT */
+  )], 64
+  /* STABLE_FRAGMENT */
+  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     src: "https://ads-proyectofinal.s3.sa-east-1.amazonaws.com/caratulas/".concat($props.libro.caratula),
     alt: ""
   }, null, 8
@@ -24551,7 +24723,7 @@ var _hoisted_5 = {
 };
 
 var _hoisted_6 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "Item"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "Libro"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "Cantidad"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "Precio"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "Acciones")])], -1
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "Item"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "Libro"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "Precio"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "Acciones")])], -1
   /* HOISTED */
   );
 });
@@ -24578,7 +24750,7 @@ var _hoisted_11 = ["onClick"];
 
 var _hoisted_12 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
-    colspan: "3"
+    colspan: "2"
   }, "Resumen", -1
   /* HOISTED */
   );
@@ -24594,8 +24766,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(index + 1), 1
     /* TEXT */
     ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(lista.libro), 1
-    /* TEXT */
-    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(lista.cantidad), 1
     /* TEXT */
     ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "S/. " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(parseFloat(lista.precio).toFixed(2)), 1
     /* TEXT */
@@ -24656,7 +24826,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }, {
       "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
         return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["LibroCard"], {
-          libro: libro
+          libro: libro,
+          showState: true
         }, null, 8
         /* PROPS */
         , ["libro"])];
@@ -25158,14 +25329,14 @@ var app = (0,vue__WEBPACK_IMPORTED_MODULE_2__.createApp)({}); //   http://127.0.
 //   https://la-mancha.herokuapp.com/api/
 
 app.config.globalProperties.$http = axios__WEBPACK_IMPORTED_MODULE_17___default().create({
-  baseURL: 'https://la-mancha.herokuapp.com/api/'
+  baseURL: 'http://127.0.0.1:8000/api/'
 });
 app.component('responsive-page', _components_ResponsivePage__WEBPACK_IMPORTED_MODULE_5__["default"]);
 app.component('header-page', _components_ResponsivePage_Header__WEBPACK_IMPORTED_MODULE_6__["default"]);
 app.component('dropdown-user', _components_DropdownUser__WEBPACK_IMPORTED_MODULE_7__["default"]);
 app.component('welcome-header', _components_ResponsivePage_WelcomeHeader__WEBPACK_IMPORTED_MODULE_8__["default"]);
 app.provide('http', axios__WEBPACK_IMPORTED_MODULE_17___default().create({
-  baseURL: 'https://la-mancha.herokuapp.com/api/'
+  baseURL: 'http://127.0.0.1:8000/api/'
 }));
 app.use(router);
 app.mount('#app');
@@ -27349,7 +27520,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.pdf[data-v-39394846]{\r\n        margin: auto;\r\n        width: 80%;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.cont[data-v-39394846]{\r\n        display: flex;\r\n        align-items: center;\n}\n.pdf[data-v-39394846]{\r\n        margin: auto;\r\n        width: 100%;\n}\nbutton[data-v-39394846]{\r\n        border-radius: 8px;\r\n        font-size: 24px;\r\n        height: 140px;\r\n        width: 180px;\r\n        display: flex;\r\n        justify-content: center;\r\n        align-items: center;\r\n        vertical-align: middle;\r\n        color: white;\r\n        background-color: aqua;\r\n        height: -webkit-fit-content;\r\n        height: -moz-fit-content;\r\n        height: fit-content;\n}\nbutton[data-v-39394846]:disabled{\r\n        background-color: gray;\n}\na[data-v-39394846]{\r\n        display: flex;\r\n        justify-content: center;\r\n        border-radius: 999px;\r\n        padding: 4px;\r\n        color: #002f84;\r\n        background-color: #ffbe07;\r\n        cursor: pointer;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

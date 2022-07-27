@@ -1,6 +1,6 @@
 <template>
     <router-link v-for="libro of libros" :to="{name:'lector', params:{id:libro.id}}" v-bind:key="libro" class="cardCont">
-        <LibroCard :libro="libro"/>
+        <LibroCard :libro="libro" :showState="true"/>
     </router-link>
 </template>
 

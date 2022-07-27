@@ -47,6 +47,10 @@ Route::delete('/listadoBorrado/{id}', 'App\Http\Controllers\listadoController@de
 
 Route::get('/library/{id}', 'App\Http\Controllers\LibroController@getLibrary');
 Route::post('/libraryfind', 'App\Http\Controllers\LibroController@findLibrary');
+Route::post('/library/page', 'App\Http\Controllers\CompradosController@getLastPage');
+Route::post('/library/complete', 'App\Http\Controllers\CompradosController@getCompleted');
+Route::patch('/library/page', 'App\Http\Controllers\CompradosController@setLastPage');
+Route::patch('/library/complete', 'App\Http\Controllers\CompradosController@setCompleted');
 
 //Manage admins
 

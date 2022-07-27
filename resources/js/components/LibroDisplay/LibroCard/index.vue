@@ -1,5 +1,9 @@
 <template>
     <div class="cardCont">
+        <template v-if="showState && loaded">
+            <p>{{completedState ? 'Completado' : 'Sin completar'}}</p>
+            <p>Página: {{actualPage}}</p>
+        </template>       
         <div class="imgCont">
             <img :src="`https://ads-proyectofinal.s3.sa-east-1.amazonaws.com/caratulas/${libro.caratula}`" alt="">
         </div>       
@@ -10,7 +14,49 @@
 </template>
 
 <script setup>
-    const props = defineProps(['libro'])
+
+    var user;
+    var final;
+    try {
+        user = document.head.querySelector('meta[name="user"]');
+        final = JSON.parse(user.content).id;
+    } catch (e) {
+        final = "";
+    }
+
+    import { inject, onMounted, ref } from "@vue/runtime-core"
+    import axios from "axios"
+
+    const props = defineProps(['libro', 'showState'])
+    const completedState = ref(false)
+    const actualPage = ref(0)
+    const loaded = ref(false)
+
+    const http = inject('http', axios.create({
+        baseURL: 'http://127.0.0.1:8000/api/',
+    }))
+
+    const getCompletedState = () =>{
+        http.post('library/complete',{
+            id_usuario: final,
+            id_libro: props.libro.id
+        })
+            .then(res => completedState.value = res.data)
+    }
+
+    const getActualPage = () =>{
+        http.post('library/page',{
+            id_usuario: final,
+            id_libro: props.libro.id
+        })
+            .then(res => actualPage.value = res.data)
+            .finally(()=>loaded.value=true)
+    }
+
+    onMounted(()=>{
+        getCompletedState()
+        getActualPage()
+    })
 </script>
 
 <style scoped>

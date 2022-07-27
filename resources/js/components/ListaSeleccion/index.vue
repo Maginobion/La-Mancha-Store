@@ -8,7 +8,6 @@
             <tr>
                 <td>Item</td>
                 <td>Libro</td>
-                <td>Cantidad</td>
                 <td>Precio</td>
                 <td>Acciones</td>
             </tr>
@@ -20,12 +19,11 @@
             <tr v-else v-for="(lista,index) of listado" v-bind:key="index">
                 <td>{{ index + 1 }}</td>
                 <td>{{ lista.libro }}</td>
-                <td>{{ lista.cantidad }}</td>
                 <td>S/. {{ parseFloat(lista.precio).toFixed(2) }}</td>
                 <td style="color:red"><button @click="deleteItem(lista.id)">Borrar</button></td>
             </tr>
             <tr>
-                <td colspan="3">Resumen</td>
+                <td colspan="2">Resumen</td>
                 <td>S/. {{ listado.reduce((sum, valor) => (sum + parseFloat(valor.precio)), 0).toFixed(2) }}</td>
             </tr>
             </tbody>

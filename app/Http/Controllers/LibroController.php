@@ -130,7 +130,6 @@ class LibroController extends Controller
         $selection->id_usuario = $request->id_usuario;
         $selection->id_libro = $request->id_libro;
         $selection->libro = $request->libro;
-        $selection->cantidad = $selection->cantidad + 1;
         $selection->precio = $selection->precio + $request->precio;
         $selection->save();
     }
@@ -163,6 +162,8 @@ class LibroController extends Controller
             $bought = new Comprado();
             $bought->id_usuario = $request->id;       
             $bought->id_libro = $elemento->id_libro;
+            $bought->finished = 0;
+            $bought->page = 1;
             $bought->save();
         }
 

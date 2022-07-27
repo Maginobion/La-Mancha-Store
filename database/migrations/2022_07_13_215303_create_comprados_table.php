@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->integer("id_usuario");
             $table->integer("id_libro");
+            $table->boolean('finished');
+            $table->integer("page");
             $table->timestamps();
         });
     }

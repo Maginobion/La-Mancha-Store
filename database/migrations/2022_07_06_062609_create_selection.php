@@ -17,7 +17,6 @@ return new class extends Migration {
             $table->integer("id_usuario");
             $table->integer("id_libro");
             $table->string("libro");
-            $table->integer("cantidad");
             $table->double("precio");
             $table->timestamps();
         });
